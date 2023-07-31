@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { db } from "./firebase";
+import Router from "./Router";
 
 function App() {
   useEffect(() => {
@@ -7,9 +8,7 @@ function App() {
   });
 
   return (
-    <>
-      하이!
-    </>
+    <Router />
   )
 }
 
