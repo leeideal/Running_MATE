@@ -1,7 +1,9 @@
+import Loding from "../components/Loding";
+
 function Main() {
   return (
     <>
-        메인페이지입니다.
+        
     </>
   )
 }

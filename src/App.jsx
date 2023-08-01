@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
   figure, figcaption, footer, header, hgroup,
   main, menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
+    font-family: 'Outfit', sans-serif;
     margin: 0;
     padding: 0;
     border: 0;
