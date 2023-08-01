@@ -5,6 +5,9 @@ import img3 from "../components/image/login_google.svg";
 import img4 from "../components/image/login_facebook.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { GoogleAuthProvider,signInWithPopup,FacebookAuthProvider } from 'firebase/auth';
+import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
 
 const Splash = styled(motion.div)`
     border-radius: 5px;
@@ -48,7 +51,7 @@ const BtnBox = styled.div`
   margin-top: 170px;
 `
 
-const BtnItem = styled.div`
+const BtnItem = styled.button`
   position: relative;
   font-family: 'Outfit', sans-serif;
   font-weight: 600;
@@ -63,6 +66,7 @@ const BtnItem = styled.div`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   font-size: 1rem;
   margin-top: 15px;
+  border: none;
   img{
     position: absolute;
     left: 20px;
@@ -88,6 +92,28 @@ function Login() {
       setTimeout(()=> isSplash(false), 1200)
     },[])
 
+    const navigate = useNavigate();
+
+    // 소셜로그인
+    const onSocialClick = async (event) => {
+      const button = event.currentTarget;
+      let provider;
+      try{
+          if(button.name === "google"){
+              provider = new GoogleAuthProvider();
+              await signInWithPopup(auth, provider);
+              navigate("/");
+          }else if(button.name === "facebook"){
+              provider = new FacebookAuthProvider();
+              await signInWithPopup(auth, provider);
+              navigate("/");
+          }
+      }catch (error) {
+        console.log(error)
+          window.alert("문제가 발생하였습니다. 다시확인해주시기 바랍니다.");
+      }
+  }
+
     return (
       <>
         <AnimatePresence>
@@ -97,11 +123,11 @@ function Login() {
         <Container>
           <TitleImg src={img2}/>
           <BtnBox>
-              <BtnItem>
+              <BtnItem onClick={onSocialClick} name="google">
                 <img src={img3}/>
                 <p>Run with Google</p>
               </BtnItem>
-              <BtnItem>
+              <BtnItem onClick={onSocialClick}  name="facebook">
                 <img src={img4}/>
                 <p>Run with FaceBook</p>
               </BtnItem>
@@ -113,4 +139,3 @@ function Login() {
   }
   
   export default Login;
-  
