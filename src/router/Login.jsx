@@ -19,7 +19,7 @@ const Splash = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 5;
+    z-index: 10;
     justify-content: center;
     background-color: white;
 `
