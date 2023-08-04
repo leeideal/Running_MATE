@@ -7,7 +7,7 @@ import { useRecoilValue } from "recoil";
 import { isMainPage } from "../atoms";
 import Right from "../components/main/Right";
 import Left from "../components/main/Left";
-import background from "../components/image/main_back.png"
+import background from "../components/image/main_back.png";
 
 const Container = styled(motion.div)`
   width: 100%;

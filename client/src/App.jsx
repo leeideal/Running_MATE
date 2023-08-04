@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import { db } from "./firebase";
 import Router from "./Router";
 import { createGlobalStyle, styled } from "styled-components";
@@ -86,9 +86,11 @@ const Container = styled.div`
 `
 
 function App() {
+  
   useEffect(() => {
     console.log(db);
   });
+  
 
   return (
     <Body>
@@ -97,6 +99,7 @@ function App() {
         <Router />
       </Container>
     </Body>
+    
   );
 }
 
