@@ -1,9 +1,12 @@
 import React from "react";
 import Location from "../components/running_friend/location";
 import styled from 'styled-components';
-import Header from "../components/running_friend/header";
+import Header from "../components/running_friend/Header";
 import background from "../components/image/running_back.png"
 import { motion } from "framer-motion";
+import Goalset from "../components/running_friend/Goalset";
+import Start from "../components/running_friend/Start"
+import Character from "../components/running_friend/Character";
 
 const Container = styled(motion.div)`
   width: 100%;
@@ -22,6 +25,9 @@ function RunningFriend() {
   return (
     <Container >
       <Header />
+      <Character />
+      <Goalset />
+      <Start />
     </Container>
   );
 }
