@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./router/Main";
 import Login from "./router/Login";
 import { PrivateRoutes } from "./PrivateRoutes";
+import RunningFriend from "./router/RunningFriend";
 
 function Router() {
     return (
@@ -9,7 +10,10 @@ function Router() {
         <Routes>
             {/* 로그인하고 접속해야하는 페이지들 */}
             <Route element={<PrivateRoutes />}>
-                <Route path="/" element={<Main />} exact />
+                <Route path="/" element={<Main />} exact />  {/* 메인페이지 */}
+
+                <Route path="/running/friend" element={<RunningFriend />} exact />  {/* 러닝 - 친구페이지 */}
+                
             </Route>
 
             {/* 로그인할 필요 없이 접근 가능한 페이지들 */}
