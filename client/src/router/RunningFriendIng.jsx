@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import Guage from "../components/running_friend_ing/Guage";
 import Character from "../components/running_friend_ing/Character";
 import Coin from "../components/running_friend_ing/Coin";
+import Shoe from "../components/running_friend_ing/Shoe"
+import { Provider } from "react-redux";
+import store from '../store.js';
 
 const Container = styled(motion.div)`
     position: relative;
@@ -21,11 +24,14 @@ const Container = styled(motion.div)`
 function RunningFriendIng() {
     
     return (
-        <Container style={{ backgroundImage: `url(${background})` }}>
-            <Guage />
-            <Character />
-            <Coin />
-        </Container>
+        <Provider store={store}>
+            <Container style={{ backgroundImage: `url(${background})` }}>
+                <Guage />
+                <Character />
+                <Coin />
+                <Shoe />
+            </Container>
+        </Provider>
     );
 }
 

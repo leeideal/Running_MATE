@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import usercharacter from '../image/UserCharacter.png';
 import friendcharacter from '../image/FriendCharacter.png';
+import { useSelector } from "react-redux";
 
 const Guageback = styled.div`
     position: absolute;
@@ -13,6 +14,7 @@ const Guageback = styled.div`
     border-radius: 20px;
     opacity: 0.8;
     background: #FFF;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.25) inset;
 `;
 
 const Gauge = styled.div`
@@ -147,8 +149,11 @@ function Guage() {
     const [progress, setProgress] = useState(6);
     const [progress2, setProgress2] = useState(6);
     const [elapsedTime, setElapsedTime] = useState(0); 
-    const timegoal = 300; // 시간목표(초 단위)
-    const speed = 200; //분속. 러닝평균속도는 200m에 1분 = 시속12km 
+
+    const timegoal = useSelector((state) => state.timegoal)
+    const speed = useSelector((state) => state.speed)
+    ///const timegoal = 300; // 시간목표(초 단위)
+    //const speed = 200; //분속. 러닝평균속도는 200m에 1분 = 시속12km 
     //-> 속도 측정에 관해서 더 생각해봐야함.. 일단은 기본속도로 넣은것
     let METs = 0; //METS 초기값
     if((speed*60)/1000 < 5){
@@ -215,7 +220,6 @@ function Guage() {
                     <Kmtag>KM</Kmtag>
                 </Km>
             </Infocontainer>
-
         </>
     );
 }
