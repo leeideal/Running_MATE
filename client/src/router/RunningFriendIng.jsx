@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import Guage from "../components/running_friend_ing/Guage";
 import Character from "../components/running_friend_ing/Character";
 import Coin from "../components/running_friend_ing/Coin";
-import Shoe from "../components/running_friend_ing/Shoe"
+import Speed from "../components/running_friend_ing/Speed";
+import Music from "../components/running_friend_ing/Music";
 import { Provider } from "react-redux";
 import store from '../store.js';
 
@@ -29,7 +30,8 @@ function RunningFriendIng() {
                 <Guage />
                 <Character />
                 <Coin />
-                <Shoe />
+                <Speed />
+                <Music />
             </Container>
         </Provider>
     );

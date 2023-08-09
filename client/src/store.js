@@ -5,15 +5,22 @@ const timegoal = createSlice({
     initialState : 60,
 });
 
-const speed = createSlice({
+const speedSlice = createSlice({
   name:'speed',
-  initialState:200
+  initialState:0,
+  reducers : {
+    setSpeed: (state, action) => action.payload,
+
+  }
 })
+
+export const { setSpeed } = speedSlice.actions;
+
 
 export default configureStore({
     reducer: {
         timegoal: timegoal.reducer,
-        speed: speed.reducer,
+        speed: speedSlice.reducer,
     },
 
 });
