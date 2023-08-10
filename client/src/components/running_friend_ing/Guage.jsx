@@ -152,26 +152,21 @@ function Guage() {
 
     const timegoal = useSelector((state) => state.timegoal)
     const speed = useSelector((state) => state.speed)
-    ///const timegoal = 300; // 시간목표(초 단위)
-    //const speed = 200; //분속. 러닝평균속도는 200m에 1분 = 시속12km 
-    //-> 속도 측정에 관해서 더 생각해봐야함.. 일단은 기본속도로 넣은것
-    let METs = 0; //METS 초기값
-    if((speed*60)/1000 < 5){
+
+    let METs = 0;
+    if ((speed * 60) / 1000 < 5) {
         METs = 4;
-    }else if(((speed*60)/1000)>5 & ((speed*60)/1000)<8) {
+    } else if (((speed * 60) / 1000) >= 5 && ((speed * 60) / 1000) < 8) {
         METs = 6;
-    }else if(((speed*60)/1000)>8 & ((speed*60)/1000)<10){
+    } else if (((speed * 60) / 1000) >= 8 && ((speed * 60) / 1000) < 10) {
         METs = 8;
-    }else if(((speed*60)/1000)>10){
+    } else if (((speed * 60) / 1000) >= 10) {
         METs = 10;
     }
 
-
-    const weight = 60; // 체중. 유저정보에서 받아와야함
-    const kal = METs*3.5*weight/200; //칼로리소모량 
-    const km = (speed*(elapsedTime/60))/1000; //거리
-
-    
+    const weight = 60;
+    const kal = (METs * 3.5 * weight * elapsedTime) / 3600; // 칼로리 소모량, 초 단위 계산
+    const km = (speed * (elapsedTime / 3600)); // 거리, 초 단위 계산
 
     useEffect(() => {
         const userInterval = setInterval(() => {
@@ -187,9 +182,7 @@ function Guage() {
         }, 1000);
 
         const timeInterval = setInterval(() => {
-            if (elapsedTime < timegoal) {
-                setElapsedTime((prevElapsedTime) => prevElapsedTime + 1);
-            }
+            setElapsedTime((prevElapsedTime) => prevElapsedTime + 1);
         }, 1000);
 
         return () => {
@@ -199,7 +192,8 @@ function Guage() {
         };
     }, [progress, progress2, elapsedTime]);
 
-    const calculatedProgress = (elapsedTime / timegoal) * 87; //timegoal기준으로 진행률 계산
+    const calculatedProgress = Math.min((elapsedTime / timegoal) * 87, 87); // 최대값 87로 제한
+
     const minutes = Math.floor(elapsedTime / 60);
     const seconds = elapsedTime % 60;
 
