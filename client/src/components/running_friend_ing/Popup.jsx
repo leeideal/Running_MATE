@@ -2,6 +2,15 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import img from '../image/completion_popup.png';
 
+const Blur = styled.div`
+    width: 391px;
+    height: 844px;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(10px);
+    z-index:990;
+`; 
+
 const PopupContainer = styled.div`
     position: fixed;
     top: 19%;
@@ -112,15 +121,18 @@ const Popup = ({ message, onClose }) => {
     }, [countdown, onClose]);
 
     return (
-        <PopupContainer>
-            <Title>Completion</Title>
-            <Text>{message}</Text>
-            <span style={{ position: 'relative' }}>
-                <Img src={img} />
-                <Eclipse />
-            </span>
-            <Countdown>{countdown}</Countdown>
-        </PopupContainer>
+        <>
+            <Blur />
+            <PopupContainer>
+                <Title>Completion</Title>
+                <Text>{message}</Text>
+                <span style={{ position: 'relative' }}>
+                    <Img src={img} />
+                    <Eclipse />
+                </span>
+                <Countdown>{countdown}</Countdown>
+            </PopupContainer>
+        </>
     );
 };
 
