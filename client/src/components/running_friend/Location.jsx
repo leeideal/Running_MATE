@@ -1,26 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from "styled-components";
+import icon from "../image/location.png";
 
 const Address = styled.div`
-    color: var(--white, #FFF);
-    text-align: center;
+  color: var(--white, #FFF);
+  text-align: center;
+  display:flex;
 
-    /* RUNNINGMATE R/20 */
-    font-family: Outfit;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 28px; /* 140% */
-    letter-spacing: 0.03px;
-    position: absolute;
-    bottom: 50px;
-    left:131.5px;
+  /* RUNNINGMATE R/20 */
+  font-family: Outfit;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+  letter-spacing: 0.03px;
+  position: absolute;
+  bottom: 50px;
+  left: 131.55px;
+   
 `;
 
-const Container = styled.div`
-    position: relative;
+const Icon = styled.img`
+  width: 18.647px;
+  height: 24.385px;
+  flex-shrink: 0;
+  position:absolute;
+  bottom:51.62px;
+  left:106px;
 `;
+
 
 function Location() {
   const [address, setAddress] = useState('');
@@ -59,7 +68,7 @@ function Location() {
         if (response.data.documents && response.data.documents.length > 0) {
           const roadAddress = response.data.documents[0].road_address;
           if (roadAddress) {
-            setAddress(`${roadAddress.address_name}`);
+            setAddress(`${roadAddress.region_1depth_name} ${roadAddress.region_2depth_name}`);
           } else {
             setAddress('주소를 찾을 수 없습니다.');
           }
@@ -75,9 +84,10 @@ function Location() {
   }, []);
 
   return (
-    <Container>
+    <>
+      <Icon src={icon} />
       <Address>{address}</Address>
-    </Container>
+    </>
   );
 }
 
