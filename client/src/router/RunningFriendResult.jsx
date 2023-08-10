@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import background from "../components/image/running_finish_back.png";
 import { motion } from "framer-motion";
+import Card from "../components/running_friend_result/Card";
 
 const Container = styled(motion.div)`
     position: relative;
@@ -31,7 +32,7 @@ function RunningFriendResult(){
     return(
         <Container style={{ backgroundImage: `url(${background})` }}>
             <Text>My Running</Text>
-            
+            <Card />
         </Container>
         
     );

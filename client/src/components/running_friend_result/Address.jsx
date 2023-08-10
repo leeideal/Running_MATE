@@ -1,38 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React,{useEffect,useState} from "react";
+import styled from 'styled-components';
 import axios from 'axios';
-import styled from "styled-components";
-import icon from "../image/location.png";
+import icon from "../image/location2.png";
 
-const Address = styled.div`
-  color: var(--white, #FFF);
-  text-align: center;
-  display:flex;
 
-  /* RUNNINGMATE R/20 */
-  font-family: Outfit;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 28px; /* 140% */
-  letter-spacing: 0.03px;
-  position: absolute;
-  bottom: 50px;
-  left: 131.55px;
-   
+const Location = styled.div`
+    color: #AAB8C1;
+    text-align: center;
+
+    /* RUNNINGMATE R/14 */
+    font-family: Outfit;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.035px;
+    position:relative;
+    
 `;
 
 const Icon = styled.img`
-  width: 18.647px;
-  height: 24.385px;
-  flex-shrink: 0;
-  position:absolute;
-  bottom:51.62px;
-  left:106px;
+    width: 10.706px;
+    height: 14px;
+    flex-shrink: 0;
+    position:relative;
+    top:20px;
+    left:103px;
 `;
 
+function Address() {
 
-function Location() {
-  const [address, setAddress] = useState('');
+    const [address, setAddress] = useState('');
 
   useEffect(() => {
     // 카카오맵 API 키를 발급받은 후, 아래 키를 YOUR_KAKAO_MAP_API_KEY에 입력합니다.
@@ -85,10 +83,11 @@ function Location() {
 
   return (
     <>
-      <Icon src={icon} />
-      <Address>{address}</Address>
+        <Icon src={icon} />
+        <Location>{address}</Location>
     </>
   );
 }
 
-export default Location;
+    
+    export default Address;
