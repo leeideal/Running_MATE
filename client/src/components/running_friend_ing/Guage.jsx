@@ -157,6 +157,7 @@ function Guage() {
     const timegoal = useSelector((state) => state.timegoal)
     const speed = useSelector((state) => state.speed)
 
+    //칼로리소모량 계산을 위해 필요한 METS값
     let METs = 0;
     if ((speed * 60) / 1000 < 5) {
         METs = 4;
