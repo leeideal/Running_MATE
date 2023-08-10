@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import usercharacter from '../image/UserCharacter.png';
 import friendcharacter from '../image/FriendCharacter.png';
 import { useSelector } from "react-redux";
+import Popup from './Popup';
 
 const Guageback = styled.div`
     position: absolute;
@@ -150,6 +151,9 @@ function Guage() {
     const [progress2, setProgress2] = useState(6);
     const [elapsedTime, setElapsedTime] = useState(0); 
 
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState('');
+
     const timegoal = useSelector((state) => state.timegoal)
     const speed = useSelector((state) => state.speed)
 
@@ -197,6 +201,18 @@ function Guage() {
     const minutes = Math.floor(elapsedTime / 60);
     const seconds = elapsedTime % 60;
 
+    //calculatedPrgress 가 87일때(100%) 팝업창띄움
+    useEffect(() => {
+        if (calculatedProgress >= 87) {
+            setShowPopup(true);
+            setPopupMessage('We\'ve achieved our common goal!');
+        }
+    }, [calculatedProgress]);
+
+    const handlePopupClose = () => {
+        setShowPopup(false);
+    };
+
     return (
         <>
             <Guageback />
@@ -214,6 +230,10 @@ function Guage() {
                     <Kmtag>KM</Kmtag>
                 </Km>
             </Infocontainer>
+
+            {showPopup && (
+                <Popup message={popupMessage} onClose={handlePopupClose} />
+            )}
         </>
     );
 }
