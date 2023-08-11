@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import background from "../components/image/running_finish_back.png";
 import { motion } from "framer-motion";
 import Card from "../components/running_friend_result/Card";
+import Coin from "../components/running_friend_result/Coin";
+import Share from "../components/running_friend_result/Share";
+
 
 const Container = styled(motion.div)`
     position: relative;
@@ -33,6 +36,9 @@ function RunningFriendResult(){
         <Container style={{ backgroundImage: `url(${background})` }}>
             <Text>My Running</Text>
             <Card />
+            <Share />
+            <Coin />
+            
         </Container>
         
     );

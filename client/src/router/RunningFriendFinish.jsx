@@ -51,6 +51,7 @@ function RunningFriendFinish() {
 
     return(
         <Container style={{ backgroundImage: `url(${background})` }}>
+            <Button />
             <BigText>
                 The finish of 
                 running
@@ -59,8 +60,9 @@ function RunningFriendFinish() {
                 It was a great journey
                 with your mate!
             </SmallText>
+            
             <Character />
-            <Button />
+            
         </Container>
     );
 }
