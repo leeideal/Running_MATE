@@ -30,12 +30,18 @@ function RunningFriend() {
     setBackgroundImage(newBackground);
   };
 
+
   return (
     <Container style={{ backgroundImage: `url(${backgroundImage})` }} >
+      <Location />
       <Header />
+      
       <Character />
+      
       <Goalset />
+      
       <Start onBackgroundChange={handleBackgroundChange} />
+      
     </Container>
   );
 }

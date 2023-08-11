@@ -68,8 +68,8 @@ function Start( { onBackgroundChange } ) {
 
       return () => clearInterval(timer);
     } else if (count === 0) {
-      // When countdown is finished, navigate to the new page
-      navigate(""); // Update with the new page path
+      //카운트다운 끝나면 새로운 페이지로 이동
+      navigate("../running/friending"); 
     }
   }, [count, navigate, isCountdownVisible]);
 
