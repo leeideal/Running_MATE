@@ -103,7 +103,7 @@ function Character() {
         <Friendname>Ericsson</Friendname>
       </Namebox>
       <FriendCharacter src={Friendimg} />
-      <Circle />
+
       <UserCharacter src={Userimg} />
     </CharacterContainer>
   );
