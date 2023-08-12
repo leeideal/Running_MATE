@@ -2,8 +2,6 @@ import Loding from "../components/Loding";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Center from "../components/main/Center";
-import { useRecoilValue } from "recoil";
-import { isMainPage } from "../atoms";
 import Right from "../components/main/Right";
 import Left from "../components/main/Left";
 import background from "../components/image/main_back.png";
@@ -34,8 +32,6 @@ const Box = styled(Swiper)`
 
 
 function Main() {
-  const isPage = useRecoilValue(isMainPage);
-
 
   return (
     <Container 

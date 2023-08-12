@@ -6,17 +6,15 @@ import Bottom from "./Bottom";
 import background from "../image/main_back.png"
 import angleLeft from "../image/main_left.svg";
 import angleRight from "../image/main_right.svg";
-import { motion } from "framer-motion";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { isBack, isMainPage } from "../../atoms";
 import { useState } from "react";
 
-const Container = styled(motion.div)`
+const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-image : url(${background});
   background-repeat : no-repeat;
   background-size : cover;
@@ -34,40 +32,12 @@ const GoToRight = styled.img`
   top : 48%;
 `
 
-const page_variants = {
-    entry: (back) => ({
-        x: back ? -300 : 300,
-        opacity: 1,
-        transition : {type:"spring", damping : 1}
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-      },
-    },
-    exit: (back) => ({ x: back ? 300 : -300, opacity: 1, transition: { type:"spring", damping : 1 ,duration: 0.8 , delay : 1} })
-};
-
-function Center( props ) {
-    const [back, setBack] = useRecoilState(isBack);
-
-    // 메인 페이지 전환 Atom
-    const setPage = useSetRecoilState(isMainPage);
-    const gotoright = () => {
-        setBack(false);
-        setPage(2)
-    }
-    const gotoleft = () => {
-        setBack(true);
-        setPage(0)
-    }
+function Center( ) {
 
     return (
       <Container >
-        <GoToLeft custom={back} variants={page_variants} initial="entry" animate="center" exit="exit" onClick={gotoleft} src={angleLeft} />
-        <GoToRight onClick={gotoright} src={angleRight} />
+        <GoToLeft src={angleLeft} />
+        <GoToRight src={angleRight} />
         <Top />
         <TodayRun />
         <MyCh />
