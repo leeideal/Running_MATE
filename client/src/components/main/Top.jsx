@@ -16,7 +16,7 @@ const Profile = styled.div`
   height: 50px;
   border-radius: 50%;
   background-color: white;
-  box-shadow: rgba(50, 50, 93, 0.35) 0px 3px 6px -1px inset, rgba(0, 0, 0, 0.3) 0px 12px 24px -12px inset;
+  box-shadow: rgba(50, 50, 93, 0.35) 0px 3px 6px -1px inset, rgba(0, 0, 0, 0.3) 0px 12px 23px -12px inset;
 `
 
 const ProfileImg = styled.img`
