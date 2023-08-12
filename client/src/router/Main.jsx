@@ -1,15 +1,14 @@
 import Loding from "../components/Loding";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Center from "../components/main/Center";
-import { motion, AnimatePresence } from "framer-motion";
-import { useRecoilValue } from "recoil";
-import { isMainPage } from "../atoms";
 import Right from "../components/main/Right";
 import Left from "../components/main/Left";
 import background from "../components/image/main_back.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
-const Container = styled(motion.div)`
+const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -21,7 +20,7 @@ const Container = styled(motion.div)`
   background-size : cover;
 `
 
-const Box = styled(motion.div)`
+const Box = styled(Swiper)`
   width: 100%;
   height: 100%;
   display: flex;
@@ -30,19 +29,18 @@ const Box = styled(motion.div)`
   position: relative;
 `
 
+
+
 function Main() {
-  const isPage = useRecoilValue(isMainPage);
 
   return (
-    <Container >
-      <AnimatePresence >
-        <Box>
-          {isPage === 1 ? <Center/>
-            : isPage === 2 ? <Right />
-            : <Left />
-          }
-        </Box>
-      </AnimatePresence>
+    <Container 
+      >
+      <Box initialSlide= {1}  className="mySwiper">
+        <SwiperSlide><Left/></SwiperSlide>
+        <SwiperSlide><Center/></SwiperSlide>
+        <SwiperSlide><Right/></SwiperSlide>
+      </Box>
     </Container>
   )
 }
