@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import shoeimg from "../image/shoe.png";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setSpeed } from "../../store";
 
 const Shoeicon = styled.img`
@@ -13,6 +12,7 @@ const Shoeicon = styled.img`
   left: 33px;
   top: 234px;
 `;
+
 const Speednow = styled.div`
   color: var(--font-font-default, #414F64);
   text-align: center;
@@ -41,33 +41,48 @@ const Kms = styled.div`
   line-height: 20px;
   letter-spacing: 0.035px;
   position: relative;
-  left: 37px;
+  left: 45px;
   bottom: 21px;
 `;
 
 function Speed() {
-  const [speed, setSpeed] = useState(0);
+  const speed = useSelector((state) => state.speed); // speed 상태 가져오기
   const dispatch = useDispatch();
 
+  // api 사용해서 속도값 가져오는
+  // useEffect(() => {
+  //   const getLocation = () => {
+  //     if ("geolocation" in navigator) {
+  //       navigator.geolocation.watchPosition((position) => {
+  //         const kmPerHour = position.coords.speed * 3.6;
+  //         dispatch(setSpeed(kmPerHour.toFixed(0))); // speed 상태 업데이트
+  //       });
+  //     } else {
+  //       console.log("Geolocation is not available");
+  //     }
+  //   };
+
+  //   getLocation();
+
+  //   const interval = setInterval(getLocation, 300);
+
+  //   return () => clearInterval(interval);
+  // }, [dispatch]);
+
+  
+  //테스트를 위해 임시로 생성한 함수!! 최종본에선 지워야함 단위 km/s 
   useEffect(() => {
-    const getLocation = () => {
-      if ("geolocation" in navigator) {
-        navigator.geolocation.watchPosition((position) => {
-          const kmPerHour = position.coords.speed * 3.6;
-          setSpeed(kmPerHour.toFixed(0));
-        });
-      } else {
-        console.log("Geolocation is not available");
-      }
-    };
+    // 임시로 속도 값을 200으로 설정
+    dispatch(setSpeed(50));
 
-    getLocation();
-
-    // 30초 간격으로 speed 업데이트
-    const interval = setInterval(getLocation, 15000);
+    const interval = setInterval(() => {
+      // 임시로 속도 값을 200으로 설정
+      dispatch(setSpeed(50));
+    }, 300);
 
     return () => clearInterval(interval);
   }, [dispatch]);
+  //-------------------------------------------------------
 
   useEffect(() => {
     console.log(speed); // 속도 상태가 업데이트될 때마다 로그 출력

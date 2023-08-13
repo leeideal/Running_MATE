@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import usercharacter from '../image/UserCharacter.png';
 import friendcharacter from '../image/FriendCharacter.png';
-import { useSelector } from "react-redux";
+import { setTime, setSpeed, setKal } from "../../store";
+import { useSelector, useDispatch } from "react-redux";
+
 import Popup from './Popup';
 
-const Guageback = styled.div`
+const Gaugeback = styled.div`
     position: absolute;
     top: 88px;
     left: 25px; 
@@ -18,7 +20,7 @@ const Guageback = styled.div`
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.25) inset;
 `;
 
-const Gauge = styled.div`
+const Gaugecolor = styled.div`
     position: absolute;
     top: 88px;
     left: 25px;
@@ -146,17 +148,18 @@ const Kmtag = styled.div`
 `;
 
 
-function Guage() {
+function Gauge() {
     const [progress, setProgress] = useState(6);
     const [progress2, setProgress2] = useState(6);
     const [elapsedTime, setElapsedTime] = useState(0); 
 
     const [showPopup, setShowPopup] = useState(false);
     const [popupMessage, setPopupMessage] = useState('');
-
-    const timegoal = useSelector((state) => state.timegoal)
+    const dispatch = useDispatch();
+    //const timegoal = useSelector((state) => state.timegoal)
+    //const speed = 300; //임시로 지정해놓은 값
     const speed = useSelector((state) => state.speed)
-
+    const distancegoal = useSelector((state) => state.distancegoal)
     //칼로리소모량 계산을 위해 필요한 METS값
     let METs = 0;
     if ((speed * 60) / 1000 < 5) {
@@ -170,8 +173,10 @@ function Guage() {
     }
 
     const weight = 60;
+    
     const kal = (METs * 3.5 * weight * elapsedTime) / 3600; // 칼로리 소모량, 초 단위 계산
     const km = (speed * (elapsedTime / 3600)); // 거리, 초 단위 계산
+    
 
     useEffect(() => {
         const userInterval = setInterval(() => {
@@ -187,17 +192,26 @@ function Guage() {
         }, 1000);
 
         const timeInterval = setInterval(() => {
-            setElapsedTime((prevElapsedTime) => prevElapsedTime + 1);
+            setElapsedTime((prevElapsedTime) => {
+                dispatch(setTime(prevElapsedTime + 1)); // 시간 값을 업데이트
+                return prevElapsedTime + 1;
+            });
         }, 1000);
+
+        const kalInterval = setInterval(() => {
+            // 칼로리 소모량을 상태로 업데이트
+            dispatch(setKal(kal));
+          }, 2000);
 
         return () => {
             clearInterval(userInterval);
             clearInterval(friendInterval);
             clearInterval(timeInterval);
+            clearInterval(kalInterval);
         };
-    }, [progress, progress2, elapsedTime]);
+    }, [progress, progress2, elapsedTime, dispatch, kal]);
 
-    const calculatedProgress = Math.min((elapsedTime / timegoal) * 87, 87); // 최대값 87로 제한
+    const calculatedProgress = Math.min((km / distancegoal) * 87, 87); // 최대값 87로 제한
 
     const minutes = Math.floor(elapsedTime / 60);
     const seconds = elapsedTime % 60;
@@ -216,8 +230,8 @@ function Guage() {
 
     return (
         <>
-            <Guageback />
-            <Gauge progress={calculatedProgress} />
+            <Gaugeback />
+            <Gaugecolor progress={calculatedProgress} />
             <Usermini progress={calculatedProgress} src={usercharacter} />
             <Friendmini progress2={progress2} src={friendcharacter} />
             <Infocontainer>
@@ -239,4 +253,4 @@ function Guage() {
     );
 }
 
-export default Guage;
+export default Gauge;
