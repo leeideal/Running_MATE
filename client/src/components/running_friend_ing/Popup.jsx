@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import img from '../image/completion_popup.png';
+import Modal from './Modal';
 
 const Blur = styled.div`
     width: 391px;
@@ -97,6 +98,8 @@ const Eclipse = styled.img`
 
 const Popup = ({ message, onClose }) => {
     const [countdown, setCountdown] = useState(3);
+    const [isPopupOpen, setIsPopupOpen] = useState(true);
+
 
     useEffect(() => {
         const countdownInterval = setInterval(() => {
@@ -105,24 +108,21 @@ const Popup = ({ message, onClose }) => {
 
         const countdownTimeout = setTimeout(() => {
             clearInterval(countdownInterval);
-            onClose();
+            setIsPopupOpen(false); 
         }, 3000);
 
         return () => {
             clearInterval(countdownInterval);
             clearTimeout(countdownTimeout);
         };
-    }, [onClose]);
+    }, []);
 
-    useEffect(() => {
-        if (countdown === 0) {
-            onClose();
-        }
-    }, [countdown, onClose]);
 
     return (
         <>
-            <Blur />
+        
+        {isPopupOpen && (
+            <Blur>
             <PopupContainer>
                 <Title>Completion</Title>
                 <Text>{message}</Text>
@@ -132,6 +132,10 @@ const Popup = ({ message, onClose }) => {
                 </span>
                 <Countdown>{countdown}</Countdown>
             </PopupContainer>
+            </Blur>
+        )}
+    
+        {!isPopupOpen && <Modal onClose={onClose} />}
         </>
     );
 };

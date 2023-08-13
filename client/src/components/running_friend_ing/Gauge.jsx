@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import usercharacter from '../image/UserCharacter.png';
 import friendcharacter from '../image/FriendCharacter.png';
-import { setTime, setSpeed, setKal } from "../../store";
+import { setTime, setSpeed, setKal, setDistance } from "../../store";
 import { useSelector, useDispatch } from "react-redux";
 
 import Popup from './Popup';
@@ -53,7 +53,7 @@ const Friendmini = styled.img`
 
 const Infocontainer = styled.div`
 
-    flexDirection:"row";
+    flexDirection:row;
     position:absolute;
     top:109px;
     display: inline-flex;
@@ -158,8 +158,9 @@ function Gauge() {
     const dispatch = useDispatch();
     //const timegoal = useSelector((state) => state.timegoal)
     //const speed = 300; //임시로 지정해놓은 값
-    const speed = useSelector((state) => state.speed)
-    const distancegoal = useSelector((state) => state.distancegoal)
+    const speed = useSelector((state) => state.speed);
+    const distancegoal = useSelector((state) => state.distancegoal);
+   
     //칼로리소모량 계산을 위해 필요한 METS값
     let METs = 0;
     if ((speed * 60) / 1000 < 5) {
@@ -198,18 +199,31 @@ function Gauge() {
             });
         }, 1000);
 
-        const kalInterval = setInterval(() => {
-            // 칼로리 소모량을 상태로 업데이트
-            dispatch(setKal(kal));
-          }, 2000);
-
+       
         return () => {
             clearInterval(userInterval);
             clearInterval(friendInterval);
             clearInterval(timeInterval);
-            clearInterval(kalInterval);
+            
         };
-    }, [progress, progress2, elapsedTime, dispatch, kal]);
+    }, [progress, progress2, elapsedTime, dispatch]);
+
+
+    useEffect(() => {
+        const kalInterval = setInterval(() => {
+            const currentKal = (METs * 3.5 * weight * elapsedTime) / 3600;
+            dispatch(setKal(currentKal));
+          }, 1000);
+
+        const distanceInterval = setInterval(() => {
+            const currentKm = (speed * (elapsedTime / 3600));
+            dispatch(setDistance(currentKm));
+        }, 1000);
+        return() => {
+            clearInterval(kalInterval);
+            clearInterval(distanceInterval);
+        };
+    },[dispatch, METs, weight, elapsedTime, speed])
 
     const calculatedProgress = Math.min((km / distancegoal) * 87, 87); // 최대값 87로 제한
 
