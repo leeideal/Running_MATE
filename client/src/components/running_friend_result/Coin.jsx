@@ -2,8 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import img from '../image/coin.png';
 import moneyimg from '../image/money.png';
-import { useSelector } from 'react-redux';
-
+import { useSelector } from "react-redux";
 
 const Coinicon = styled.img`
     width: 46px;
@@ -19,11 +18,11 @@ const Num = styled.div`
     width: 161px;
     height: 39px;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     flex-shrink: 0;
 
     color: var(--white, #FFF);
-    text-align: center;
+    text-align: left;
     text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.13);
     font-family: Outfit;
     font-size: 50px;
@@ -34,6 +33,7 @@ const Num = styled.div`
     position:absolute;
     top:533px;
     left:131px;
+
 `;
 
 const Money = styled.img`
@@ -47,14 +47,12 @@ const Money = styled.img`
 `;
 
 function Coin(){
-    const coin = useSelector((state => state.coin));
+    const coin = useSelector((state) => state.coin);
     return(
         <>
             <Money src={moneyimg} />
             <Coinicon src={img} />
-            {/* 코인은 변수 받아오는걸로 수정해야함 */}
             <Num>{coin}</Num>
-            
         </>
     );
 }

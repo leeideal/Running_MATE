@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from 'styled-components';
+import { Provider } from 'react-redux';
 import background from "../components/image/running_finish_back.png";
 import { motion } from "framer-motion";
 import Card from "../components/running_friend_result/Card";
 import Coin from "../components/running_friend_result/Coin";
 import Share from "../components/running_friend_result/Share";
-import { Provider } from "react-redux";
-import store from '../store.js';
+import store from '../store'; 
+import Insta from "./Insta.jsx"
 
 const Container = styled(motion.div)`
     position: relative;
@@ -33,18 +34,16 @@ const Text = styled.div`
 `;
 
 function RunningFriendResult(){
-    return(
-        <Provider store={store}>
+    return (
+        <Provider store={store}> {/* Redux 스토어를 Provider에 전달 */}
             <Container style={{ backgroundImage: `url(${background})` }}>
                 <Text>My Running</Text>
                 <Card />
                 <Share />
                 <Coin />
-            
             </Container>
+            
         </Provider>
-        
-        
     );
 }
 

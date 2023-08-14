@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import Address from "./Address";
 import Date from "./Dateinfo";
 import Character from "./Character";
+import RunningInfo from "./RunningInfo";
+import store from "../../store";
+import { Provider } from "react-redux";
 
 const Container = styled.div`
     width: 340px;
@@ -20,11 +23,15 @@ const Container = styled.div`
 
 function Card() {
     return(
+    <Provider store={store}>
         <Container >
             <Date />
             <Address />
             <Character />
+            <RunningInfo />
         </Container>
+    </Provider>
+        
     )
 }
 

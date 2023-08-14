@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styled from 'styled-components';
 import img from '../image/insta.png';
-import Insta from './Insta';
+import Insta from '../../router/Insta';
 
 const Icon = styled.img`
     width: 19px;

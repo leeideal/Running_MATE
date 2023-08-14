@@ -1,10 +1,11 @@
 import Header from "../running_friend/Header";
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import shoeimg from "../image/shoe.png";
 import coinimg from '../image/coin.png';
-
+import { setTime, setKal, setDistance } from "../../store";
 const Container = styled.div`
     width: 100%;
     height: 100%;
@@ -253,21 +254,29 @@ const KeeponText = styled.div`
 function Modal({onClose}){
     const speed = useSelector((state) => state.speed);
     const kal = useSelector((state) => state.kal); 
-    const km = useSelector((state) => state.km);
- 
     const time = useSelector((state) => state.time);
     const distance = useSelector((state)=>state.distance);
     const coin = useSelector((state => state.coin));
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
+    const dispatch = useDispatch();
+    const [isFinished, setIsFinished] = useState(false);
+    const navigate = useNavigate();
 
+   
 
     const handleClick = () => {
-        window.location.href="/running/friend/finish"
+        if (!isFinished) { 
+            dispatch(setDistance(distance));
+            dispatch(setKal(kal));
+            dispatch(setTime(time));
+            setIsFinished(true);
+            navigate("/running/friend/finish");
+        }
     }
 
     const handleKeeponClick = () => {
-        onClose(); // onClose 함수를 호출하여 모달을 닫음
+        onClose();
     }
     
     return(

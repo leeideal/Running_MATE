@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import coinimg from "../image/coin.png";
-
+import { Provider } from "react-redux";
+import store from "../../store.js";
 const Coinicon = styled.img`
     width: 28px;
     height: 28px;
@@ -38,10 +39,12 @@ const Coinnum = styled.div`
 function Coin(){
     
     return(
-        <>
+        <Provider store={store}>
+
             <Coinicon src={coinimg} />
             <Coinnum>23000</Coinnum>
-        </>
+        </Provider>
+            
         
     )
     
