@@ -5,6 +5,8 @@ import { PrivateRoutes } from "./PrivateRoutes";
 import RunningFriend from "./router/RunningFriend";
 import RunningFriendIng from "./router/RunningFriendIng";
 import RunningFriendMusic from "./router/RunningFriendMusic";
+import RunningFriendFinish from "./router/RunningFriendFinish";
+import RunningFriendResult from "./router/RunningFriendResult";
 
 function Router() {
     return (
@@ -14,9 +16,11 @@ function Router() {
             <Route element={<PrivateRoutes />}>
                 <Route path="/" element={<Main />} exact />  {/* 메인페이지 */}
                 
-                <Route path="/running/friendmusic" element={<RunningFriendMusic />} exact />{ /* 러닝 -친구페이지(플레이리스트 쌓기) */}
+                <Route path="/running/friend/music" element={<RunningFriendMusic />} exact />{ /* 러닝 -친구페이지(플레이리스트 쌓기) */}
                 <Route path="/running/friend" element={<RunningFriend />} exact />  {/* 러닝 - 친구페이지(목표설정) */}
-                <Route path="/running/friending" element={<RunningFriendIng />} exact />{/* 러닝시작 - 친구페이지(러닝중) */}
+                <Route path="/running/friend/ing" element={<RunningFriendIng />} exact />{/* 러닝중 - 친구페이지 */}
+                <Route path="/running/friend/finish" element={<RunningFriendFinish />} exact />{/* 러닝끝 -친구페이지 */}
+                <Route path="/running/friend/finish/result" element={<RunningFriendResult />} exact />{/*러닝결과 - 친구페이지*/}
             </Route>
 
             {/* 로그인할 필요 없이 접근 가능한 페이지들 */}

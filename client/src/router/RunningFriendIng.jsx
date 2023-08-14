@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import background from "../components/image/running_ing_back.png";
 import { motion } from "framer-motion";
-import Guage from "../components/running_friend_ing/Guage";
+import Gauge from "../components/running_friend_ing/Gauge";
 import Character from "../components/running_friend_ing/Character";
 import Coin from "../components/running_friend_ing/Coin";
 import Speed from "../components/running_friend_ing/Speed";
@@ -27,7 +27,7 @@ function RunningFriendIng() {
     return (
         <Provider store={store}>
             <Container style={{ backgroundImage: `url(${background})` }}>
-                <Guage />
+                <Gauge />
                 <Character />
                 <Coin />
                 <Speed />

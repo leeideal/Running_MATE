@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import usercharacter from '../image/UserCharacter.png';
 import friendcharacter from '../image/FriendCharacter.png';
-import { useSelector } from "react-redux";
+import { setTime, setSpeed, setKal, setDistance } from "../../store";
+import { useSelector, useDispatch } from "react-redux";
 
-const Guageback = styled.div`
+import Popup from './Popup';
+
+const Gaugeback = styled.div`
     position: absolute;
     top: 88px;
     left: 25px; 
@@ -17,7 +20,7 @@ const Guageback = styled.div`
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.25) inset;
 `;
 
-const Gauge = styled.div`
+const Gaugecolor = styled.div`
     position: absolute;
     top: 88px;
     left: 25px;
@@ -50,7 +53,7 @@ const Friendmini = styled.img`
 
 const Infocontainer = styled.div`
 
-    flexDirection:"row";
+    flexDirection:row;
     position:absolute;
     top:109px;
     display: inline-flex;
@@ -145,14 +148,20 @@ const Kmtag = styled.div`
 `;
 
 
-function Guage() {
+function Gauge() {
     const [progress, setProgress] = useState(6);
     const [progress2, setProgress2] = useState(6);
     const [elapsedTime, setElapsedTime] = useState(0); 
 
-    const timegoal = useSelector((state) => state.timegoal)
-    const speed = useSelector((state) => state.speed)
-
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState('');
+    const dispatch = useDispatch();
+    //const timegoal = useSelector((state) => state.timegoal)
+    //const speed = 300; //임시로 지정해놓은 값
+    const speed = useSelector((state) => state.speed);
+    const distancegoal = useSelector((state) => state.distancegoal);
+   
+    //칼로리소모량 계산을 위해 필요한 METS값
     let METs = 0;
     if ((speed * 60) / 1000 < 5) {
         METs = 4;
@@ -165,8 +174,10 @@ function Guage() {
     }
 
     const weight = 60;
+    
     const kal = (METs * 3.5 * weight * elapsedTime) / 3600; // 칼로리 소모량, 초 단위 계산
     const km = (speed * (elapsedTime / 3600)); // 거리, 초 단위 계산
+    
 
     useEffect(() => {
         const userInterval = setInterval(() => {
@@ -182,25 +193,59 @@ function Guage() {
         }, 1000);
 
         const timeInterval = setInterval(() => {
-            setElapsedTime((prevElapsedTime) => prevElapsedTime + 1);
+            setElapsedTime((prevElapsedTime) => {
+                dispatch(setTime(prevElapsedTime + 1)); // 시간 값을 업데이트
+                return prevElapsedTime + 1;
+            });
         }, 1000);
 
+       
         return () => {
             clearInterval(userInterval);
             clearInterval(friendInterval);
             clearInterval(timeInterval);
+            
         };
-    }, [progress, progress2, elapsedTime]);
+    }, [progress, progress2, elapsedTime, dispatch]);
 
-    const calculatedProgress = Math.min((elapsedTime / timegoal) * 87, 87); // 최대값 87로 제한
+
+    useEffect(() => {
+        const kalInterval = setInterval(() => {
+            const currentKal = (METs * 3.5 * weight * elapsedTime) / 3600;
+            dispatch(setKal(currentKal));
+          }, 1000);
+
+        const distanceInterval = setInterval(() => {
+            const currentKm = (speed * (elapsedTime / 3600));
+            dispatch(setDistance(currentKm));
+        }, 1000);
+        return() => {
+            clearInterval(kalInterval);
+            clearInterval(distanceInterval);
+        };
+    },[dispatch, METs, weight, elapsedTime, speed])
+
+    const calculatedProgress = Math.min((km / distancegoal) * 87, 87); // 최대값 87로 제한
 
     const minutes = Math.floor(elapsedTime / 60);
     const seconds = elapsedTime % 60;
 
+    //calculatedPrgress 가 87일때(100%) 팝업창띄움
+    useEffect(() => {
+        if (calculatedProgress >= 87) {
+            setShowPopup(true);
+            setPopupMessage('We\'ve achieved our common goal!');
+        }
+    }, [calculatedProgress]);
+
+    const handlePopupClose = () => {
+        setShowPopup(false);
+    };
+
     return (
         <>
-            <Guageback />
-            <Gauge progress={calculatedProgress} />
+            <Gaugeback />
+            <Gaugecolor progress={calculatedProgress} />
             <Usermini progress={calculatedProgress} src={usercharacter} />
             <Friendmini progress2={progress2} src={friendcharacter} />
             <Infocontainer>
@@ -214,8 +259,12 @@ function Guage() {
                     <Kmtag>KM</Kmtag>
                 </Km>
             </Infocontainer>
+
+            {showPopup && (
+                <Popup message={popupMessage} onClose={handlePopupClose} />
+            )}
         </>
     );
 }
 
-export default Guage;
+export default Gauge;
