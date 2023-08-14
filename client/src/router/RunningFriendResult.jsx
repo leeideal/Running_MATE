@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import Card from "../components/running_friend_result/Card";
 import Coin from "../components/running_friend_result/Coin";
 import Share from "../components/running_friend_result/Share";
-
+import { Provider } from "react-redux";
+import store from '../store.js';
 
 const Container = styled(motion.div)`
     position: relative;
@@ -33,13 +34,16 @@ const Text = styled.div`
 
 function RunningFriendResult(){
     return(
-        <Container style={{ backgroundImage: `url(${background})` }}>
-            <Text>My Running</Text>
-            <Card />
-            <Share />
-            <Coin />
+        <Provider store={store}>
+            <Container style={{ backgroundImage: `url(${background})` }}>
+                <Text>My Running</Text>
+                <Card />
+                <Share />
+                <Coin />
             
-        </Container>
+            </Container>
+        </Provider>
+        
         
     );
 }

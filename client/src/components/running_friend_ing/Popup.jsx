@@ -99,8 +99,8 @@ const Eclipse = styled.img`
 const Popup = ({ message, onClose }) => {
     const [countdown, setCountdown] = useState(3);
     const [isPopupOpen, setIsPopupOpen] = useState(true);
-
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    
     useEffect(() => {
         const countdownInterval = setInterval(() => {
             setCountdown((prevCountdown) => prevCountdown - 1);
@@ -118,6 +118,17 @@ const Popup = ({ message, onClose }) => {
     }, []);
 
 
+    // 모달을 열고 닫는 함수
+    const handleModalToggle = () => {
+        setIsModalOpen(!isModalOpen);
+    };
+
+    // 모달이 닫힐 때 실행되는 함수
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        // 여기에 모달이 닫힐 때 수행할 작업을 추가할 수 있습니다.
+    };
+
     return (
         <>
         
@@ -134,8 +145,8 @@ const Popup = ({ message, onClose }) => {
             </PopupContainer>
             </Blur>
         )}
-    
         {!isPopupOpen && <Modal onClose={onClose} />}
+        {isModalOpen && <Modal onClose={handleModalClose} />}
         </>
     );
 };

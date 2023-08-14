@@ -24,6 +24,7 @@ const Container = styled(motion.div)`
 
 function RunningFriendIng() {
     
+
     return (
         <Provider store={store}>
             <Container style={{ backgroundImage: `url(${background})` }}>

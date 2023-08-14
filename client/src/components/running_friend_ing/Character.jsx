@@ -64,10 +64,13 @@ const Call = styled.img`
 `;
 
 function Character (){
+    const handleClick = () => {
+        window.location.href="/running/friend/finish"
+    }
 
     return(
         <>
-            <User src={Userimg} />
+            <User src={Userimg} onClick={handleClick} />
     
             <Friend src={Friendimg} />
             <Namebox>

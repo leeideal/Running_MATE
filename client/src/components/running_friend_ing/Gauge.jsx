@@ -155,6 +155,8 @@ function Gauge() {
 
     const [showPopup, setShowPopup] = useState(false);
     const [popupMessage, setPopupMessage] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const dispatch = useDispatch();
     //const timegoal = useSelector((state) => state.timegoal)
     //const speed = 300; //임시로 지정해놓은 값
@@ -242,6 +244,8 @@ function Gauge() {
         setShowPopup(false);
     };
 
+
+
     return (
         <>
             <Gaugeback />
@@ -263,6 +267,7 @@ function Gauge() {
             {showPopup && (
                 <Popup message={popupMessage} onClose={handlePopupClose} />
             )}
+       
         </>
     );
 }

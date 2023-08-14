@@ -33,9 +33,11 @@ const UserCharacter = styled.img`
 `;
 
 function Character() {
+  
+
   return (
     <CharacterContainer>
-      <FriendCharacter src={Friendimg} />
+      <FriendCharacter src={Friendimg}  />
       <UserCharacter src={Userimg} />
     </CharacterContainer>
   );
