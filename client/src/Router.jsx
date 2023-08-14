@@ -22,7 +22,7 @@ function Router() {
                 <Route path="/running/friend/ing" element={<RunningFriendIng />} exact />{/* 러닝중 - 친구페이지 */}
                 <Route path="/running/friend/finish" element={<RunningFriendFinish />} exact />{/* 러닝끝 -친구페이지 */}
                 <Route path="/running/friend/finish/result" element={<RunningFriendResult />} exact />{/*러닝결과 - 친구페이지*/}
-                <Route path="/insta" element={<Insta />} exact /> {/*인스타 다운로드할 사진 */} 
+                <Route path="/running/friend/finish/result/insta" element={<Insta />} exact /> {/*인스타 다운로드할 사진 */} 
             </Route>
 
             {/* 로그인할 필요 없이 접근 가능한 페이지들 */}
