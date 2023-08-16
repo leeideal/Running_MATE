@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import Goalset from "../components/running_friend/Goalset";
 import Start from "../components/running_friend/Start"
 import Character from "../components/running_friend/Character";
+import { Provider } from "react-redux";
+import store from '../store.js';
 
 const Container = styled(motion.div)`
   width: 100%;
@@ -32,17 +34,19 @@ function RunningFriend() {
 
 
   return (
-    <Container style={{ backgroundImage: `url(${backgroundImage})` }} >
-      <Location />
-      <Header />
-      
-      <Character />
-      
-      <Goalset />
-      
-      <Start onBackgroundChange={handleBackgroundChange} />
-      
-    </Container>
+    <Provider store={store}>
+      <Container style={{ backgroundImage: `url(${backgroundImage})` }} >
+        <Location />
+        <Header />
+        
+        <Character />
+        
+        <Goalset />
+        
+        <Start onBackgroundChange={handleBackgroundChange} />
+        
+      </Container>
+    </Provider>
   );
 }
 

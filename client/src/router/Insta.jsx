@@ -59,11 +59,11 @@ const Rm = styled.div`
 
 const SaveButton = styled.button`
     position: absolute;
-    bottom: 10px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
-    background-color: #FFC947;
+    background-color: #94BDFD;
     border: none;
     border-radius: 5px;
     color: #000;

@@ -14,8 +14,8 @@ const Address = styled.div`
     line-height: 20.256px; /* 142.857% */
     letter-spacing: 0.035px;
     position:absolute;
-    left:324px;
-    top:538px;
+    left:305px;
+    top:520px;
     transform: rotate(270deg);
 
    

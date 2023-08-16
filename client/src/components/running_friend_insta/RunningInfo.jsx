@@ -33,6 +33,8 @@ const Min = styled.div`
 
 
 const Mintag = styled.div`
+    weight:76px;
+    height:40px;
     color: var(--font-font-gray, rgba(255, 255, 255, 0.40));
     text-align: center;
     font-family: Outfit;
@@ -41,9 +43,9 @@ const Mintag = styled.div`
     font-weight: 500;
     line-height: 39.834px; /* 142.857% */
     letter-spacing: 0.07px;
-
     position:relative;
-    left:39px;
+    left:-10px;
+
     
 `;
 
@@ -67,7 +69,7 @@ const Kaltag = styled.div`
     line-height: 39.834px; /* 142.857% */
     letter-spacing: 0.07px;
     position:relative;
-    left:39px;
+    left:-10px;
 `;
 
 const Km = styled.div`
@@ -91,7 +93,7 @@ const Kmtag = styled.div`
     line-height: 39.834px; /* 142.857% */
     letter-spacing: 0.07px;
     position:relative;
-    left:39px;
+    left:0px;
   
 `;
 
