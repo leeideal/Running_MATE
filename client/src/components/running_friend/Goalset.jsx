@@ -21,8 +21,6 @@ const Container = styled.div`
     position: absolute;
     top:99px;
     bottom:664px;
-    left:25px;
-    right:24px;
     transition: height 0.3s, border-radius 0.3s;
 `;
 

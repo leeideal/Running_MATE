@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 const Btn = styled.div`
     width: 340px;
     height: 58px;
+    display:flex;
+    justify-content:center;
+    align-items:center
     flex-shrink: 0;
     border-radius: 10px;
     background: var(--white, #FFF);
