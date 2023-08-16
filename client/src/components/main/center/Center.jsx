@@ -3,12 +3,14 @@ import Top from "./Top";
 import TodayRun from "./TodayRun";
 import MyCh from "./MyCh";
 import Bottom from "./Bottom";
-import background from "../image/main_back.png"
-import angleLeft from "../image/main_left.svg";
-import angleRight from "../image/main_right.svg";
+import background from "../../image/main_back.png"
+import angleLeft from "../../image/main_left.svg";
+import angleRight from "../../image/main_right.svg";
 import { useState } from "react";
 
+
 const Container = styled.div`
+  font-family: 'Outfit', sans-serif;
   width: 100%;
   height: 100%;
   display: flex;
