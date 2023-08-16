@@ -24,6 +24,10 @@ const Container = styled.div`
     transition: height 0.3s, border-radius 0.3s;
 `;
 
+const Gradiant = styled.div`
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.41) 42.71%, rgba(255, 255, 255, 0.41) 51.56%, rgba(255, 255, 255, 0.33) 61.46%, rgba(255, 255, 255, 0.00) 100%);
+`;
+
 const Flag = styled.img`
     width: 19px;
     height: 23px;
@@ -67,9 +71,32 @@ const DropdownContent = styled.div`
 
 `;
 
-const Scroll = styled.div`
+const KmScroll = styled.div`
     max-height: 148px; /* Set a maximum height to make it scrollable */
     overflow-y: auto; /* Add this line to enable vertical scrolling */
+    position:relative;
+    left:-105px;
+`;
+
+const CalorieScroll = styled.div`
+    max-height: 148px; /* Set a maximum height to make it scrollable */
+    overflow-y: auto; /* Add this line to enable vertical scrolling */
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    bottom:145px;
+    
+`;
+
+const MinScroll = styled.div`
+    max-height: 148px; /* Set a maximum height to make it scrollable */
+    overflow-y: auto; /* Add this line to enable vertical scrolling */
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    bottom:295px;
+    right:-105px;
+
 `;
 
 const DropdownColumn = styled.div`
@@ -77,6 +104,8 @@ const DropdownColumn = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    
 
 `;
 
@@ -146,24 +175,6 @@ const KmTtitle = styled.div`
 
 
 
-const KmOptions = [
-    0.5,
-    0.6,
-    0.7,
-    0.8,
-    0.9,
-    1.0,
-    1.1,
-    1.2,
-    1.3,
-    1.4,
-    1.5,
-    1.6,
-    1.7,
-    1.8,
-    1.9,
-    2.0,
-];
 
 const Distancegoal = styled.div`
   color: var(--secondary-secondary-default, #AFFF7E);
@@ -200,8 +211,32 @@ const Km = styled.div`
 
 
 function Goalset() {
+    const createOptions = (start, end, step) => {
+        const options = [];
+        for (let value = start; value <= end; value += step) {
+          options.push(value.toFixed(1));
+        }
+        return options;
+      };
+    const createOptions2 = (start, end, step) => {
+        const options = [];
+        for (let value = start; value <= end; value += step) {
+          options.push(value.toFixed(0));
+        }
+        return options;
+      };
+    const KmOptions = createOptions(0.2, 5.0, 0.1);
+    const CalorieOptions = createOptions2(20, 200, 1); 
+    const MinOptions = createOptions2(5, 30, 1);
+    
+
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [selectedKmOption, setSelectedKmOption] = useState(null);
+    const [selectedMinOption, setSelectedMinOption] = useState(null);
+    const [selectedCalorieOption, setSelectedCalorieOption] = useState(null);
     const [selectedOption, setSelectedOption] = useState(null);
+    const [calorieScrollTop, setCalorieScrollTop] = useState(0);
+    const [minScrollTop, setMinScrollTop] = useState(0);
     //const distancegoal = useSelector((state => state.distance));
     const dispatch = useDispatch();
     
@@ -216,13 +251,42 @@ function Goalset() {
         setSelectedOption(distance);
         
     };
+    const handleKmDropdownItemClick = (km) => {
+        setSelectedKmOption(km);
+        const min = (km * 5).toFixed(0);
+        const calorie = ((min / 5) * 49).toFixed(0);
+        setSelectedMinOption(min);
+        setSelectedCalorieOption(calorie);
+        dispatch(setDistancegoal(km));
+        setCalorieScrollTop((calorie - 20) * 44); // Adjust the value as needed
+        setMinScrollTop((min - 5) * 44);
+      };
+    
+      const handleMinDropdownItemClick = (min) => {
+        setSelectedMinOption(min);
+        const km = (min / 5).toFixed(1);
+        const calorie = ((min / 5) * 49).toFixed(0);
+        setSelectedKmOption(km);
+        setSelectedCalorieOption(calorie);
+        dispatch(setDistancegoal(km));
+      };
+    
+      const handleCalorieDropdownItemClick = (calorie) => {
+        setSelectedCalorieOption(calorie);
+        const min = ((calorie / 49) * 5).toFixed(0);
+        const km = (min / 5).toFixed(1);
+        setSelectedMinOption(min);
+        setSelectedKmOption(km);
+        dispatch(setDistancegoal(km));
+        
+      };
 
   
     return (
         <Container open={dropdownOpen}>
             <Flag src={flagimg} />
             <Text>GOAL</Text>
-            <Distancegoal>{selectedOption}</Distancegoal>
+            <Distancegoal>{selectedKmOption}</Distancegoal>
             <Km>KM</Km>
             <Dropdownbutton src={dropbutton} onClick={handleDropdownClick} />
             <DropdownContent open={dropdownOpen}>
@@ -232,18 +296,40 @@ function Goalset() {
                         <CalorieTitle>CALORIE</CalorieTitle>
                         <MinTitle>MIN</MinTitle>
                     </TitleContainer>
-                    <Scroll>
+                    <KmScroll>
                     {KmOptions.map((option, index) => (
                         <KmDropdownItem
                             key={index}
-                            selected={option === selectedOption}
-                            onClick={() => handleDropdownItemClick(option)}
+                            selected={option === selectedKmOption}
+                            onClick={() => handleKmDropdownItemClick(option)}
                         >
                             {option}
                         </KmDropdownItem>
                     ))}
-                    
-                    </Scroll>
+                    </KmScroll>
+                    <CalorieScroll>
+                        {CalorieOptions.map((option, index) => (
+                            <KmDropdownItem  style={{ scrollTop: calorieScrollTop }}
+                                
+                                key={index}
+                                selected={option === selectedCalorieOption}
+                                onClick={() => handleCalorieDropdownItemClick(option)}    
+                            >
+                                {option}
+                            </KmDropdownItem>
+                        ))}
+                    </CalorieScroll>
+                    <MinScroll>
+                        {MinOptions.map((option, index) => (
+                                <KmDropdownItem
+                                    key={index}
+                                    selected={option === selectedMinOption}
+                                    onClick={() => handleMinDropdownItemClick(option)}   
+                                >
+                                    {option}
+                                </KmDropdownItem>
+                            ))}
+                    </MinScroll>
                 </DropdownColumn>
             </DropdownContent>
         </Container>
