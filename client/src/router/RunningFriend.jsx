@@ -22,7 +22,6 @@ const Container = styled(motion.div)`
   background-repeat : no-repeat;
   background-size : cover;
 `;
-//background-image : url(${background});
 
 
 function RunningFriend() {

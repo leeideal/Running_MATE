@@ -47,7 +47,7 @@ function MyCh() {
     return (
       <Container >
         <Level src={level} />
-        <Character src={c1} />
+        <Character src={c1} loop="infinite" />
         <Bar src={bar} />
       </Container>
     )
