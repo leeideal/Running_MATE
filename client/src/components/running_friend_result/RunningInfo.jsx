@@ -27,10 +27,10 @@ const Min = styled.div`
 
 
 const Mintag = styled.div`
-    width: 38.182px;
+
     color: rgba(65, 79, 100, 0.40);
     text-align: center;
-
+    
     /* RUNNINGMATE R/14 */
     font-family: Outfit;
     font-size: 14px;
@@ -39,8 +39,6 @@ const Mintag = styled.div`
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.035px;
 
-    position:relative;
-    left:39px;
     
 `;
 
@@ -56,7 +54,7 @@ const Kal = styled.div`
 `;
 
 const Kaltag = styled.div`
-    width: 38.182px;
+
     color: rgba(65, 79, 100, 0.40);
     text-align: center;
 
@@ -67,8 +65,7 @@ const Kaltag = styled.div`
     font-weight: 500;
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.035px;
-    position:relative;
-    left:39px;
+
 `;
 
 const Km = styled.div`
@@ -84,7 +81,7 @@ const Km = styled.div`
 `;
 
 const Kmtag = styled.div`
-    width: 38.182px;
+
     color: rgba(65, 79, 100, 0.40);
     text-align: center;
 
@@ -95,8 +92,6 @@ const Kmtag = styled.div`
     font-weight: 500;
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.035px;
-    position:relative;
-    left:39px;
   
 `;
 

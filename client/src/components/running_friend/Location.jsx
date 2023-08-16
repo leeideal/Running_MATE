@@ -3,11 +3,13 @@ import axios from 'axios';
 import styled from "styled-components";
 import icon from "../image/location.png";
 
+
 const Address = styled.div`
   color: var(--white, #FFF);
   text-align: center;
   display:flex;
-
+  justify-content:center;
+  align-items:center;
   /* RUNNINGMATE R/20 */
   font-family: Outfit;
   font-size: 20px;
@@ -15,10 +17,9 @@ const Address = styled.div`
   font-weight: 500;
   line-height: 28px; /* 140% */
   letter-spacing: 0.03px;
-  position: absolute;
-  bottom: 50px;
-  left: 131.55px;
-   
+
+  position:absolute;
+  bottom:50px;
 `;
 
 const Icon = styled.img`
@@ -87,7 +88,8 @@ function Location() {
   return (
     <>
       <Icon src={icon} />
-      <Address>{address}</Address>
+      <Address>IN {address}</Address>
+
     </>
   );
 }

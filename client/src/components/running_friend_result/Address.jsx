@@ -25,7 +25,7 @@ const Icon = styled.img`
     flex-shrink: 0;
     position:relative;
     top:20px;
-    left:103px;
+    left:120px;
 `;
 
 function Address() {

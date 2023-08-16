@@ -9,20 +9,23 @@ import { setTime, setKal, setDistance } from "../../store";
 const Container = styled.div`
     width: 100%;
     height: 100%;
+    display:flex;
     flex-shrink: 0;
     background: rgba(34, 34, 34, 0.90);
     z-index:1000;
 `;
 
 const Infocontainer = styled.div`
-    flexDirection:row;
-    position:absolute;
-    top:109px;
-    display: inline-flex;
+    flex-direction: row;
+    position: absolute;
+    top: 109px;
+    display: flex;
     align-items: flex-start;
-    justify-content:flex-between;
-    left:24px;
+    justify-content: center; /* Center horizontally */
+    left: 0;
+    right: 0;
 `;
+
 
 const Min = styled.div`
     width: 114px;
@@ -182,6 +185,8 @@ const Coinimg = styled.img`
 
 const Text = styled.div`
     width: 340px;
+    justify-content: center;
+    align-items: center;
     color: var(--white, #FFF);
     font-family: Outfit;
     font-size: 40px;
@@ -189,6 +194,8 @@ const Text = styled.div`
     font-weight: 700;
     line-height: 50px; /* 125% */
     position:absolute;
+    left: 0;
+    right: 0;
     left:25px;
     top:407px;
 `;
@@ -197,13 +204,17 @@ const FinishContainer = styled.div`
     width: 340px;
     height: 58px;
     flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
     background: var(--font-font-light, #819EC7);
-    position:absolute;
-    bottom:219px;
-    left:25px;
-    cursor:pointer;
+    position: absolute;
+    bottom: 219px;
+    left: 0;
+    right: 0;
+    cursor: pointer;
     opacity: 0.7;
+    margin: auto;
 `;
 
 const Finishtext = styled.div`
@@ -229,10 +240,12 @@ const KeeponContainer = styled.div`
     border-radius: 10px;
     background: var(--primary-primary-dark-1, #00518B);
     opacity: 0.7;
-    position:absolute;
-    bottom:127px;
-    left:25px;
-    cursor:pointer;
+    position: absolute;
+    bottom: 127px;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    margin: auto;
 `;
 
 const KeeponText = styled.div`

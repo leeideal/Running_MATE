@@ -22,7 +22,6 @@ const Container = styled(motion.div)`
   background-repeat : no-repeat;
   background-size : cover;
 `;
-//background-image : url(${background});
 
 
 function RunningFriend() {
@@ -36,7 +35,7 @@ function RunningFriend() {
   return (
     <Provider store={store}>
       <Container style={{ backgroundImage: `url(${backgroundImage})` }} >
-        <Location />
+      <Location />
         <Header />
         
         <Character />
@@ -46,6 +45,7 @@ function RunningFriend() {
         <Start onBackgroundChange={handleBackgroundChange} />
         
       </Container>
+ 
     </Provider>
   );
 }

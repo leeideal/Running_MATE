@@ -5,8 +5,9 @@ import Modal from './Modal';
 import { useDispatch } from 'react-redux';
 
 const Blur = styled.div`
-    width: 391px;
-    height: 844px;
+    width: 100%;
+    height: 100%;
+    display:flex;
     flex-shrink: 0;
     background: rgba(0, 0, 0, 0.30);
     backdrop-filter: blur(10px);
