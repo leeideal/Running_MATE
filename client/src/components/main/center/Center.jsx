@@ -3,18 +3,19 @@ import Top from "./Top";
 import TodayRun from "./TodayRun";
 import MyCh from "./MyCh";
 import Bottom from "./Bottom";
-import background from "../image/main_back.png"
-import angleLeft from "../image/main_left.svg";
-import angleRight from "../image/main_right.svg";
+import background from "../../image/main_back.png"
+import angleLeft from "../../image/main_left.svg";
+import angleRight from "../../image/main_right.svg";
 import { useState } from "react";
 
+
 const Container = styled.div`
+  font-family: 'Outfit', sans-serif;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   background-image : url(${background});
   background-repeat : no-repeat;
   background-size : cover;
@@ -22,13 +23,13 @@ const Container = styled.div`
 
 const GoToLeft = styled.img`
   position: absolute;
-  left: 30px;
+  left: 5%;
   top : 48%;
 `
 
 const GoToRight = styled.img`
   position: absolute;
-  right: 30px;
+  right: 5%;
   top : 48%;
 `
 

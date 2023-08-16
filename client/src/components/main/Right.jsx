@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const GoToLeft = styled.img`
   position: absolute;
-  left: 30px;
+  left: 5%;
   top : 48%;
 `
 

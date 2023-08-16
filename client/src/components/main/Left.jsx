@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const GoToRight = styled.img`
   position: absolute;
-  right: 30px;
+  right: 5%;
   top : 48%;
 `
 
