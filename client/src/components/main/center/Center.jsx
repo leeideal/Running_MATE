@@ -16,7 +16,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   background-image : url(${background});
   background-repeat : no-repeat;
   background-size : cover;
@@ -24,13 +23,13 @@ const Container = styled.div`
 
 const GoToLeft = styled.img`
   position: absolute;
-  left: 30px;
+  left: 5%;
   top : 48%;
 `
 
 const GoToRight = styled.img`
   position: absolute;
-  right: 30px;
+  right: 5%;
   top : 48%;
 `
 

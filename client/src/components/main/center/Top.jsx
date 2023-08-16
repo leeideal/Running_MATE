@@ -7,7 +7,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-right: 30px;
 `
 
@@ -89,7 +89,7 @@ const SdOverlay = styled.div`
 
 function Top() {
 
-    const [isOpen, setIsopen] = useState(true);
+    const [isOpen, setIsopen] = useState(false);
 
     return (
       <>
