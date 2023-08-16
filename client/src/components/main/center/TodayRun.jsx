@@ -8,21 +8,42 @@ const Container = styled.div`
   width: 90%;
   margin-top:20px;
   color: #414F64;
+  @media (max-height : 800px) {
+      margin-top: 10px;
+  }
 `
 
 const Title = styled.h1`
   font-weight: 600;
   font-size: 20px;
-
+  @media (max-height : 760px) {
+    font-size: 16px;
+  }
 `
 
 const Record = styled.div`
   display: flex;
   align-items: flex-end;
   img{
+    @media (max-height : 800px) {
+      width: 50px;
+    }
+    @media (max-height : 760px) {
+      width: 35px;
+    }
     z-index: 2;
   }
   h1{
+    @media (max-height : 850px) {
+      font-size: 86px;
+    }
+    @media (max-height : 800px) {
+      font-size: 76px;
+    }
+    @media (max-height : 760px) {
+      font-size: 55px;
+      margin-left: -10px;
+    }
     font-weight: 700;
     font-size: 96px;
     margin-left: -20px;
@@ -30,6 +51,9 @@ const Record = styled.div`
 `
 
 const Kcal = styled.div`
+  @media (max-height : 760px) {
+    margin-top:0px;
+  }  
   margin-top:10px;
   display: flex;
   align-items: center;

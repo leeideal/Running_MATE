@@ -70,18 +70,19 @@ const Body = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #EAEAEA;
 `
 
 const Container = styled.div`
   max-width: 430px;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
+  max-height: 930px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
   position: relative;
 `
 

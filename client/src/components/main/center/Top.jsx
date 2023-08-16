@@ -9,6 +9,9 @@ const Container = styled.div`
   justify-content: flex-end;
   margin-top: 30px;
   margin-right: 30px;
+  @media (max-height : 800px) {
+      margin-top: 15px;
+  }
 `
 
 const Box = styled.div`

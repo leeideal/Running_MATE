@@ -20,6 +20,13 @@ const Btn = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-height : 800px) {
+    width: 100px;
+    height: 100px;
+    img{
+      width: 50px;
+    }
+  }
   width: 110px;
   height: 110px;
   border-radius: 50%;
@@ -40,10 +47,14 @@ const Back = styled.div`
   position: relative;
   width: 100%;
   height: fit-content;
+  border-radius: 10px;
+  margin-bottom: -5px;
 `
 const Img = styled.img`
   width: 100%;
   height: auto;
+  border-bottom-left-radius : 10px;
+  border-bottom-right-radius : 10px;
 `
 const Real = styled.div`
   position: absolute;
