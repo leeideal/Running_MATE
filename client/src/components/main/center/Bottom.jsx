@@ -1,8 +1,15 @@
 import styled from "styled-components";
 import bottom from "../../image/main_bottom.svg";
+import xbtn from "../../image/main_x.svg";
 import shoes from "../../image/main_shoes.png";
 import shop from "../../image/main_shop.png";
 import btc from "../../image/main_btc.png";
+import { AnimatePresence, motion } from "framer-motion";
+import Select from "./Select";
+import { useRecoilState } from "recoil";
+import { isRun } from "../../../atoms";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
   width: 100%;
@@ -12,6 +19,7 @@ const Container = styled.div`
   position: absolute;
   bottom:0;
   color: #414F64;
+  z-index: 15;
 `
 
 const Btn = styled.div`
@@ -41,6 +49,9 @@ const Btn = styled.div`
     font-size: 24px;
     font-weight: 600;
   }
+  background-color: ${(props) => (props.isActive === 1 ? "#FC9191"  : props.isActive === 2 ? "#78AFFF" : "white")};
+  transition: 0.45s;
+  
 `
 
 const Back = styled.div`
@@ -115,13 +126,53 @@ const Shop = styled.div`
   }
 `
 
+const Overlay = styled(motion.div)`
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 14;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+`;
+
+
 
 function Bottom() {
+    const [clicked, setClicked] = useRecoilState(isRun);
+
+    const btnClick = () => {
+      if(clicked === 1){
+        setClicked(0)
+      }else {
+        setClicked(1)
+      }
+    }
+
     return (
+      <>
       <Container >
-        <Btn>
-          <img src={shoes} />
-          <h1>RUN</h1>
+        <Btn onClick={()=>btnClick()} isActive={clicked}>
+          {
+            clicked === 1 ? 
+            <>
+              <img style={{marginTop:"1px", width:"50px"}} src={xbtn}/>
+            </>
+            :
+              clicked === 2 ?
+              <>
+                <FontAwesomeIcon icon={faRotateLeft} style={{color:"white"}} size="3x"/>
+              </>
+              :
+              <>
+                <img src={shoes} />
+                <h1>RUN</h1>
+              </>
+          }
         </Btn>
 
         <Back>
@@ -149,6 +200,21 @@ function Bottom() {
             </Real>
         </Back>
       </Container>
+
+      {/* 모달창 */}
+        <AnimatePresence>
+          {clicked !== 0 ? 
+            <Overlay 
+              initial={{ opacity : 0}}
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+            >
+                <Select />
+            </Overlay> 
+            :
+            null}
+        </AnimatePresence>
+      </>
     )
   }
   

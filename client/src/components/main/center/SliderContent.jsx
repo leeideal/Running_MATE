@@ -45,11 +45,12 @@ const Box = styled.div`
   height: 45px;
 `
 
+// status = 0 : 접속, 1: 러닝, 2 : 접속안함
 const Status = styled.div`
   width: 12px;
   height: 12px;
-  background-color: ${(props) => (props.isActive)};
-  box-shadow: rgba(50, 50, 93, 0.35) 0px 1px 2px -1px inset, rgba(0, 0, 0, 0.3) 0px 6px 12px -6px inset;
+  background-color: ${(props) => (props.isActive === 0 ? "#78AFFF" : props.isActive === 1 ? "#AFFF7E" : "#B7C7DF")};
+  box-shadow: rgba(50, 50, 93, 0.35) 0px 1px 2px -1px inset, rgba(0, 0, 0, 0.3) 0px 6px 12px -6px inset; 
   border-radius: 50%;
 `
 
@@ -144,42 +145,42 @@ const data = [
     {
         "id" : 1,
         "name" : "Erisson",
-        "statue" : "#78AFFF"
+        "statue" : 0
     },
     {
         "id" : 2,
         "name" : "Erisson",
-        "statue" : "#78AFFF"
+        "statue" : 0
     },
     {
         "id" : 3,
         "name" : "Erisson",
-        "statue" : "#78AFFF"
+        "statue" : 1
     },
     {
         "id" : 4,
         "name" : "Erisson",
-        "statue" : "#78AFFF"
+        "statue" : 0
     },
     {
         "id" : 5,
         "name" : "Erisson",
-        "statue" : "#78AFFF"
+        "statue" : 2
     },
     {
         "id" : 6,
         "name" : "Erisson",
-        "statue" : "#78AFFF"
+        "statue" : 1
     },
     {
         "id" : 7,
         "name" : "Erisson",
-        "statue" : "#78AFFF"
+        "statue" : 0
     },
     {
         "id" : 8,
         "name" : "Erisson",
-        "statue" : "#78AFFF"
+        "statue" : 0
     },
 ]
 

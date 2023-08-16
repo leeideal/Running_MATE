@@ -10,3 +10,9 @@ export const isBack = atom({
     key: "isBack",
     default: false,
 });
+
+
+export const isRun = atom({
+    key: "isRun",
+    default: 0,
+})

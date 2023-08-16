@@ -66,7 +66,7 @@ const Sidebar = styled.div`
     position: fixed;
     top: 0;
     right: ${(props) => (props.isActive ? "0" : "-100%")};
-    z-index: 10;
+    z-index: 20;
     transition: 0.5s;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -83,6 +83,7 @@ const SdOverlay = styled.div`
     height: 100vh;
     background-color: rgba(0,0,0,0.4);
     transition: 0.8s;
+    z-index: 17;
     opacity: ${(props) => (props.isActive ? 1 : 0)};
     visibility: ${(props) => (props.isActive ? "visible" : "hidden")};  
     backdrop-filter: blur(10px);
