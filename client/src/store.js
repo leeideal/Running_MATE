@@ -8,6 +8,14 @@ const timegoalSlice = createSlice({
   },
 });
 
+const coinSlice = createSlice({
+  name:'coin',
+  initialState: 0, 
+  reducers: {
+    setCoin : (state, action) => action.payload,
+  },
+})
+
 const distancegoalSlice = createSlice({
   name: 'distancegoal',
   initialState: 0.2, // 단위: km
@@ -54,6 +62,7 @@ export const { setTime } = timeSlice.actions;
 export const { setDistance } = distanceSlice.actions;
 export const { setTimegoal } = timegoalSlice.actions;
 export const { setDistancegoal } = distancegoalSlice.actions;
+export const { setCoin } = coinSlice.actions;
 
 export default configureStore({
   reducer: {
@@ -63,5 +72,6 @@ export default configureStore({
     kal: kalSlice.reducer,
     time: timeSlice.reducer,
     distance: distanceSlice.reducer,
+    coin: coinSlice.reducer,
   },
 });

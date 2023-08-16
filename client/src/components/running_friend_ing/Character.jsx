@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Userimg from "../image/UserCharacter.png";
 import Friendimg from "../image/FriendCharacter.png";
 import Callimg from "../image/call.png";
+import { useNavigate } from 'react-router-dom';
 
 const User = styled.img`
     width: 211px;
@@ -64,10 +65,15 @@ const Call = styled.img`
 `;
 
 function Character (){
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate("/running/friend/finish");
+    }
 
     return(
         <>
-            <User src={Userimg} />
+            <User src={Userimg} onClick={handleClick} />
     
             <Friend src={Friendimg} />
             <Namebox>

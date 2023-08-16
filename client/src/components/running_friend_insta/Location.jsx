@@ -4,32 +4,33 @@ import styled from "styled-components";
 import icon from "../image/location.png";
 
 const Address = styled.div`
-  color: var(--white, #FFF);
-  text-align: center;
-  display:flex;
+    color: var(--white, #FFF);
+    white-space: nowrap;
+    text-align: left;
+    font-family: Outfit;
+    font-size: 14.179px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20.256px; /* 142.857% */
+    letter-spacing: 0.035px;
+    position:absolute;
+    left:305px;
+    top:520px;
+    transform: rotate(270deg);
 
-  /* RUNNINGMATE R/20 */
-  font-family: Outfit;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 28px; /* 140% */
-  letter-spacing: 0.03px;
-  position: absolute;
-  bottom: 50px;
-  left: 131.55px;
    
 `;
 
 const Icon = styled.img`
-  width: 18.647px;
-  height: 24.385px;
-  flex-shrink: 0;
-  position:absolute;
-  bottom:51.62px;
-  left:106px;
+    width: 10.843px;
+    height: 14.179px;
+    flex-shrink: 0;
+    position:absolute;
+    transform: rotate(270deg);
+    position:absolute;
+    left:351.28px;
+    bottom:30.82px;
 `;
-
 
 
 function Location() {

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import { useNavigate } from 'react-router-dom';
 const Btn = styled.div`
     width: 340px;
     height: 58px;
@@ -25,9 +25,10 @@ const Text = styled.div`
 `;
 
 function Button() {
+    const navigate = useNavigate();
     const handleButtonClick = () => {
         // 버튼 클릭 시 페이지 이동
-        window.location.href = "/running/friend/finish/result";
+        navigate("/running/friend/finish/result");
     };
 
     return (

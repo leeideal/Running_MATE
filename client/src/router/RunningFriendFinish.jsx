@@ -4,8 +4,10 @@ import background from "../components/image/running_finish_back.png";
 import { motion } from "framer-motion";
 import Character from "../components/running_friend_finish/Character";
 import Button from "../components/running_friend_finish/Button";
+import { useSelector } from 'react-redux';
 
-
+import { Provider } from 'react-redux'; // Provider 추가
+import store from '../store'; // Redux 스토어 가져오기
 const Container = styled(motion.div)`
     position: relative;
     width: 100%;
@@ -48,8 +50,8 @@ const SmallText = styled.div`
 
 
 function RunningFriendFinish() {
-
     return(
+
         <Container style={{ backgroundImage: `url(${background})` }}>
             <Button />
             <BigText>
@@ -59,11 +61,13 @@ function RunningFriendFinish() {
             <SmallText>
                 It was a great journey
                 with your mate!
+
             </SmallText>
             
             <Character />
             
         </Container>
+        
     );
 }
 
