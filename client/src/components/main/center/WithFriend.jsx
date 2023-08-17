@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import profile from "../../image/main_profile.svg";
+import NexmoClient from 'nexmo-client';
+import { useRecoilState } from "recoil";
+import { isCall, isCalling } from "../../../atoms";
+import { useNavigate } from "react-router-dom";
+
 
 const Container = styled.div`
   width: 90%;
@@ -85,10 +90,25 @@ const RunBtn = styled.div`
     align-items: center;
     background-color: white;
     opacity:${(props) => (props.isActive === 0 ? 1 : 0.4)};
-    user-select: ${(props) => (props.isActive === 0 ? "all" : "none")};
+    //user-select: ${(props) => (props.isActive === 0 ? "all" : "none")};
+    cursor: pointer;
 `
 
-const data = [
+const HangBtn = styled.div`
+    border-radius: 12px;
+    width: 70px;
+    font-size: 12px;
+    font-weight: 600;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color : #00518B;
+    border: 1px solid #00518B;
+`
+
+const data_many = [
     {
         "id" : 1,
         "name" : "Erisson",
@@ -131,7 +151,19 @@ const data = [
     },
 ]
 
+const data = [
+    {
+        "id" : 1,
+        "name" : "Erisson",
+        "statue" : 0
+    },
+]
+
 function WithFriend() {
+    const [letCall, letCallFn] = useRecoilState(isCall);
+    const [getCall, getCallFn] = useRecoilState(isCalling);
+    const navigate = useNavigate();
+
 
     return (
       <Container>
@@ -154,9 +186,25 @@ function WithFriend() {
                                 {data.name}
                             </WhoName>
                         </Who>
-                        <RunBtn isActive={data.statue}>
-                            Run together
-                        </RunBtn>
+                        {
+                            letCall ?
+                            // 전화 끊기
+                            <HangBtn onClick={()=>{
+                                getCallFn(2)
+                                letCallFn(false);
+                            }} id="btn-hangup">
+                                Waiting
+                            </HangBtn>
+                            :
+                            // 전화 걸기
+                            <RunBtn onClick={()=>{
+                                getCallFn(1)
+                                letCallFn(true)
+                                navigate('/running/friend');
+                            }} id="btn-call" isActive={data.statue}>
+                                Run together
+                            </RunBtn>
+                        }
                     </Item>
                 ))}
         </List>
