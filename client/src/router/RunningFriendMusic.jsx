@@ -4,14 +4,15 @@ import background from "../components/image/running_back.png";
 import { motion } from "framer-motion";
 
 const Container = styled(motion.div)`
-    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
+    background-color: white;
+
+    background-repeat : no-repeat;
+    background-size : cover;
     
 `;
 
@@ -19,7 +20,7 @@ function RunningFriendMusic() {
     
     return(
         <>
-            <Container style={ {backgroundImage: `url(${background})`}} >
+            <Container style={{backgroundImage: `url(${background})`}} >
             </Container>
 
         </>

@@ -8,6 +8,8 @@ import Coin from "../components/running_friend_result/Coin";
 import Share from "../components/running_friend_result/Share";
 import store from '../store'; 
 import Insta from "./Insta.jsx"
+import Gohome from "../components/running_friend_result/Gohome";
+import Callbtn from "../components/running_friend_result/Callbtn";
 
 const Container = styled(motion.div)`
     position: relative;
@@ -41,6 +43,8 @@ function RunningFriendResult(){
                 <Card />
                 <Share />
                 <Coin />
+                <Gohome />
+                <Callbtn />
             </Container>
             
         </Provider>
