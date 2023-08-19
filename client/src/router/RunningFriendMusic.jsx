@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Callbtn from "../components/running_friend_music/Callbtn";
 import Header from "../components/running_friend_music/Header";
 import Search from "../components/running_friend_music/Search";
+import Playlist from "../components/running_friend_music/Playlist";
 
 const Container = styled(motion.div)`
     width: 100%;
@@ -47,7 +48,10 @@ function RunningFriendMusic() {
                     Before running, <br />
                     Choose music together!
                 </Text>
-                <Search />
+                <Search>
+                    <Playlist />
+                </Search>
+                
             </Container>
 
         </>
