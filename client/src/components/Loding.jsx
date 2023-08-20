@@ -29,7 +29,6 @@ const Title = styled.h1`
   font-family: 'Outfit', sans-serif;
   width: 70%;
   text-align: center;
-  font-size: 18px;
 `
 
 const SplahGif = styled.img`

@@ -5,7 +5,7 @@ import img3 from "../components/image/login_google.svg";
 import img4 from "../components/image/login_facebook.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider  } from "firebase/auth";
+import { GoogleAuthProvider,signInWithPopup,FacebookAuthProvider } from 'firebase/auth';
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 
@@ -93,55 +93,20 @@ function Login() {
     },[])
 
     const navigate = useNavigate();
-  
+
     // 소셜로그인
     const onSocialClick = async (event) => {
       const button = event.currentTarget;
-      const provider = new GoogleAuthProvider();
+      let provider;
       try{
           if(button.name === "google"){
-            signInWithPopup(auth, provider)
-            .then((result) => {
-              
-              // This gives you a Google Access Token. You can use it to access the Google API.
-              const credential =  GoogleAuthProvider.credentialFromResult(result);
-              const token = credential.accessToken;
-              // The signed-in user info.
-              const user = result.user;
-              localStorage.setItem('userInfo', JSON.stringify({
-                "token": user.accessToken, 
-                "name": user.displayName,
-                "uid" : user.uid
-              }))
+              provider = new GoogleAuthProvider();
+              await signInWithPopup(auth, provider);
               navigate("/");
-            }).catch((error) => {
-              //console.log(error)
-              //const credential = GoogleAuthProvider.credentialFromError(error);
-              //console.log(credential)
-              
-            });
-              
           }else if(button.name === "facebook"){
-            signInWithPopup(auth, provider)
-            .then((result) => {
-              
-              // This gives you a Google Access Token. You can use it to access the Google API.
-              const credential =  FacebookAuthProvider.credentialFromResult(result);
-              const token = credential.accessToken;
-              // The signed-in user info.
-              const user = result.user;
-              localStorage.setItem('userInfo', JSON.stringify({
-                "token": user.accessToken, 
-                "name": user.displayName,
-                "uid" : user.uid
-              }))
+              provider = new FacebookAuthProvider();
+              await signInWithPopup(auth, provider);
               navigate("/");
-            }).catch((error) => {
-              //console.log(error)
-              //const credential = GoogleAuthProvider.credentialFromError(error);
-              //console.log(credential)
-              
-            });
           }
       }catch (error) {
         console.log(error)

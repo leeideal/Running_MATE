@@ -2,8 +2,6 @@ import styled from "styled-components";
 import btc from "../../image/main_btc.png";
 import kcal from "../../image/main_kcal.svg";
 import km from "../../image/main_km.svg";
-import { useRecoilValue } from "recoil";
-import { isData, isFirst } from "../../../atoms";
 
 
 const Container = styled.div`
@@ -37,17 +35,17 @@ const Record = styled.div`
   }
   h1{
     @media (max-height : 850px) {
-      font-size: 90px;
+      font-size: 86px;
     }
     @media (max-height : 800px) {
-      font-size: 78px;
+      font-size: 76px;
     }
     @media (max-height : 760px) {
-      font-size: 58px;
+      font-size: 55px;
       margin-left: -10px;
     }
     font-weight: 700;
-    font-size: 100px;
+    font-size: 96px;
     margin-left: -20px;
   }
 `
@@ -95,10 +93,6 @@ const Km = styled.div`
 `
 
 function TodayRun() {
-
-  const checkFirst = useRecoilValue(isFirst); // true : 첫 진입, false : 이미 유저
-  const userDB = useRecoilValue(isData);
-
     return (
       <Container >
         <Title>
@@ -107,20 +101,20 @@ function TodayRun() {
         <Record>
           <img src={btc}/>
           <h1>
-            {checkFirst ? "0" : userDB?.todayCoin}
+            673
           </h1>
         </Record>
         <Kcal>
           <img src={kcal}/>
           <div>
-            <h6>{checkFirst ? "0" : userDB?.todayKcal}</h6>
+            <h6>410</h6>
             <p>kcal</p>
           </div>
         </Kcal>
         <Km>
           <img src={km}/>
             <div>
-              <h6>{checkFirst ? "0" : userDB?.todayRun}</h6>
+              <h6>7.3</h6>
               <p>km</p>
             </div>
         </Km>

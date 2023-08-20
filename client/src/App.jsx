@@ -98,6 +98,7 @@ function App() {
   new NexmoClient({ debug: true })
             .createSession(callJWT)
             .then(app => {
+                console.log("Nexmo Contect")
                 // 전화 걸기
                 if((letCall) && (getCall === 1)){
                   console.log("Calling...");
@@ -115,6 +116,7 @@ function App() {
             .catch(console.error);
   
   useEffect(() => {
+    console.log(db);
   });
   
 
