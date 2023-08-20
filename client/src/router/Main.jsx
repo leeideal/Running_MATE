@@ -9,7 +9,7 @@ import "swiper/css";
 import Center from "../components/main/center/Center";
 import { doc, getDoc } from "firebase/firestore";
 import { useRecoilState } from "recoil";
-import { isFirst } from "../atoms";
+import { isData, isFirst } from "../atoms";
 import { AnimatePresence } from "framer-motion";
 import { db } from "../firebase";
 
@@ -39,6 +39,7 @@ const Box = styled(Swiper)`
 function Main() {
   const [checkFirst, setCheckFirst] = useRecoilState(isFirst);
   const [isLoading, setIsLoading] = useState(true);
+  const [userDB, setUserDB] = useRecoilState(isData); // 유저 정보
 
   const getUsetDB = async() => {
     const uid = JSON.parse(localStorage.getItem('userInfo'))
@@ -47,7 +48,7 @@ function Main() {
 
     if (docSnap.exists()) {
       setCheckFirst(false);
-      console.log("Document data:", docSnap.data());
+      setUserDB(docSnap.data())
     } else {
       setCheckFirst(true);
       console.log("No such document!");

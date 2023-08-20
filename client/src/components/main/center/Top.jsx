@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import profile from "../../image/main_profile.svg";
+import profile2 from "../../image/main_profile2.svg";
 import { useState } from "react";
 import SliderContent from "./SliderContent";
 import { useRecoilValue } from "recoil";
-import { isFirst } from "../../../atoms";
+import { isData, isFirst } from "../../../atoms";
 
 const Container = styled.div`
   width: 100%;
@@ -101,6 +102,8 @@ const SdOverlay = styled.div`
 function Top() {
     const checkFirst = useRecoilValue(isFirst); // true : 첫 진입, false : 이미 유저
 
+    const userDB = useRecoilValue(isData);
+
     const [isOpen, setIsopen] = useState(false);
 
     return (
@@ -115,10 +118,10 @@ function Top() {
             <Box>
                 <Info>
                   <Status isActive="#78AFFF"></Status>
-                  <Name>Hi! Jun</Name>
+                  <Name>Hi! {userDB?.nickName}</Name>
                 </Info>
                 <Profile onClick={()=>setIsopen(prev => !prev)}>
-                  <ProfileImg src={profile}/>
+                  <ProfileImg src={userDB?.character ? profile : profile2}/>
                 </Profile>
               </Box>
             </Container>

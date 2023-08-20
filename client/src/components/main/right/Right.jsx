@@ -11,6 +11,7 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import backParis from "../../image/main_paris.png";
 import backLondon from "../../image/main_london.png";
 import backSeoul from "../../image/main_seoul.png";
+import backAirport from "../../image/main_airport.png";
 
 
 const Container = styled.div`
@@ -221,7 +222,28 @@ function Right() {
                 </StartBtn>
               </Footer>
           </Card>
-          <Card>Slide 4</Card>
+          
+          <Card bgCity={backAirport}>
+            <Head>
+              <h6>MATE WORLD</h6>
+              <h1>You can travel with <br></br>SOCIAL WALKERS! </h1>
+            </Head>
+            <Footer>
+              <Title>
+                  <h1>Airport</h1>
+              </Title>
+              <Info>
+              Try on our Social Walkers and meet all the <br></br>
+              users of ‘Running Mate’ at the airport!<br></br>
+              It's a place where you can communicate
+              </Info>
+              <StartBtn isColor="#7FB3FF">
+                <img src={btnR}/>
+                <p>Enter Airport</p>
+              </StartBtn>
+            </Footer>
+          </Card>
+
         </Swiper>
       </Container>
     )

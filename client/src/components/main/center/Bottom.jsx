@@ -7,7 +7,7 @@ import btc from "../../image/main_btc.png";
 import { AnimatePresence, motion } from "framer-motion";
 import Select from "./Select";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { isFirst, isRun } from "../../../atoms";
+import { isData, isFirst, isRun } from "../../../atoms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -145,6 +145,7 @@ const Overlay = styled(motion.div)`
 function Bottom() {
     const [clicked, setClicked] = useRecoilState(isRun);
     const checkFirst = useRecoilValue(isFirst); // true : 첫 진입, false : 이미 유저
+    const userDB = useRecoilValue(isData);
 
     const btnClick = () => {
       if(clicked === 1){
@@ -197,12 +198,12 @@ function Bottom() {
                   <Info>
                     <Btc>
                       <img src={btc} />
-                      <h1>23000</h1>
+                      <h1>{userDB?.totalCoin}</h1>
                     </Btc>
                     <Day>
-                      <h1>32</h1>
+                      <h1>{userDB?.totalDay}</h1>
                       <p>days</p>
-                      <h1>120</h1>
+                      <h1>{userDB?.totalRun}</h1>
                       <p>km</p>
                     </Day>
                   </Info>

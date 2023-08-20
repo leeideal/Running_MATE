@@ -23,6 +23,7 @@ const Btn = styled.div`
     align-items: center;
     font-size: 24px;
     font-weight: 600;
+    cursor: pointer;
     height: 60px;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;

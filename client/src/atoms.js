@@ -65,3 +65,9 @@ export const isCreateCh= atom({
     key: "isCreateCh",
     default: true,
 });
+
+// DB에서 받아온 유저 정보
+export const isData = atom({
+    key:"isData",
+    default:null,
+})

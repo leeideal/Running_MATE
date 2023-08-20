@@ -3,7 +3,7 @@ import btc from "../../image/main_btc.png";
 import kcal from "../../image/main_kcal.svg";
 import km from "../../image/main_km.svg";
 import { useRecoilValue } from "recoil";
-import { isFirst } from "../../../atoms";
+import { isData, isFirst } from "../../../atoms";
 
 
 const Container = styled.div`
@@ -97,7 +97,7 @@ const Km = styled.div`
 function TodayRun() {
 
   const checkFirst = useRecoilValue(isFirst); // true : 첫 진입, false : 이미 유저
-
+  const userDB = useRecoilValue(isData);
 
     return (
       <Container >
@@ -107,20 +107,20 @@ function TodayRun() {
         <Record>
           <img src={btc}/>
           <h1>
-            {checkFirst ? "0" : "674"}
+            {checkFirst ? "0" : userDB?.todayCoin}
           </h1>
         </Record>
         <Kcal>
           <img src={kcal}/>
           <div>
-            <h6>{checkFirst ? "0" : "410"}</h6>
+            <h6>{checkFirst ? "0" : userDB?.todayKcal}</h6>
             <p>kcal</p>
           </div>
         </Kcal>
         <Km>
           <img src={km}/>
             <div>
-              <h6>{checkFirst ? "0" : "7.3"}</h6>
+              <h6>{checkFirst ? "0" : userDB?.todayRun}</h6>
               <p>km</p>
             </div>
         </Km>
