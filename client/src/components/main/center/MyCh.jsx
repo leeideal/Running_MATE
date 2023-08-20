@@ -1,12 +1,11 @@
 import styled, {keyframes} from "styled-components";
 import c1 from "../../character/main_c1.gif";
-import c2 from "../../character/main_c2.gif";
 import c3 from "../../character/main_c3.gif";
 import bar from "../../character/main_bar.png";
 import emptybar from "../../character/main_empty_bar.png";
 import level from "../../character/main_level.png";
 import { useRecoilValue } from "recoil";
-import { isFirst } from "../../../atoms";
+import { isData, isFirst } from "../../../atoms";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
@@ -76,7 +75,7 @@ const Make = styled.h1`
 
 function MyCh() {
   const checkFirst = useRecoilValue(isFirst); // true : 첫 진입, false : 이미 유저
-
+  const userDB = useRecoilValue(isData);
   const naviagte = useNavigate();
 
     return (
@@ -95,7 +94,7 @@ function MyCh() {
         // 이후 접속
         <Container >
           <Level src={level} />
-          <Character src={c1} loop="infinite" />
+          <Character src={userDB?.character ? c1 : c3} loop="infinite" />
           <Bar src={bar} />
         </Container>
       }

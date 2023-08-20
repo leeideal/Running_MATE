@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import profile from "../../image/main_profile.svg";
-import NexmoClient from 'nexmo-client';
-import { useRecoilState } from "recoil";
-import { isCall, isCalling } from "../../../atoms";
+import profile10 from "../../image/main_profile.svg";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { isCall, isCalling, isData } from "../../../atoms";
 import { useNavigate } from "react-router-dom";
 
 
@@ -163,6 +162,7 @@ function WithFriend() {
     const [letCall, letCallFn] = useRecoilState(isCall);
     const [getCall, getCallFn] = useRecoilState(isCalling);
     const navigate = useNavigate();
+    const userDB = useRecoilValue(isData);
 
 
     return (
@@ -179,7 +179,7 @@ function WithFriend() {
                     <Item key={data.id}>
                         <Who>
                             <Profile >
-                                <ProfileImg src={profile}/>
+                                <ProfileImg src={profile10}/>
                             </Profile>
                             <Status isActive={data.statue}></Status>
                             <WhoName>

@@ -11,11 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
   font-family: 'Outfit', sans-serif;
 `
 
@@ -103,6 +99,9 @@ const Step = styled.div`
 `;
 
 
+const GoToMain = styled.div`
+  background-color: black;
+`
 
 function Story() {
     const naviagte = useNavigate();
@@ -123,6 +122,7 @@ function Story() {
     }
   
     useEffect(() => {
+      window.scrollTo(0,0);
       setStepItem(document.querySelectorAll('.step'));
       setGraphicItem(document.querySelectorAll('.item'));
   
@@ -173,7 +173,7 @@ function Story() {
             <Item className="item">
                 <Img src={img_00} />
             </Item>
-            <Item className="item">
+            <Item  className="item">
                 <Img src={img_01} />
             </Item>
             <Item className="item">
@@ -213,7 +213,7 @@ function Story() {
 
             </p>
           </Step>
-          <Step style={{cursor:"pointer"}}  className="step" onClick={()=>naviagte('/')}>
+          <Step style={{cursor:"pointer" }}  className="step" onClick={()=>naviagte('/')}>
             <p>
                 It's Time To Run!<br></br>
                 Let' Go!<br></br>
@@ -221,6 +221,9 @@ function Story() {
             </p>
           </Step>
         </Text>
+        <GoToMain>
+          s
+        </GoToMain>
         
       </Content>
       </Container>
