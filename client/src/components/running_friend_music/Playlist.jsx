@@ -179,12 +179,14 @@ function Playlist({ selectedTracks }){
     const [selectedUris, setSelectedUris] = useState([]); // State to store selected uris
 
 
+    const [selectedUris, setSelectedUris] = useState([]); // State to store selected uris
+
+
     const handleDelete = (index) => {
         const newTracks = [...tracks];
         newTracks.splice(index, 1);
         setTracks(newTracks);
 
-   
 
     };
       useEffect(() => {
@@ -209,12 +211,14 @@ function Playlist({ selectedTracks }){
           };
         }
       }, [selectedTracks]);
+
       const handleDoneClick = () => {
         const uris = selectedTracks.map((track) => track.uri);
         setSelectedUris(uris);
         console.log(uris)
         navigate("/running/friend", { state: { uris } });
       };
+
     return(
         <>
             {showToast && (
@@ -236,6 +240,7 @@ function Playlist({ selectedTracks }){
                     ))}
                 </PlaylistContainer>
                 
+
                 <Done onClick={ handleDoneClick }>
                   <Donetxt>done</Donetxt>
                 </Done>

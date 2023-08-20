@@ -122,7 +122,7 @@ const NotBack = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.5);
 `
 
 const NotOpen = styled.img`
@@ -226,7 +226,7 @@ function Right() {
           <Card bgCity={backAirport}>
             <Head>
               <h6>MATE WORLD</h6>
-              <h1>You can travel with <br></br>SOCIAL WALKERS! </h1>
+              <h1>You can travel with <br></br>Social Walkers!</h1>
             </Head>
             <Footer>
               <Title>
