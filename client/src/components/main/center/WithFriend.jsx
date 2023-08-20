@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import profile10 from "../../image/main_profile.svg";
+import profile10 from "../../image/main_profile10.svg";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { isCall, isCalling, isData } from "../../../atoms";
 import { useNavigate } from "react-router-dom";
