@@ -7,8 +7,6 @@ import background from "../../image/main_back.png"
 import angleLeft from "../../image/main_left.svg";
 import angleRight from "../../image/main_right.svg";
 import { useState } from "react";
-import { isFirst } from "../../../atoms";
-import { useRecoilValue } from "recoil";
 
 
 const Container = styled.div`
@@ -36,19 +34,11 @@ const GoToRight = styled.img`
 `
 
 function Center( ) {
-  const checkFirst = useRecoilValue(isFirst); // true : 첫 진입, false : 이미 유저
 
     return (
       <Container >
-        {
-          checkFirst ?
-            null
-          :
-          <>
-            <GoToLeft src={angleLeft} />
-            <GoToRight src={angleRight} />
-          </>
-        }
+        <GoToLeft src={angleLeft} />
+        <GoToRight src={angleRight} />
         <Top />
         <TodayRun />
         <MyCh />

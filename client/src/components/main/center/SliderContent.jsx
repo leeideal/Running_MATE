@@ -1,13 +1,9 @@
 import styled from "styled-components";
 import logout from "../../image/nav_logout.svg";
 import search from "../../image/nav_search.svg";
-import profile10 from "../../image/main_profile10.svg";
 import profile from "../../image/main_profile.svg";
-import profile2 from "../../image/main_profile2.svg";
 import {useForm} from "react-hook-form"
 import { useState } from "react";
-import { isData } from "../../../atoms";
-import { useRecoilValue } from "recoil";
 
 
 const Container = styled.div`
@@ -151,13 +147,47 @@ const data = [
         "name" : "Erisson",
         "statue" : 0
     },
+    {
+        "id" : 2,
+        "name" : "Erisson",
+        "statue" : 0
+    },
+    {
+        "id" : 3,
+        "name" : "Erisson",
+        "statue" : 1
+    },
+    {
+        "id" : 4,
+        "name" : "Erisson",
+        "statue" : 0
+    },
+    {
+        "id" : 5,
+        "name" : "Erisson",
+        "statue" : 2
+    },
+    {
+        "id" : 6,
+        "name" : "Erisson",
+        "statue" : 1
+    },
+    {
+        "id" : 7,
+        "name" : "Erisson",
+        "statue" : 0
+    },
+    {
+        "id" : 8,
+        "name" : "Erisson",
+        "statue" : 0
+    },
 ]
 
 
 function SliderContent() {
     const {register, handleSubmit} = useForm();
     const [serachActive, isSearchActive] = useState(false);
-    const userDB = useRecoilValue(isData);
 
     const onValid = (data) => {
         console.log(data);
@@ -178,10 +208,10 @@ function SliderContent() {
             <Box>   
                 <Info>
                     <Status isActive="#78AFFF"></Status>
-                    <Name>Hi! {userDB?.nickName}</Name>
+                    <Name>Hi! Jun</Name>
                 </Info>
                 <Profile >
-                    <ProfileImg src={userDB?.character ? profile : profile2}/>
+                    <ProfileImg src={profile}/>
                 </Profile>
             </Box>
         </Header>
@@ -204,7 +234,7 @@ function SliderContent() {
                 <Item key={data.id}>
                     <Who>
                         <Profile >
-                            <ProfileImg src={profile10}/>
+                            <ProfileImg src={profile}/>
                         </Profile>
                         <Status isActive={data.statue}></Status>
                         <WhoName>

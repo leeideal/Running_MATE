@@ -6,8 +6,8 @@ import shop from "../../image/main_shop.png";
 import btc from "../../image/main_btc.png";
 import { AnimatePresence, motion } from "framer-motion";
 import Select from "./Select";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { isData, isFirst, isRun } from "../../../atoms";
+import { useRecoilState } from "recoil";
+import { isRun } from "../../../atoms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -144,8 +144,6 @@ const Overlay = styled(motion.div)`
 
 function Bottom() {
     const [clicked, setClicked] = useRecoilState(isRun);
-    const checkFirst = useRecoilValue(isFirst); // true : 첫 진입, false : 이미 유저
-    const userDB = useRecoilValue(isData);
 
     const btnClick = () => {
       if(clicked === 1){
@@ -158,63 +156,48 @@ function Bottom() {
     return (
       <>
       <Container >
-
-        {
-          checkFirst ?
-          // 첫 접속
-          null
-          :
-
-          // 이후 접속
-          <Btn onClick={()=>btnClick()} isActive={clicked}>
-            {
-              clicked === 1 ? 
+        <Btn onClick={()=>btnClick()} isActive={clicked}>
+          {
+            clicked === 1 ? 
+            <>
+              <img style={{marginTop:"1px", width:"50px"}} src={xbtn}/>
+            </>
+            :
+              clicked === 2 ?
               <>
-                <img style={{marginTop:"1px", width:"50px"}} src={xbtn}/>
+                <FontAwesomeIcon icon={faRotateLeft} style={{color:"white"}} size="3x"/>
               </>
               :
-                clicked === 2 ?
-                <>
-                  <FontAwesomeIcon icon={faRotateLeft} style={{color:"white"}} size="3x"/>
-                </>
-                :
-                <>
-                  <img src={shoes} />
-                  <h1>RUN</h1>
-                </>
-            }
-          </Btn>
-        }
+              <>
+                <img src={shoes} />
+                <h1>RUN</h1>
+              </>
+          }
+        </Btn>
 
         <Back>
             <Img src={bottom}/>
 
-            {
-              checkFirst ?
-                null
-              :
-              <Real>
-                  {/* 사용자 정보 */}
-                  <Info>
-                    <Btc>
-                      <img src={btc} />
-                      <h1>{userDB?.totalCoin}</h1>
-                    </Btc>
-                    <Day>
-                      <h1>{userDB?.totalDay}</h1>
-                      <p>days</p>
-                      <h1>{userDB?.totalRun}</h1>
-                      <p>km</p>
-                    </Day>
-                  </Info>
+            <Real>
+                {/* 사용자 정보 */}
+                <Info>
+                  <Btc>
+                    <img src={btc} />
+                    <h1>23000</h1>
+                  </Btc>
+                  <Day>
+                    <h1>32</h1>
+                    <p>days</p>
+                    <h1>120</h1>
+                    <p>km</p>
+                  </Day>
+                </Info>
 
-                  <Shop>
-                    <img src={shop}/>
-                    <h1>Shoe Shop</h1>
-                  </Shop>
-              </Real>
-
-            }
+                <Shop>
+                  <img src={shop}/>
+                  <h1>Shoe Shop</h1>
+                </Shop>
+            </Real>
         </Back>
       </Container>
 
