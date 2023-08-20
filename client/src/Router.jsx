@@ -2,12 +2,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./router/Main";
 import Login from "./router/Login";
 import { PrivateRoutes } from "./PrivateRoutes";
+
 import RunningFriend from "./router/RunningFriend";
 import RunningFriendIng from "./router/RunningFriendIng";
 import RunningFriendMusic from "./router/RunningFriendMusic";
 import RunningFriendFinish from "./router/RunningFriendFinish";
 import RunningFriendResult from "./router/RunningFriendResult";
+
+import RunningAlone from "./router/RunningAlone";
+import RunningAloneIng from "./router/RunningAloneIng";
+import RunningAloneFinish from "./router/RunningAloneFinish";
+import RunningAloneResult from "./router/RunningAloneResult";
 import Insta from "./router/Insta";
+import InstaAlone from "./router/InstaAlone";
 import Create from "./router/Create";
 import Tutorial from "./router/Tutorial";
 import Story from "./router/Story";
@@ -21,7 +28,13 @@ function Router() {
                 <Route element={<PrivateRoutes />}>
                     <Route path="/" element={<Main />} exact />  {/* 메인페이지 */}
                     
-                    <Route path="/running/friend/music" element={<RunningFriendMusic />} exact />{ /* 러닝 -친구페이지(플레이리스트 쌓기) */}
+                    <Route path="/running/alone" element={<RunningAlone />} exact /> {/*러닝 - 혼자 페이지(목표설정)*/}
+                    <Route path="/running/alone/ing" element={<RunningAloneIng />} exact /> {/*러닝중 - 혼자페이지 */}
+                    <Route path="/running/alone/finish" element={<RunningAloneFinish />} exact /> {/* 러닝끝 -혼자페이지 */}
+                    <Route path="/running/alone/finish/result" element={<RunningAloneResult />} exact />{/*러닝결과 - 친구페이지*/}
+                    <Route path="/running/alone/finish/result/insta" element={<InstaAlone />} exact />
+                    
+                    <Route path="/running/friend/music" element={<RunningFriendMusic />} exact /> { /* 러닝 -친구페이지(플레이리스트 쌓기) */}
                     <Route path="/running/friend" element={<RunningFriend />} exact />  {/* 러닝 - 친구페이지(목표설정) */}
                     <Route path="/running/friend/ing" element={<RunningFriendIng />} exact />{/* 러닝중 - 친구페이지 */}
                     <Route path="/running/friend/finish" element={<RunningFriendFinish />} exact />{/* 러닝끝 -친구페이지 */}
