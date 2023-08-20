@@ -7,7 +7,7 @@ import background from "../components/image/main_back.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Center from "../components/main/center/Center";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc  } from "firebase/firestore";
 import { useRecoilState } from "recoil";
 import { isData, isFirst } from "../atoms";
 import { AnimatePresence } from "framer-motion";
@@ -48,12 +48,18 @@ function Main() {
 
     if (docSnap.exists()) {
       setCheckFirst(false);
-      setUserDB(docSnap.data())
+      const outRef = doc(db, "userDB", uid.uid);
+      await updateDoc(outRef, {
+            "status": 0
+      });
+      const docSnap = await getDoc(docRef);
+      setUserDB(docSnap.data());
     } else {
       setCheckFirst(true);
       console.log("No such document!");
     }
   }
+
 
   setTimeout(()=>{setIsLoading(false)}, 3000);
 

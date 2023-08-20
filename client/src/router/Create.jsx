@@ -123,7 +123,7 @@ function Create() {
             dateExample: Timestamp.fromDate(new Date("December 10, 1815")),
             friendList: [],
             todayCoin: 150,
-            totalCoin: 23000,
+            totalCoin: 150,
             todayRun : 0,
             todayKcal : 0,
             totalDay : 1,
