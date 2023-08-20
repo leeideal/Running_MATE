@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import angleLeft from "../image/main_left.svg";
-import background from "../image/main_back2.png"
-import { useState } from "react";
+import angleRight from "../../image/main_right.svg";
+import background from "../../image/main_back2.png"
+import { isBack, isMainPage } from "../../../atoms";
 
 const Container = styled.div`
   width: 100%;
@@ -14,19 +14,20 @@ const Container = styled.div`
   background-size : cover;
 `
 
-const GoToLeft = styled.img`
+const GoToRight = styled.img`
   position: absolute;
-  left: 5%;
+  right: 5%;
   top : 48%;
 `
 
-function Right() {
+
+function Left() {
 
     return (
-      <Container>
-        <GoToLeft src={angleLeft} />
+      <Container >
+        <GoToRight src={angleRight} />
       </Container>
     )
   }
   
-  export default Right;
+  export default Left;
