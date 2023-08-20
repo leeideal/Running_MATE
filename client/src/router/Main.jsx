@@ -1,8 +1,8 @@
 import Loding from "../components/Loding";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import Right from "../components/main/Right";
-import Left from "../components/main/Left";
+import Right from "../components/main/right/Right";
+import Left from "../components/main/left/Left";
 import background from "../components/image/main_back.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
