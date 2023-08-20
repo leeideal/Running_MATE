@@ -117,7 +117,7 @@ function Top() {
             <Container >
             <Box>
                 <Info>
-                  <Status isActive="#78AFFF"></Status>
+                  <Status isActive={userDB?.status === 0 ? "#78AFFF" : userDB?.status === 1 ? "#AFFF7E" : "#B7C7DF"}></Status>
                   <Name>Hi! {userDB?.nickName}</Name>
                 </Info>
                 <Profile onClick={()=>setIsopen(prev => !prev)}>
