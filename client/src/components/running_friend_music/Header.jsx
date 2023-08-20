@@ -81,9 +81,9 @@ const Header = () => {
       />
       <Title>RUNNING</Title>
       <Blank />
-      <Done onClick={() => {
+      {/* <Done onClick={() => {
         navigate("/running/friend");
-      }}><Donetxt>done</Donetxt></Done>
+      }}><Donetxt>done</Donetxt></Done> */}
     </HeaderContainer>
   );
 };

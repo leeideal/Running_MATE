@@ -19,7 +19,7 @@ const Input =styled.input`
     border: 1px solid var(--primary-primary-dark-3, #B7C7DF);
     background: rgba(255, 255, 255, 0.50);
     color: var(--font-font-default, #414F64);
-
+    
     /* RUNNINGMATE R/20 */
     font-family: Outfit;
     font-size: 20px;
@@ -64,7 +64,7 @@ const AlbumImage = styled.img`
 
 const Name = styled.div`
     color: var(--font-font-default, #414F64);
-    width: 209px;
+    width : fit-content;
     /* RUNNINGMATE B/20 */
     font-family: Outfit;
     font-size: 20px;
@@ -75,14 +75,16 @@ const Name = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align:left;
     position:relative;
     left:68px;
+    top:4px;
 
 `;
 
 const Artist = styled.div`
     color: var(--font-font-default, #414F64);
-
+    width : fit-content;
     /* RUNNINGMATE R/12 */
     font-family: Outfit;
     font-size: 12px;
@@ -92,6 +94,7 @@ const Artist = styled.div`
     letter-spacing: 0.03px;
     position:relative;
     left:68px;
+    top:4px;
 `;
 
 const Addbtn = styled.img`
@@ -101,6 +104,7 @@ const Addbtn = styled.img`
     position:absolute;
     right:22px;
     top:19px;
+ 
 `;
 
 
@@ -113,7 +117,7 @@ function Search(){
     const [searchResults, setSearchResults] = useState([]);
     const basicAuth = btoa(`${clientId}:${clientSecret}`);
     const [toastVisible, setToastVisible] = useState(false); // Manage toast visibility state
-
+    const [selectedTracks, setSelectedTracks] = useState([]);
     // 토큰 요청
     const getToken = async () => {
         const response = await fetch("https://accounts.spotify.com/api/token", {
@@ -158,6 +162,11 @@ function Search(){
 
     const handleAddButtonClick = (track) => {
         console.log("Adding to playlist:", track);
+        setSelectedTracks((prevSelectedTracks) => [...prevSelectedTracks, track]);
+        setToastVisible(true);
+        setTimeout(() => {
+            setToastVisible(false);
+        }, 3000); // Hide the toast after 3 seconds
         
     };
 
@@ -165,6 +174,7 @@ function Search(){
 
     return(
         <>
+            
             <Bar>
             <Input
                     type="text"
@@ -172,11 +182,10 @@ function Search(){
                     onChange={handleInputChange}
                     
             >
-            
             </Input>
             <Icon src={searchicon} onClick={handleIconClick} />
             
-    
+          
                
             </Bar>
             <div>
@@ -186,13 +195,13 @@ function Search(){
                                 src={addbtn}
                                 onClick={() => handleAddButtonClick(result)}
                             />
-                            <Name>{result.name}</Name>
+                            <Name>{result.name.length > 8 ? `${result.name.substr(0,8)}...` : result.name }</Name>
                             <Artist>{result.artists[0].name}</Artist>
                             <AlbumImage src={result.album.images[0].url} alt="Album" />
-                            
                         </SearchResult>
-                     
+                       
                     ))}
+                    <Playlist selectedTracks={selectedTracks} />
             </div>
    
         </>
