@@ -8,6 +8,8 @@ import RunningFriendMusic from "./router/RunningFriendMusic";
 import RunningFriendFinish from "./router/RunningFriendFinish";
 import RunningFriendResult from "./router/RunningFriendResult";
 import Insta from "./router/Insta";
+import Create from "./router/Create";
+import Tutorial from "./router/Tutorial";
 
 
 function Router() {
@@ -24,6 +26,10 @@ function Router() {
                     <Route path="/running/friend/finish" element={<RunningFriendFinish />} exact />{/* 러닝끝 -친구페이지 */}
                     <Route path="/running/friend/finish/result" element={<RunningFriendResult />} exact />{/*러닝결과 - 친구페이지*/}
                     <Route path="/running/friend/finish/result/insta" element={<Insta />} exact /> {/*인스타 다운로드할 사진 */} 
+
+                    <Route path="/create"  element ={<Create />} exact /> {/* 캐릭터 생성 페이지 */} 
+
+                    <Route path="/tutorial" element={<Tutorial />} exact /> {/* 튜토리얼 페이지 */} 
 
                 </Route>
 
