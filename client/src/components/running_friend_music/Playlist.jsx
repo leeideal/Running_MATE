@@ -176,6 +176,8 @@ function Playlist({ selectedTracks }){
     const [showToast, setShowToast] = useState(false);
     const [tracks, setTracks] = useState(selectedTracks);
     const toastContainerRef = useRef(null);
+    const [selectedUris, setSelectedUris] = useState([]); // State to store selected uris
+
 
     const [selectedUris, setSelectedUris] = useState([]); // State to store selected uris
 
@@ -241,7 +243,6 @@ function Playlist({ selectedTracks }){
 
                 <Done onClick={ handleDoneClick }>
                   <Donetxt>done</Donetxt>
-               
                 </Done>
                 
             </ToastContainer>
