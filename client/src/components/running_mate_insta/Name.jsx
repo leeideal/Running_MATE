@@ -1,8 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
+
 import { isData } from "../../atoms";
 import { useRecoilValue } from "recoil";
-
 const Username = styled.div`
     color: var(--white, #FFF);
     text-align: right;
@@ -40,11 +40,10 @@ const Friendname = styled.div`
 
 function Name(){
     const userDB = useRecoilValue(isData);
-    
     return(
         <>
             <Username>@ {userDB?.nickName}</Username>
-
+            <Friendname>@Gabriel</Friendname>
         </>
         
     );

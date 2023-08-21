@@ -4,7 +4,10 @@ import usercharacter from '../image/UserCharacter.png';
 import friendcharacter from '../image/FriendCharacter.png';
 import { setTime, setSpeed, setKal, setDistance } from "../../store";
 import { useSelector, useDispatch } from "react-redux";
-
+import profile from "../image/create_ch1.png";
+import profile2 from "../image/create_ch2.png";
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 import Popup from './Popup';
 
 const Gaugeback = styled.div`
@@ -243,14 +246,14 @@ function Gauge() {
     const handlePopupClose = () => {
         setShowPopup(false);
     };
-
+    const userDB = useRecoilValue(isData);
 
 
     return (
         <>
             <Gaugeback />
             <Gaugecolor progress={calculatedProgress} />
-            <Usermini progress={calculatedProgress} src={usercharacter} />
+            <Usermini progress={calculatedProgress} src={userDB?.character ? profile : profile2}/>
             <Friendmini progress2={progress2} src={friendcharacter} />
             <Infocontainer>
                 <Min>{String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}

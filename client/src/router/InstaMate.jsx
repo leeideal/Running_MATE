@@ -1,18 +1,20 @@
 import React, { useRef } from "react";
 import styled from 'styled-components';
 import html2canvas from 'html2canvas'; // HTML2Canvas 라이브러리 추가
-import profile from "../components/image/create_ch1.png";
-import profile2 from "../components/image/create_ch2.png";
+
 import Userimg from '../components/image/UserCharacter.png';
-import Location from '../components/running_alone_insta/Location';
-import Date from '../components/running_alone_insta/Date';
-import Name from '../components/running_alone_insta/Name';
-import RunningInfo from "../components/running_alone_insta/RunningInfo";
+import Friendimg from '../components/image/FriendCharacter.png';
+import Location from '../components/running_mate_insta/Location';
+import Date from '../components/running_mate_insta/Date';
+import Name from '../components/running_mate_insta/Name';
+import RunningInfo from "../components/running_mate_insta/RunningInfo";
 import store from '../store'; 
 import { Provider } from 'react-redux';
 import { isData } from "../atoms";
 import { useRecoilValue } from "recoil";
 
+import profile from "../components/image/create_ch1.png";
+import profile2 from "../components/image/create_ch2.png";
 const Container = styled.div`
     width: 395px;
     height: 635px;
@@ -72,9 +74,9 @@ const SaveButton = styled.button`
     cursor: pointer;
 `;
 
-function InstaAlone() {
+function InstaMate() {
     const containerRef = useRef(null);
-    const userDB = useRecoilValue(isData);
+
     const handleSaveImage = () => {
         html2canvas(containerRef.current).then(canvas => {
             const link = document.createElement('a');
@@ -83,12 +85,14 @@ function InstaAlone() {
             link.click();
         });
     };
+    const userDB = useRecoilValue(isData);
 
     return (
         <Provider store={store}>
             <Container ref={containerRef}>
                 <Rm>RUNNINGMATE</Rm>
-                <User src={userDB?.character ? profile : profile2}/>
+                <Friend src={Friendimg}/>
+                <User src={userDB?.character ? profile : profile2} />
                 <Location />
                 <Date />
                 <Name />
@@ -99,4 +103,4 @@ function InstaAlone() {
     );
 }
 
-export default InstaAlone;
+export default InstaMate;

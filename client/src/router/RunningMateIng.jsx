@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
-import background from "../components/image/running_ing_back.png";
+import background from "../components/image/running_mate_ing.png";
 import { motion } from "framer-motion";
-import Gauge from "../components/running_friend_ing/Gauge";
-import Character from "../components/running_friend_ing/Character";
-import Coin from "../components/running_friend_ing/Coin";
-import Speed from "../components/running_friend_ing/Speed";
-import Music from "../components/running_friend_music/Music";
+import Gauge from "../components/running_mate_ing/Gauge";
+import Character from "../components/running_mate_ing/Character";
+import Coin from "../components/running_mate_ing/Coin";
+import Speed from "../components/running_mate_ing/Speed";
+import Music from "../components/running_mate_music/Music";
 import { Provider } from "react-redux";
 import store from '../store.js';
-
 
 const Container = styled(motion.div)`
     position: relative;
@@ -23,7 +22,8 @@ const Container = styled(motion.div)`
 `;
 
 
-function RunningFriendIng() {
+function RunningMateIng() {
+    
 
     return (
         <Provider store={store}>
@@ -38,4 +38,4 @@ function RunningFriendIng() {
     );
 }
 
-export default RunningFriendIng;
+export default RunningMateIng;

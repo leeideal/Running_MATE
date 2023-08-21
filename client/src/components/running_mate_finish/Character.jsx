@@ -6,6 +6,7 @@ import profile from "../image/create_ch1.png";
 import profile2 from "../image/create_ch2.png";
 import { isData } from "../../atoms";
 import { useRecoilValue } from "recoil";
+
 const CharacterContainer = styled.div`
   display: flex;
   width: 246.303px;
@@ -27,7 +28,7 @@ const FriendCharacter = styled.img`
     flex-shrink: 0;
     position:absolute;
     top:336px;
-    left:36px;
+    left:26px;
     z-index:10;
 
 `;
@@ -37,7 +38,7 @@ const UserCharacter = styled.img`
     height: 249px;
     flex-shrink: 0;
     position:absolute;
-    left:179px;
+    left:169px;
     top:358px;
     z-index:5;
 `;
