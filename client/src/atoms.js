@@ -71,3 +71,19 @@ export const isData = atom({
     key:"isData",
     default:null,
 })
+
+
+export const isReady = atom({
+    key:"isReady",
+    default : false,
+})
+
+export const isGabriel = atom({
+    key:"isGabriel",
+    default:false,
+})
+
+export const isAnswered = atom({
+    key:"isAnswered",
+    default : 0,
+})

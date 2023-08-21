@@ -108,56 +108,6 @@ const HangBtn = styled.div`
     border: 1px solid #00518B;
 `
 
-const data_many = [
-    {
-        "id" : 1,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-    {
-        "id" : 2,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-    {
-        "id" : 3,
-        "name" : "Erisson",
-        "statue" : 1
-    },
-    {
-        "id" : 4,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-    {
-        "id" : 5,
-        "name" : "Erisson",
-        "statue" : 2
-    },
-    {
-        "id" : 6,
-        "name" : "Erisson",
-        "statue" : 1
-    },
-    {
-        "id" : 7,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-    {
-        "id" : 8,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-]
-
-const data = [
-    {
-        "id" : 1,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-]
 
 function WithFriend() {
     const [letCall, letCallFn] = useRecoilState(isCall);
@@ -201,7 +151,7 @@ function WithFriend() {
                             <RunBtn onClick={()=>{
                                 getCallFn(1)
                                 letCallFn(true)
-                                navigate('/running/friend');
+                                navigate('/calling');
                             }} id="btn-call" isActive={data.status}>
                                 Run together
                             </RunBtn>

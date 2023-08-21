@@ -4,7 +4,10 @@ import usercharacter from '../image/UserCharacter.png';
 import friendcharacter from '../image/FriendCharacter.png';
 import { setTime, setSpeed, setKal, setDistance } from "../../store";
 import { useSelector, useDispatch } from "react-redux";
-
+import profile from "../image/create_ch1.png";
+import profile2 from "../image/create_ch2.png";
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 import Popup from './Popup';
 
 const Gaugeback = styled.div`
@@ -35,19 +38,19 @@ const Gaugecolor = styled.div`
 
 const Usermini = styled.img`
     position: absolute;
-    top: 49px;
+    top: 44px;
     left: ${ ({ progress }) => (progress)}%;
-    width: 34px;
+    width: 33px;
     height: 49px;
     flex-shrink: 0;
 `;
 
 const Friendmini = styled.img`
     position: absolute;
-    top: 44px;
-    left: ${({ progress2 }) => (progress2)}%;
-    width: 45px;
-    height: 54px;
+    top: 49px;
+    left: ${({progress2 }) => (progress2)}%;
+    width: 33px;
+    height: 49px;
     flex-shrink: 0;
 `;
 
@@ -243,15 +246,15 @@ function Gauge() {
     const handlePopupClose = () => {
         setShowPopup(false);
     };
-
+    const userDB = useRecoilValue(isData);
 
 
     return (
         <>
             <Gaugeback />
             <Gaugecolor progress={calculatedProgress} />
-            <Usermini progress={calculatedProgress} src={usercharacter} />
-            <Friendmini progress2={progress2} src={friendcharacter} />
+            <Usermini progress={calculatedProgress} src={profile2} />
+            <Friendmini progress2={progress2} src={userDB?.character ? profile : profile2} />
             <Infocontainer>
                 <Min>{String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
                     <Mintag>MIN</Mintag>

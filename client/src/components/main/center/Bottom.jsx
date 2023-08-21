@@ -7,9 +7,11 @@ import btc from "../../image/main_btc.png";
 import { AnimatePresence, motion } from "framer-motion";
 import Select from "./Select";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { isData, isFirst, isRun } from "../../../atoms";
+import { isData, isFirst, isGabriel, isReady, isRun } from "../../../atoms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
+import Ready from "../../Ready";
+import ChooseMate from "./ChooseMate";
 
 const Container = styled.div`
   width: 100%;
@@ -140,12 +142,28 @@ const Overlay = styled(motion.div)`
     backdrop-filter: blur(10px);
 `;
 
+const Overlay2 = styled(motion.div)`
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+`;
+
 
 
 function Bottom() {
     const [clicked, setClicked] = useRecoilState(isRun);
     const checkFirst = useRecoilValue(isFirst); // true : 첫 진입, false : 이미 유저
     const userDB = useRecoilValue(isData);
+    const [ready, setReady] = useRecoilState(isReady);
+    const [isGa, setIsGa] = useRecoilState(isGabriel);
 
     const btnClick = () => {
       if(clicked === 1){
@@ -208,7 +226,7 @@ function Bottom() {
                     </Day>
                   </Info>
 
-                  <Shop>
+                  <Shop onClick={()=>setReady(true)}>
                     <img src={shop}/>
                     <h1>Shoe Shop</h1>
                   </Shop>
@@ -218,7 +236,7 @@ function Bottom() {
         </Back>
       </Container>
 
-      {/* 모달창 */}
+      {/* select 모달창 */}
         <AnimatePresence>
           {clicked !== 0 ? 
             <Overlay 
@@ -231,6 +249,32 @@ function Bottom() {
             :
             null}
         </AnimatePresence>
+
+      {/* 준비중 모달창 */}
+      <AnimatePresence>{ready ? 
+                        <Overlay2 
+                            initial={{ opacity : 0}}
+                            animate={{ opacity: 1 }} 
+                            exit={{ opacity: 0 }}
+                        >
+                            <Ready />
+                        </Overlay2> : null}
+            </AnimatePresence>
+
+        {/* mate 모달창 */}
+        <AnimatePresence>
+          {isGa ? 
+            <Overlay2 
+              initial={{ opacity : 0}}
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+            >
+                <ChooseMate />
+            </Overlay2> 
+            :
+            null}
+        </AnimatePresence>
+
       </>
     )
   }

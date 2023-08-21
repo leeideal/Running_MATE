@@ -1,6 +1,13 @@
 import React from 'react';
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { isAnswered, isCall, isCalling, isData } from '../../atoms';
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from '../../firebase';
+import NexmoClient from 'nexmo-client';
+
 
 const Container = styled.div`
     width: 114px;
@@ -33,8 +40,35 @@ const Text = styled.div`
 `;
 
 function Gohome(){
+    const [answer, setAnswer] = useRecoilState(isAnswered);
     const navigate = useNavigate();
-    const handleButtonClick = () => {
+    const kal = useSelector((state) => state.kal); 
+    const time = useSelector((state) => state.time);
+    const distance = useSelector((state)=>state.distance);
+    const coin = useSelector((state => state.coin));
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+
+    const userDB = useRecoilValue(isData);
+    const [letCall, letCallFn] = useRecoilState(isCall);
+    const [getCall, getCallFn] = useRecoilState(isCalling);
+
+    const handleButtonClick = async() => {
+        letCallFn(false);
+        getCallFn(2);
+        console.log(letCall, getCall);
+
+        const uid = JSON.parse(localStorage.getItem('userInfo'));
+        const outRef = doc(db, "userDB", uid.uid);
+        await updateDoc(outRef, {
+            "todayCoin": userDB.todayCoin + coin,
+            "todayKcal" : userDB.todayKcal + parseInt(kal),
+            "todayRun" : userDB.todayRun + Math.round(distance * 100) / 100,
+            "totalCoin": userDB.todayCoin + coin,
+            "totalKcal" : userDB.todayKcal + parseInt(kal),
+            "totalRun" : userDB.todayRun + Math.round(distance * 100) / 100,
+        });
+        setAnswer(0);
         // 버튼 클릭 시 페이지 이동
         navigate("/");
     };

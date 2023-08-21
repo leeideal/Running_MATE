@@ -61,7 +61,7 @@ function Main() {
   }
 
 
-  setTimeout(()=>{setIsLoading(false)}, 3000);
+  setTimeout(()=>{setIsLoading(false)}, 4000);
 
   useEffect(()=>{
     getUsetDB();

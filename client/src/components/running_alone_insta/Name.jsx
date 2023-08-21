@@ -1,5 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 
 const Username = styled.div`
     color: var(--white, #FFF);
@@ -37,9 +39,11 @@ const Friendname = styled.div`
 {/*유저,친구 이름 받아오는 작업 필요 */}
 
 function Name(){
+    const userDB = useRecoilValue(isData);
+    
     return(
         <>
-            <Username>@Jon</Username>
+            <Username>@ {userDB?.nickName}</Username>
 
         </>
         

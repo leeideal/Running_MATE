@@ -1,8 +1,8 @@
-import React from "react";
+import React,{ useState, useEffect } from "react";
 import styled from "styled-components";
 import coinimg from "../image/coin.png";
-import { Provider } from "react-redux";
-import store from "../../store.js";
+import { Provider, useDispatch } from "react-redux";
+import store, {setCoin} from "../../store.js";
 const Coinicon = styled.img`
     width: 28px;
     height: 28px;
@@ -37,12 +37,23 @@ const Coinnum = styled.div`
 
 
 function Coin(){
+    const [coinValue, setCoinValue] = useState(0);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setCoinValue(prevValue => prevValue + 1);
+          dispatch(setCoin(interval));
+        }, 1000); 
     
+        return () => {
+          clearInterval(interval); 
+        };
+      }, [dispatch]);
     return(
         <Provider store={store}>
 
             <Coinicon src={coinimg} />
-            <Coinnum>23000</Coinnum>
+            <Coinnum>{coinValue*10}</Coinnum>
         </Provider>
             
         

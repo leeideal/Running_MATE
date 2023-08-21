@@ -10,6 +10,7 @@ import Music from "../components/running_friend_music/Music";
 import { Provider } from "react-redux";
 import store from '../store.js';
 
+
 const Container = styled(motion.div)`
     position: relative;
     width: 100%;
@@ -23,7 +24,6 @@ const Container = styled(motion.div)`
 
 
 function RunningFriendIng() {
-    
 
     return (
         <Provider store={store}>

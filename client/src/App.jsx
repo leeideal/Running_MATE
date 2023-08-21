@@ -3,8 +3,8 @@ import { db } from "./firebase";
 import Router from "./Router";
 import { createGlobalStyle, styled } from "styled-components";
 import NexmoClient from 'nexmo-client';
-import { useRecoilState } from "recoil";
-import { isCall } from "./atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { isAnswered, isCall, isData } from "./atoms";
 import { isCalling } from "./atoms";
 
 
@@ -94,23 +94,34 @@ function App() {
   const callJWT = import.meta.env.VITE_APP_CALL_JWT;
   const [letCall, letCallFn] = useRecoilState(isCall);
   const [getCall, getCallFn] = useRecoilState(isCalling);
-
+  const [answer, setAnswer] = useRecoilState(isAnswered);
+  const userDB = useRecoilValue(isData);
   new NexmoClient({ debug: true })
-            .createSession(callJWT)
+            .createSession(userDB?.inAppToken ? userDB.inAppToken : callJWT)
             .then(app => {
                 // 전화 걸기
                 if((letCall) && (getCall === 1)){
                   console.log("Calling...");
-                  app.callServer("Erisson", "app");
+                  app.callServer("bob", "app");
                 }
-                // 끊는게 안됨
-                else if((!letCall) && (getCall === 2)){
+          
                   app.on("member:call", (member, call) => {
-                    console.log("Hanging up...");
-                    call.hangUp();
-                    //getCall(0);
+                    
+                    if(getCall === 2){
+                      console.log("Hanging up...");
+                      call.hangUp();
+                      //getCallFn(0);
+                    }
                   });
-                }
+
+                  app.on("call:status:changed", call => {
+                    console.log("Call 데이터 변환 중!!")
+                    console.log("call 데이터 : ",call.status)
+                    if((call.status === "answered") && answer === 0){
+                      setAnswer(1);
+                    }
+                  });
+                
             })
             .catch(console.error);
   

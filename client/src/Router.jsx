@@ -9,15 +9,23 @@ import RunningFriendMusic from "./router/RunningFriendMusic";
 import RunningFriendFinish from "./router/RunningFriendFinish";
 import RunningFriendResult from "./router/RunningFriendResult";
 
+import RunningMate from "./router/RunningMate";
+import RunningMateIng from "./router/RunningMateIng";
+// import RunningMateMusic from "./router/RunningMateMusic";
+import RunningMateFinish from "./router/RunningMateFinish";
+import RunningMateResult from "./router/RunningMateResult";
+
 import RunningAlone from "./router/RunningAlone";
 import RunningAloneIng from "./router/RunningAloneIng";
 import RunningAloneFinish from "./router/RunningAloneFinish";
 import RunningAloneResult from "./router/RunningAloneResult";
 import Insta from "./router/Insta";
 import InstaAlone from "./router/InstaAlone";
+import InstaMate from "./router/InstaMate";
 import Create from "./router/Create";
 import Tutorial from "./router/Tutorial";
 import Story from "./router/Story";
+import Calling from "./router/Calling";
 
 
 function Router() {
@@ -33,7 +41,14 @@ function Router() {
                     <Route path="/running/alone/finish" element={<RunningAloneFinish />} exact /> {/* 러닝끝 -혼자페이지 */}
                     <Route path="/running/alone/finish/result" element={<RunningAloneResult />} exact />{/*러닝결과 - 친구페이지*/}
                     <Route path="/running/alone/finish/result/insta" element={<InstaAlone />} exact />
-                    
+
+                    <Route path="/running/friend/music" element={<RunningFriendMusic />} exact /> { /* 러닝 -친구페이지(플레이리스트 추천) */}
+                    <Route path="/running/mate" element={<RunningMate />} exact /> {/*러닝 - 메이트페이지(목표설정)*/}
+                    <Route path="/running/mate/ing" element={<RunningMateIng />} exact /> {/*러닝중 - 메이트페이지 */}
+                    <Route path="/running/mate/finish" element={<RunningMateFinish />} exact /> {/*러닝끝 - 메이트페이지*/} 
+                    <Route path="/running/mate/finish/result" element={<RunningMateResult />} exact />{/*러닝결과 - 메이트페이지*/}
+                    <Route path="/running/mate/finish/result/insta" element={<InstaMate />} exact />
+
                     <Route path="/running/friend/music" element={<RunningFriendMusic />} exact /> { /* 러닝 -친구페이지(플레이리스트 쌓기) */}
                     <Route path="/running/friend" element={<RunningFriend />} exact />  {/* 러닝 - 친구페이지(목표설정) */}
                     <Route path="/running/friend/ing" element={<RunningFriendIng />} exact />{/* 러닝중 - 친구페이지 */}
@@ -46,6 +61,8 @@ function Router() {
                     <Route path="/tutorial" element={<Tutorial />} exact /> {/* 튜토리얼 페이지 */} 
 
                     <Route path="/story" element={<Story />} exact /> {/* 스토리 페이지 */} 
+
+                    <Route path="/calling" element={<Calling />} exact /> {/* 전화 페이지 */} 
 
                 </Route>
 

@@ -2,6 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Userimg from "../image/UserCharacter.png";
 import { useNavigate } from 'react-router-dom';
+import profile from "../image/create_ch1.png";
+import profile2 from "../image/create_ch2.png";
+
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 
 const Container = styled.div`
     width:100%;
@@ -27,14 +32,14 @@ const User = styled.img`
 
 function Character (){
     const navigate = useNavigate();
-
+    const userDB = useRecoilValue(isData);
     const handleClick = () => {
         navigate("/running/alone/finish");
     }
 
     return(
         <Container>
-            <User src={Userimg} onClick={handleClick} />
+            <User src={userDB?.character ? profile : profile2} onClick={handleClick} />
         </Container>
     )
 }

@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { isData } from '../../atoms';
+import { useRecoilValue } from 'recoil';
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from '../../firebase';
 
 const Container = styled.div`
     width: 114px;
@@ -33,8 +38,27 @@ const Text = styled.div`
 `;
 
 function Gohome(){
+    const kal = useSelector((state) => state.kal); 
+    const time = useSelector((state) => state.time);
+    const distance = useSelector((state)=>state.distance);
+    const coin = useSelector((state => state.coin));
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
     const navigate = useNavigate();
-    const handleButtonClick = () => {
+
+    const userDB = useRecoilValue(isData);
+    const handleButtonClick = async() => {
+        const uid = JSON.parse(localStorage.getItem('userInfo'));
+        const outRef = doc(db, "userDB", uid.uid);
+        await updateDoc(outRef, {
+            "todayCoin": userDB.todayCoin + coin,
+            "todayKcal" : userDB.todayKcal + parseInt(kal),
+            "todayRun" : userDB.todayRun + Math.round(distance * 100) / 100,
+            "totalCoin": userDB.todayCoin + coin,
+            "totalKcal" : userDB.todayKcal + parseInt(kal),
+            "totalRun" : userDB.todayRun + Math.round(distance * 100) / 100,
+        });
+        
         // 버튼 클릭 시 페이지 이동
         navigate("/");
     };

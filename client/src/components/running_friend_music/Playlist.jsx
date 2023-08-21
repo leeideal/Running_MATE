@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import userimg from "../image/usercharacter_top.png";
 import eclipse from "../image/eclipse.png";
 import deleteicon from "../image/delete.png";
+
 const Text = styled.div`
     color: var(--font-font-default, #414F64);
 
@@ -178,8 +179,6 @@ function Playlist({ selectedTracks }){
     const toastContainerRef = useRef(null);
     const [selectedUris, setSelectedUris] = useState([]); // State to store selected uris
 
-
-    const [selectedUris, setSelectedUris] = useState([]); // State to store selected uris
 
 
     const handleDelete = (index) => {

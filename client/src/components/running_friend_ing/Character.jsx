@@ -2,8 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Userimg from "../image/UserCharacter.png";
 import Friendimg from "../image/FriendCharacter.png";
+import profile from "../image/create_ch1.png";
+import profile2 from "../image/create_ch2.png";
 import Callimg from "../image/call.png";
 import { useNavigate } from 'react-router-dom';
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 
 const User = styled.img`
     width: 211px;
@@ -19,12 +23,12 @@ const User = styled.img`
 const Friend = styled.img`
     top:30px;
     display: flex;
-    width: 195px;
+    width: 160x;
     height: 239px;
     flex-shrink: 0;
     filter: blur(2.5px);
     position:absolute;
-    right:4px;
+    right:30px;
     top:295px;
     z-index:0;  
 `;
@@ -42,7 +46,7 @@ const Namebox = styled.div`
     justify-content: center; 
     position: absolute;
     right:36px;
-    top:270px;
+    top:240px;
 
     border-radius: 100px;
 `;
@@ -66,16 +70,16 @@ const Call = styled.img`
 
 function Character (){
     const navigate = useNavigate();
-
+    const userDB = useRecoilValue(isData);
     const handleClick = () => {
         navigate("/running/friend/finish");
     }
 
     return(
         <>
-            <User src={Userimg} onClick={handleClick} />
+            <User src={userDB?.character ? profile : profile2} onClick={handleClick} />
     
-            <Friend src={Friendimg} />
+            <Friend src={profile2} />
             <Namebox>
                 <Call src={Callimg}/>
                 <Friendname>Ericsson</Friendname>
