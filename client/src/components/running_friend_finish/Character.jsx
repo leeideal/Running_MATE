@@ -19,14 +19,14 @@ const CharacterContainer = styled.div`
 
 const FriendCharacter = styled.img`
     display: flex;
-    width: 226px;
-    height: 277px;
+    width: 174px;
+    height: 249px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     position:absolute;
-    top:336px;
+    top:362px;
     left:36px;
     z-index:10;
 
@@ -47,7 +47,7 @@ function Character() {
   const userDB = useRecoilValue(isData);
   return (
     <CharacterContainer>
-      <FriendCharacter src={Friendimg} />
+      <FriendCharacter src={profile2} />
       <UserCharacter src={userDB?.character ? profile : profile2} />
     </CharacterContainer>
   );

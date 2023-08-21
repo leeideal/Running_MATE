@@ -19,10 +19,10 @@ const CharacterContainer = styled.div`
 
 const FriendCharacter = styled.img`
   display: block;
-  width: 128px;
-  height: 156px;
+  width: 98px;
+  height: 141px;
   position: absolute;
-  top: 0;
+  top: 20px;
   z-index:10;
 `;
 
@@ -40,7 +40,7 @@ function Character() {
 
   return (
     <CharacterContainer>
-      <FriendCharacter src={Friendimg}  />
+      <FriendCharacter src={profile2}  />
       <UserCharacter src={userDB?.character ? profile : profile2} />
     </CharacterContainer>
   );
