@@ -41,7 +41,7 @@ const User = styled.img`
 `;
 
 const Rm = styled.div`
-    color: var(--font-font-gray, rgba(255, 255, 254, 0.40));
+    color: var(--font-font-gray, rgba(255, 255, 255, 0.40));
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.04);
 
     /* RUNNINGMATE B/16 */
