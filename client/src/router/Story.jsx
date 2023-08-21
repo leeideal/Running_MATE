@@ -49,7 +49,7 @@ const DownBtn = styled.div`
     }
     margin-top: 15vh;
     margin-bottom: -20vh;
-    animation: ${downBtnFadeIn} 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.4s both;
+    animation: ${downBtnFadeIn} 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) 1.4s both;
 `;
 
 const Sticky = styled.div`

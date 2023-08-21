@@ -12,6 +12,12 @@ const Container = styled.div`
   background-image : url(${background});
   background-repeat : no-repeat;
   background-size : cover;
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px;
+  color : white;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
 `
 
 const GoToRight = styled.img`
@@ -26,6 +32,7 @@ function Left() {
     return (
       <Container >
         <GoToRight src={angleRight} />
+        Running data <br></br> doesn't exist yet!
       </Container>
     )
   }

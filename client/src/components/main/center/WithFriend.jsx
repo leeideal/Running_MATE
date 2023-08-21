@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import profile10 from "../../image/main_profile.svg";
+import profile1 from "../../image/main_profile.svg";
+import profile2 from "../../image/main_profile2.svg";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { isCall, isCalling, isData } from "../../../atoms";
 import { useNavigate } from "react-router-dom";
@@ -61,7 +62,7 @@ const Profile = styled.div`
 const Status = styled.div`
   width: 12px;
   height: 12px;
-  background-color: ${(props) => (props.isActive === 0 ? "#78AFFF" : props.isActive === 1 ? "#AFFF7E" : "#B7C7DF")};
+  background-color: ${(props) => props.isActive};
   box-shadow: rgba(50, 50, 93, 0.35) 0px 1px 2px -1px inset, rgba(0, 0, 0, 0.3) 0px 6px 12px -6px inset; 
   border-radius: 50%;
 `
@@ -175,15 +176,15 @@ function WithFriend() {
             Who you want to run with
         </BigTitle>
         <List>
-            {data.map((data)=>(
-                    <Item key={data.id}>
+            {userDB?.friendList.map((data, id)=>(
+                    <Item key={id}>
                         <Who>
                             <Profile >
-                                <ProfileImg src={profile10}/>
+                                <ProfileImg src={data.character ? profile1 : profile2}/>
                             </Profile>
-                            <Status isActive={data.statue}></Status>
+                            <Status isActive={data?.status === 0 ? "#78AFFF" : data?.status === 1 ? "#AFFF7E" : "#B7C7DF"}></Status>
                             <WhoName>
-                                {data.name}
+                                {data.nickName}
                             </WhoName>
                         </Who>
                         {
@@ -201,7 +202,7 @@ function WithFriend() {
                                 getCallFn(1)
                                 letCallFn(true)
                                 navigate('/running/friend');
-                            }} id="btn-call" isActive={data.statue}>
+                            }} id="btn-call" isActive={data.status}>
                                 Run together
                             </RunBtn>
                         }
