@@ -311,7 +311,7 @@ function Modal({onClose}){
                 <Kms>km/s</Kms>
             </Num>
             <Coinimg src={coinimg} />
-            <Coin>{coin}</Coin>
+            <Coin>{coin*9}</Coin>
             <Text>
             Do you want <br/>
             to finish running?

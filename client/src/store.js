@@ -26,7 +26,7 @@ const distancegoalSlice = createSlice({
 
 const speedSlice = createSlice({
   name: 'speed',
-  initialState: 0.2,
+  initialState: 0,
   reducers: {
     setSpeed: (state, action) => action.payload,
   },
