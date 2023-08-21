@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import pauseicon from '../image/pause.png';
 import playicon from '../image/play.png';
 import nexticon from '../image/next.png';
+import albumimg from "../image/seven.jpg";
+import mp3 from "../audio/seven.mp3";
 
 const Box = styled.div`
   width: 100%;
@@ -88,21 +90,28 @@ const Next = styled.img`
   right:30px;
 `;
 
-function Music(uris) {
+function Music() {
   const [isPlaying, setIsPlaying] = useState(false);
-
+  const audioRef = React.createRef();
+  
   const togglePlayPause = () => {
+    const audio = audioRef.current;
+
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+
     setIsPlaying(prevState => !prevState);
   };
 
   return (
     <Box>
-      {/* <Name>{uris.name}</Name> */}
-      {/* <Artist>{uris.artists.name}</Artist>
-      <AlbumImage src={uris.album.images.url} alt="Album" /> */}
-      <Name>가숭</Name>
-      <Artist>아 이게 가수고 위에건 제목</Artist>
-      <AlbumImage></AlbumImage>
+      <audio ref={audioRef} src={mp3}></audio>
+      <Name>Seven (feat. Latto)</Name>
+      <Artist>정국</Artist>
+      <AlbumImage src={albumimg}></AlbumImage>
       {isPlaying ? (
         <Pause src={pauseicon} onClick={togglePlayPause} />
       ) : (
