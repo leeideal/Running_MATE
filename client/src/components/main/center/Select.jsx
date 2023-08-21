@@ -8,6 +8,7 @@ import { useRecoilState } from "recoil";
 import { isRun } from "../../../atoms";
 import WithMate from "./WithMate";
 import WithFriend from "./WithFriend";
+import { useNavigate } from "react-router-dom";
 
 
 const Container = styled(motion.div)`
@@ -106,6 +107,7 @@ const itemVariants = {
 function Select() {
     const [select, setSelect] = useState(true); // true: mate, false: friend
     const [clicked, setClicked] = useRecoilState(isRun);
+    const navigate = useNavigate();
 
     const isClick = (e) => {
         if(e.currentTarget.id === "1"){
@@ -119,7 +121,7 @@ function Select() {
     return (
         <>
             <Container variants={Variants} initial="start" animate="end">
-                <Item variants={itemVariants} bgColor="white" txColor="#414F64">
+                <Item onClick={()=>navigate('/running/alone')} variants={itemVariants} bgColor="white" txColor="#414F64">
                     <ImgBox>
                         <Img src={own}/>
                     </ImgBox>

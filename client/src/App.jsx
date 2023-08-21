@@ -3,8 +3,8 @@ import { db } from "./firebase";
 import Router from "./Router";
 import { createGlobalStyle, styled } from "styled-components";
 import NexmoClient from 'nexmo-client';
-import { useRecoilState } from "recoil";
-import { isCall } from "./atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { isCall, isData } from "./atoms";
 import { isCalling } from "./atoms";
 
 
@@ -94,23 +94,26 @@ function App() {
   const callJWT = import.meta.env.VITE_APP_CALL_JWT;
   const [letCall, letCallFn] = useRecoilState(isCall);
   const [getCall, getCallFn] = useRecoilState(isCalling);
-
+  const userDB = useRecoilValue(isData);
   new NexmoClient({ debug: true })
-            .createSession(callJWT)
+            .createSession(userDB?.inAppToken ? userDB.inAppToken : callJWT)
             .then(app => {
+                console.log("APP.jsx", letCall, getCall);
                 // 전화 걸기
                 if((letCall) && (getCall === 1)){
                   console.log("Calling...");
-                  app.callServer("Erisson", "app");
+                  app.callServer("bob", "app");
                 }
-                // 끊는게 안됨
-                else if((!letCall) && (getCall === 2)){
+          
                   app.on("member:call", (member, call) => {
-                    console.log("Hanging up...");
-                    call.hangUp();
-                    //getCall(0);
+                    console.log('sfsdfsdfsdfsdfsdfsdfs', getCall)
+                    if(getCall === 2){
+                      console.log("Hanging up...");
+                      call.hangUp();
+                      //getCallFn(0);
+                    }
                   });
-                }
+                
             })
             .catch(console.error);
   

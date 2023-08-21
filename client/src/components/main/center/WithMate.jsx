@@ -3,6 +3,8 @@ import card1 from "../../image/mateCard1.png";
 import card2 from "../../image/mateCard2.png";
 import card3 from "../../image/mateCard3.png";
 import card4 from "../../image/mateCard4.png";
+import { isGabriel } from "../../../atoms";
+import { useRecoilState } from "recoil";
 
 
 const Container = styled.div`
@@ -62,7 +64,9 @@ const Item = styled.img`
     }
 `
 
+
 function WithMate() {
+    const [ready, setReady] = useRecoilState(isGabriel);
 
     return (
       <Container>
@@ -74,7 +78,7 @@ function WithMate() {
             Who you want to run with
         </BigTitle>
         <List>
-            <ItemCan  src={card1}/>
+            <ItemCan onClick={()=>setReady(true)} src={card1}/>
             <Item src={card2}/>
             <Item src={card3}/>
             <Item src={card4}/>
