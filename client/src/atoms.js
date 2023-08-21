@@ -82,3 +82,8 @@ export const isGabriel = atom({
     key:"isGabriel",
     default:false,
 })
+
+export const isAnswered = atom({
+    key:"isAnswered",
+    default : 0,
+})

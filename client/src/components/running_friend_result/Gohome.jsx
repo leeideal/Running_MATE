@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { isCall, isCalling, isData } from '../../atoms';
+import { isAnswered, isCall, isCalling, isData } from '../../atoms';
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from '../../firebase';
 import NexmoClient from 'nexmo-client';
@@ -40,6 +40,7 @@ const Text = styled.div`
 `;
 
 function Gohome(){
+    const [answer, setAnswer] = useRecoilState(isAnswered);
     const navigate = useNavigate();
     const kal = useSelector((state) => state.kal); 
     const time = useSelector((state) => state.time);
@@ -67,6 +68,7 @@ function Gohome(){
             "totalKcal" : userDB.todayKcal + parseInt(kal),
             "totalRun" : userDB.todayRun + Math.round(distance * 100) / 100,
         });
+        setAnswer(0);
         // 버튼 클릭 시 페이지 이동
         navigate("/");
     };

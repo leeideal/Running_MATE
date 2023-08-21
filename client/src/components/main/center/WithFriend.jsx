@@ -151,7 +151,7 @@ function WithFriend() {
                             <RunBtn onClick={()=>{
                                 getCallFn(1)
                                 letCallFn(true)
-                                navigate('/running/friend/music');
+                                navigate('/calling');
                             }} id="btn-call" isActive={data.status}>
                                 Run together
                             </RunBtn>
