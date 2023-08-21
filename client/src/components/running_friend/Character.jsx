@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import Userimg from "../image/UserCharacter.png";
+import profile from "../image/create_ch1.png";
+import profile2 from "../image/create_ch2.png";
+
 import Friendimg from "../image/FriendCharacter.png";
 import Callimg from "../image/call.png";
+
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 
 const CharacterContainer = styled.div`
   display: flex;
@@ -15,11 +20,11 @@ const CharacterContainer = styled.div`
 `;
 
 const FriendCharacter = styled.img`
-  width: 246.303px;
-  height: 300.821px;
+  width: 230px;
+  height: 260px;
   flex-shrink: 0;
   position: absolute;
-  top: 249px;
+  top: 280px;
   left: 137px;
 `;
 
@@ -30,6 +35,7 @@ const UserCharacter = styled.img`
   position: absolute;
   top: 362px;
   left: 53px;
+  
 `;
 
 const Namebox = styled.div`
@@ -95,6 +101,7 @@ const Runningmate = styled.div`
 
 
 function Character() {
+  const userDB = useRecoilValue(isData);
   return (
     <CharacterContainer>
       <Runningmate>RUNNING MATE</Runningmate>
@@ -104,7 +111,7 @@ function Character() {
       </Namebox>
       <FriendCharacter src={Friendimg} />
 
-      <UserCharacter src={Userimg} />
+      <UserCharacter src={userDB?.character ? profile : profile2}/>
     </CharacterContainer>
   );
 }

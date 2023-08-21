@@ -2,8 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Userimg from "../image/UserCharacter.png";
 import Friendimg from "../image/FriendCharacter.png";
+import profile from "../image/create_ch1.png";
+import profile2 from "../image/create_ch2.png";
 import Callimg from "../image/call.png";
 import { useNavigate } from 'react-router-dom';
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 
 const User = styled.img`
     width: 211px;
@@ -66,14 +70,14 @@ const Call = styled.img`
 
 function Character (){
     const navigate = useNavigate();
-
+    const userDB = useRecoilValue(isData);
     const handleClick = () => {
         navigate("/running/friend/finish");
     }
 
     return(
         <>
-            <User src={Userimg} onClick={handleClick} />
+            <User src={userDB?.character ? profile : profile2} onClick={handleClick} />
     
             <Friend src={Friendimg} />
             <Namebox>

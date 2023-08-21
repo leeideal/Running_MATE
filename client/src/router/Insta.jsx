@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import styled from 'styled-components';
 import html2canvas from 'html2canvas'; // HTML2Canvas 라이브러리 추가
-
+import profile from "../components/image/create_ch1.png";
+import profile2 from "../components/image/create_ch2.png";
 import Userimg from '../components/image/UserCharacter.png';
 import Friendimg from '../components/image/FriendCharacter.png';
 import Location from '../components/running_friend_insta/Location';
@@ -10,6 +11,8 @@ import Name from '../components/running_friend_insta/Name';
 import RunningInfo from "../components/running_friend_insta/RunningInfo";
 import store from '../store'; 
 import { Provider } from 'react-redux';
+import { isData } from "../atoms";
+import { useRecoilValue } from "recoil";
 
 const Container = styled.div`
     width: 395px;
@@ -72,7 +75,7 @@ const SaveButton = styled.button`
 
 function Insta() {
     const containerRef = useRef(null);
-
+    const userDB = useRecoilValue(isData);
     const handleSaveImage = () => {
         html2canvas(containerRef.current).then(canvas => {
             const link = document.createElement('a');
@@ -87,7 +90,7 @@ function Insta() {
             <Container ref={containerRef}>
                 <Rm>RUNNINGMATE</Rm>
                 <Friend src={Friendimg}/>
-                <User src={Userimg} />
+                <User src={userDB?.character ? profile : profile2} />
                 <Location />
                 <Date />
                 <Name />
