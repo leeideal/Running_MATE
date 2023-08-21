@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef  } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from 'styled-components';
 import flagimg from '../image/flag.png';
 import dropbutton from '../image/dropdown.png';
@@ -278,7 +278,6 @@ function Goalset() {
 
 
       };
-    
       useEffect(() => {
         const handleOutsideClick = (event) => {
             if (dropdownContainerRef.current && !dropdownContainerRef.current.contains(event.target)) {
@@ -297,6 +296,8 @@ function Goalset() {
             window.removeEventListener("mousedown", handleOutsideClick);
         };
     }, [dropdownOpen]);
+
+
 
   
       return (

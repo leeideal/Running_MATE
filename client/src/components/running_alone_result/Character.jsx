@@ -1,0 +1,36 @@
+import React from "react";
+import styled from "styled-components";
+import Userimg from "../image/UserCharacter.png";
+
+
+const CharacterContainer = styled.div`
+  display: flex;
+  width: 340px;
+  height: 103px;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0px;
+`;
+
+
+const UserCharacter = styled.img`
+  width: 98px;
+  height: 141px;
+  position: absolute;
+  left: 110px;
+  top: 20px;
+  z-index:5;
+`;
+
+function Character() {
+  
+
+  return (
+    <CharacterContainer>
+      <UserCharacter src={Userimg} />
+    </CharacterContainer>
+  );
+}
+
+export default Character;
