@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import img from '../image/coin.png';
 import moneyimg from '../image/money.png';
 import { useSelector } from "react-redux";
-
+import { Provider, useDispatch } from "react-redux";
+import store, { setCoin } from "../../store.js";
 const Coinicon = styled.img`
     width: 46px;
     height: 46px;
@@ -48,12 +49,13 @@ const Money = styled.img`
 
 function Coin(){
     const coin = useSelector((state) => state.coin);
+
+    
     return(
         <>
             <Money src={moneyimg} />
             <Coinicon src={img} />
-            {/* <Num>{coin}</Num> */}
-            <Num>23000</Num>
+            <Num>{coin*13}</Num>
         </>
     );
 }

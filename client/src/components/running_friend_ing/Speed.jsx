@@ -73,11 +73,11 @@ function Speed() {
   //테스트를 위해 임시로 생성한 함수!! 최종본에선 지워야함 단위 km/s 
   useEffect(() => {
     // 임시로 속도 값을 200으로 설정
-    dispatch(setSpeed(50));
+    dispatch(setSpeed(10));
 
     const interval = setInterval(() => {
       // 임시로 속도 값을 200으로 설정
-      dispatch(setSpeed(50));
+      dispatch(setSpeed(10));
     }, 300);
 
     return () => clearInterval(interval);

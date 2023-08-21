@@ -27,8 +27,8 @@ const Container = styled.div`
 `;
 
 const Friend = styled.img`
-    width: 276px;
-    height: 338px;
+    width: 212px;
+    height: 306px;
     flex-shrink: 0;
     position: absolute;
     bottom: 140px;
@@ -90,7 +90,7 @@ function Insta() {
         <Provider store={store}>
             <Container ref={containerRef}>
                 <Rm>RUNNINGMATE</Rm>
-                <Friend src={Friendimg}/>
+                <Friend src={profile2}/>
                 <User src={userDB?.character ? profile : profile2} />
                 <Location />
                 <Date />

@@ -52,8 +52,8 @@ function Coin(){
         <>
             <Money src={moneyimg} />
             <Coinicon src={img} />
-            {/* <Num>{coin}</Num> */}
-            <Num>23000</Num>
+            <Num>{coin*5}</Num>
+
         </>
     );
 }
