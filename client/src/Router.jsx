@@ -25,6 +25,7 @@ import InstaMate from "./router/InstaMate";
 import Create from "./router/Create";
 import Tutorial from "./router/Tutorial";
 import Story from "./router/Story";
+import Calling from "./router/Calling";
 
 
 function Router() {
@@ -60,6 +61,8 @@ function Router() {
                     <Route path="/tutorial" element={<Tutorial />} exact /> {/* 튜토리얼 페이지 */} 
 
                     <Route path="/story" element={<Story />} exact /> {/* 스토리 페이지 */} 
+
+                    <Route path="/calling" element={<Calling />} exact /> {/* 전화 페이지 */} 
 
                 </Route>
 

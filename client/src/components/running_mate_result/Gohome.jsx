@@ -33,6 +33,7 @@ const Text = styled.div`
 `;
 
 function Gohome(){
+    
     const navigate = useNavigate();
     const kal = useSelector((state) => state.kal); 
     const time = useSelector((state) => state.time);

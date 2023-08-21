@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from 'styled-components';
 import background from "../components/image/running_back.png";
 import { motion } from "framer-motion";
@@ -6,6 +6,8 @@ import Callbtn from "../components/running_friend_music/Callbtn";
 import Header from "../components/running_friend_music/Header";
 import Search from "../components/running_friend_music/Search";
 import Playlist from "../components/running_friend_music/Playlist";
+import { useRecoilState } from "recoil";
+import { isAnswered } from "../atoms";
 
 const Container = styled(motion.div)`
     width: 100%;
@@ -37,7 +39,10 @@ const Text = styled.div`
 `;
 
 function RunningFriendMusic() {
-    
+    const [answer, setAnswer] = useRecoilState(isAnswered);
+    useEffect(()=>{
+        setAnswer(2);
+    },[])
     return(
         <>
             <Container style={{backgroundImage: `url(${background})`}} >
