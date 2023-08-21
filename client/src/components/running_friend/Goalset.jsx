@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef  } from "react";
 import styled from 'styled-components';
 import flagimg from '../image/flag.png';
 import dropbutton from '../image/dropdown.png';
@@ -245,7 +245,7 @@ function Goalset() {
       };
 
     const KmOptions = createOptions(0.2, 5.0, 0.1);
-
+    const dropdownContainerRef = useRef(null);
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selectedKmOption, setSelectedKmOption] = useState(null);
@@ -279,11 +279,28 @@ function Goalset() {
 
       };
     
+      useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (dropdownContainerRef.current && !dropdownContainerRef.current.contains(event.target)) {
+                setDropdownOpen(false);
+                setAnimationStarted(false);
+            }
+        };
 
+        if (dropdownOpen) {
+            window.addEventListener("mousedown", handleOutsideClick);
+        } else {
+            window.removeEventListener("mousedown", handleOutsideClick);
+        }
+
+        return () => {
+            window.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, [dropdownOpen]);
 
   
       return (
-        <Container open={dropdownOpen}>
+        <Container open={dropdownOpen}  ref={dropdownContainerRef}>
             <Flag src={flagimg} />
             <Text>GOAL</Text>
             <Distancegoal>{selectedKmOption}</Distancegoal>

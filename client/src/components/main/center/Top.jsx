@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import profile from "../../image/main_profile.svg";
+import profile2 from "../../image/main_profile2.svg";
 import { useState } from "react";
 import SliderContent from "./SliderContent";
+import { useRecoilValue } from "recoil";
+import { isData, isFirst } from "../../../atoms";
 
 const Container = styled.div`
   width: 100%;
@@ -12,6 +15,11 @@ const Container = styled.div`
   @media (max-height : 800px) {
       margin-top: 15px;
   }
+`
+
+const Container2 = styled.div`
+  margin-top: 30px;
+  height: 45px;
 `
 
 const Box = styled.div`
@@ -92,29 +100,40 @@ const SdOverlay = styled.div`
 
 
 function Top() {
+    const checkFirst = useRecoilValue(isFirst); // true : 첫 진입, false : 이미 유저
+
+    const userDB = useRecoilValue(isData);
 
     const [isOpen, setIsopen] = useState(false);
 
     return (
       <>
         {/* 네브바 */}
-        <Container >
-          <Box>
-            <Info>
-              <Status isActive="#78AFFF"></Status>
-              <Name>Hi! Jun</Name>
-            </Info>
-            <Profile onClick={()=>setIsopen(prev => !prev)}>
-              <ProfileImg src={profile}/>
-            </Profile>
-          </Box>
-        </Container>
+        {
+          checkFirst ? 
+            <Container2></Container2>
+          :
+          <>
+            <Container >
+            <Box>
+                <Info>
+                  <Status isActive={userDB?.status === 0 ? "#78AFFF" : userDB?.status === 1 ? "#AFFF7E" : "#B7C7DF"}></Status>
+                  <Name>Hi! {userDB?.nickName}</Name>
+                </Info>
+                <Profile onClick={()=>setIsopen(prev => !prev)}>
+                  <ProfileImg src={userDB?.character ? profile : profile2}/>
+                </Profile>
+              </Box>
+            </Container>
 
-        {/* 슬라이더 */}
-        <Sidebar isActive = {isOpen}>
-          <SliderContent/>
-        </Sidebar>
-        <SdOverlay isActive = {isOpen} onClick={()=>setIsopen(prev => !prev)}></SdOverlay>
+            {/* 슬라이더 */}
+            <Sidebar isActive = {isOpen}>
+              <SliderContent/>
+            </Sidebar>
+            <SdOverlay isActive = {isOpen} onClick={()=>setIsopen(prev => !prev)}></SdOverlay>
+          </>
+        }
+        
       </>
     )
   }

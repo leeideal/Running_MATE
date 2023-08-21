@@ -18,6 +18,9 @@ const Container = styled(motion.div)`
   align-items: center;
   justify-content: center;
   position: relative;
+  @media (max-height : 790px) {
+    padding-bottom: 150px;
+  }
 `
 
 const Item = styled(motion.div)`

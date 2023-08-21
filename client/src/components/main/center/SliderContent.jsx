@@ -1,9 +1,16 @@
 import styled from "styled-components";
 import logout from "../../image/nav_logout.svg";
 import search from "../../image/nav_search.svg";
+import profile10 from "../../image/main_profile10.svg";
 import profile from "../../image/main_profile.svg";
+import profile2 from "../../image/main_profile2.svg";
 import {useForm} from "react-hook-form"
 import { useState } from "react";
+import { isData } from "../../../atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
+import { doc, updateDoc, collection, query, where, getDocs, getDoc } from "firebase/firestore";
+import { db } from "../../../firebase";
 
 
 const Container = styled.div`
@@ -49,7 +56,7 @@ const Box = styled.div`
 const Status = styled.div`
   width: 12px;
   height: 12px;
-  background-color: ${(props) => (props.isActive === 0 ? "#78AFFF" : props.isActive === 1 ? "#AFFF7E" : "#B7C7DF")};
+  background-color: ${(props) => (props.isActive)};
   box-shadow: rgba(50, 50, 93, 0.35) 0px 1px 2px -1px inset, rgba(0, 0, 0, 0.3) 0px 6px 12px -6px inset; 
   border-radius: 50%;
 `
@@ -79,6 +86,11 @@ const Profile = styled.div`
 const ProfileImg = styled.img`
   width: 100%;
   height: 100%;
+`
+
+const ProfileImg2 = styled.img`
+  width: 45px;
+  height: 45px;
 `
 
 const Search = styled.div`
@@ -141,60 +153,86 @@ const WhoName = styled.div`
     margin-left: 5px;
 `
 
-const data = [
-    {
-        "id" : 1,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-    {
-        "id" : 2,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-    {
-        "id" : 3,
-        "name" : "Erisson",
-        "statue" : 1
-    },
-    {
-        "id" : 4,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-    {
-        "id" : 5,
-        "name" : "Erisson",
-        "statue" : 2
-    },
-    {
-        "id" : 6,
-        "name" : "Erisson",
-        "statue" : 1
-    },
-    {
-        "id" : 7,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-    {
-        "id" : 8,
-        "name" : "Erisson",
-        "statue" : 0
-    },
-]
+
+const FindList = styled.div`
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+
+const AddFind = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 20px;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+`
+
+const FollowBtn = styled.div`
+    background-color: #78AFFF;
+    color : white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 12px;
+    height: 30px;
+    width: 60px;
+    font-weight: 500;
+    cursor: pointer;
+`
 
 
 function SliderContent() {
     const {register, handleSubmit} = useForm();
     const [serachActive, isSearchActive] = useState(false);
+    const [arr, setArr] = useState([]);
+    const [userDB, setUserDB] = useRecoilState(isData); // 유저 정보
+    const navigate = useNavigate();
+    const [find, setFind] = useState(false);
 
-    const onValid = (data) => {
-        console.log(data);
-      }
+    const onValid = async(data) => {
+        setArr([])
+        const q = query(collection(db, "userDB"), where("nickName", "==", data.search));
+        const querySnapshot = await getDocs(q);
+        if(querySnapshot.size > 0){
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                setArr((prev) => {
+                    return [...prev, doc.data()]
+            })
+            });
+        }else{
+            setArr([])
+        }
+        
+        setFind(true);
+    }
 
-    const logOut = () => {
-        console.log("로그아웃")
+    const logOut = async() => {
+        const uid = JSON.parse(localStorage.getItem('userInfo'));
+        const outRef = doc(db, "userDB", uid.uid);
+        await updateDoc(outRef, {
+            "status": 2
+        });
+        localStorage.clear();
+        navigate('/login');
+    }
+
+    const follow = async(i) => {
+        const uid = JSON.parse(localStorage.getItem('userInfo'));
+        const outRef = doc(db, "userDB", uid.uid);
+        await updateDoc(outRef, {
+            "friendList": [...userDB.friendList, i]
+        });
+        const docSnap = await getDoc(outRef);
+        setUserDB(docSnap.data());
     }
 
     return (
@@ -207,11 +245,11 @@ function SliderContent() {
             </Log>
             <Box>   
                 <Info>
-                    <Status isActive="#78AFFF"></Status>
-                    <Name>Hi! Jun</Name>
+                    <Status isActive={userDB?.status === 0 ? "#78AFFF" : userDB?.status === 1 ? "#AFFF7E" : "#B7C7DF"}></Status>
+                    <Name>Hi! {userDB?.nickName}</Name>
                 </Info>
                 <Profile >
-                    <ProfileImg src={profile}/>
+                    <ProfileImg src={userDB?.character ? profile : profile2}/>
                 </Profile>
             </Box>
         </Header>
@@ -226,19 +264,44 @@ function SliderContent() {
                 <img src={search} onClick={()=>isSearchActive(prev => !prev)}/>
                 <Input isActive={serachActive} {...register("search", {required : true})} />
             </Form>
+            {find ?
+                arr.length>0 ? 
+                <FindList>
+                    {arr.map((i,num)=>(
+                        <AddFind key={num}>
+                            <ProfileImg2 src={i?.character ? profile : profile2}/>
+                            <WhoName style={{marginLeft:"-20px"}}>
+                                {i?.nickName}
+                            </WhoName>
+                            {userDB?.FindList}
+                            <FollowBtn onClick={()=>{
+                                follow(i);
+                                setFind(false);
+                            }}>
+                                Follow
+                            </FollowBtn>
+                        </AddFind>
+                    ))}
+                </FindList> :
+                <FindList>
+                    No Result!
+                </FindList>
+                :
+                null
+            }
         </Search>
 
         {/* 친구 목록 */}
         <List>
-            {data.map((data)=>(
-                <Item key={data.id}>
+            {userDB?.friendList.map((data, id)=>(
+                <Item key={id}>
                     <Who>
                         <Profile >
-                            <ProfileImg src={profile}/>
+                            <ProfileImg src={data.character ? profile : profile2}/>
                         </Profile>
-                        <Status isActive={data.statue}></Status>
+                        <Status isActive={data?.status === 0 ? "#78AFFF" : data?.status === 1 ? "#AFFF7E" : "#B7C7DF"}></Status>
                         <WhoName>
-                            {data.name}
+                            {data.nickName}
                         </WhoName>
                     </Who>
                 </Item>

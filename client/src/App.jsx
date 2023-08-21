@@ -98,11 +98,10 @@ function App() {
   new NexmoClient({ debug: true })
             .createSession(callJWT)
             .then(app => {
-                console.log("Nexmo Contect")
                 // 전화 걸기
                 if((letCall) && (getCall === 1)){
                   console.log("Calling...");
-                  app.callServer("bob", "app");
+                  app.callServer("Erisson", "app");
                 }
                 // 끊는게 안됨
                 else if((!letCall) && (getCall === 2)){
@@ -116,7 +115,6 @@ function App() {
             .catch(console.error);
   
   useEffect(() => {
-    console.log(db);
   });
   
 

@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import card1 from "../../image/mateCard1.png";
+import card2 from "../../image/mateCard2.png";
+import card3 from "../../image/mateCard3.png";
+import card4 from "../../image/mateCard4.png";
+
 
 const Container = styled.div`
   width: 90%;
@@ -24,46 +29,38 @@ const List = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    height: 320px;
+    overflow-y: scroll;
+    @media (max-height : 860px) {
+        height: 280px;
+    }
+    @media (max-height : 780px) {
+        height: 230px;
+    }
+    @media (max-height : 730px) {
+        height: 180px;
+    }
+`
+const ItemCan = styled.img`
+    width: 160px;
+    height: 160px;
+    margin: 7px;
+    cursor: pointer;
+    @media (max-width : 385px) {
+        width: 150px;
+        height: 150px;
+    }
 `
 
-const Item = styled.div`
-    width: 170px;
-    height: 170px;
-    margin: 10px;
-    border-radius: 10px;
-    background-color: ${(props) => (props.bgColor)};
+const Item = styled.img`
+    width: 160px;
+    height: 160px;
+    margin: 7px;
+    @media (max-width : 385px) {
+        width: 150px;
+        height: 150px;
+    }
 `
-
-const data = [
-    {
-        "id" : 1,
-        "city" :"Paris",
-        "name" :"Gabriel",
-        "able" : true,
-        "color" : "#FFE7F8"
-    },
-    {
-        "id" : 2,
-        "city" :"Paris",
-        "name" :"Daniel",
-        "able" : false,
-        "color" : "#E7FCFF"
-    },
-    {
-        "id" : 3,
-        "city" :"Seoul",
-        "name" :"Sumin",
-        "able" : false,
-        "color" : "#C7E3FD"
-    },
-    {
-        "id" : 4,
-        "city" :"Newyork",
-        "name" :"Jack",
-        "able" : false,
-        "color" : "#FBFFC9"
-    },
-]
 
 function WithMate() {
 
@@ -77,11 +74,10 @@ function WithMate() {
             Who you want to run with
         </BigTitle>
         <List>
-            {data.map((i) => (
-                <Item key={i.id} bgColor={i.color}>
-                    
-                </Item>
-            ))}
+            <ItemCan  src={card1}/>
+            <Item src={card2}/>
+            <Item src={card3}/>
+            <Item src={card4}/>
         </List>
       </Container>
     )

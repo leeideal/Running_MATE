@@ -6,7 +6,7 @@ import Gauge from "../components/running_friend_ing/Gauge";
 import Character from "../components/running_friend_ing/Character";
 import Coin from "../components/running_friend_ing/Coin";
 import Speed from "../components/running_friend_ing/Speed";
-import Music from "../components/running_friend_ing/Music";
+import Music from "../components/running_friend_music/Music";
 import { Provider } from "react-redux";
 import store from '../store.js';
 
