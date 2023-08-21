@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import img from "../components/image/loding_c.png";
-import gif from "../components/image/loding_s.gif";
+import img from "./image/loding_c.png";
+import gif from "./image/loding_s.gif";
 import { motion } from "framer-motion";
 
 
