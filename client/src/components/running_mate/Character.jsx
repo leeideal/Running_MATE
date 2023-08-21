@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Userimg from "../image/UserCharacter.png";
 import Mateimg from "../image/FriendCharacter.png";
+import profile from "../image/create_ch1.png";
+import profile2 from "../image/create_ch2.png";
 
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 
 const CharacterContainer = styled.div`
   display: flex;
@@ -15,11 +19,11 @@ const CharacterContainer = styled.div`
 `;
 
 const MateCharacter = styled.img`
-  width: 246.303px;
-  height: 300.821px;
+  width: 230px;
+  height: 260px;
   flex-shrink: 0;
   position: absolute;
-  top: 249px;
+  top: 280px;
   left: 137px;
 `;
 
@@ -44,8 +48,8 @@ const Matename = styled.div`
   line-height: 28px; /* 140% */
   letter-spacing: 0.03px;
   position: absolute;
-  top: 232px;
-  left: 239px;
+  top: 252px;
+  left: 229px;
   display: flex; 
   align-items: center;
   justify-content: center; 
@@ -65,19 +69,20 @@ const Runningmate = styled.div`
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.035px;
     position: absolute;
-    top: 209px;
-    left: 216px;
+    top: 230px;
+    left: 206px;
 `;
 
 
 function Character() {
+  const userDB = useRecoilValue(isData);
   return (
     <CharacterContainer>
       <Runningmate>RUNNING MATE</Runningmate>
       <Matename>Gbriel</Matename>
       <MateCharacter src={Mateimg} />
 
-      <UserCharacter src={Userimg} />
+      <UserCharacter src={userDB?.character ? profile : profile2} />
     </CharacterContainer>
   );
 }

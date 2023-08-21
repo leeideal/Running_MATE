@@ -14,6 +14,7 @@ import { Provider } from 'react-redux';
 import { isData } from "../atoms";
 import { useRecoilValue } from "recoil";
 
+
 const Container = styled.div`
     width: 395px;
     height: 635px;

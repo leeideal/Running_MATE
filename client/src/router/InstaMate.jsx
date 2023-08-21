@@ -10,7 +10,11 @@ import Name from '../components/running_mate_insta/Name';
 import RunningInfo from "../components/running_mate_insta/RunningInfo";
 import store from '../store'; 
 import { Provider } from 'react-redux';
+import { isData } from "../atoms";
+import { useRecoilValue } from "recoil";
 
+import profile from "../components/image/create_ch1.png";
+import profile2 from "../components/image/create_ch2.png";
 const Container = styled.div`
     width: 395px;
     height: 635px;
@@ -81,13 +85,14 @@ function InstaMate() {
             link.click();
         });
     };
+    const userDB = useRecoilValue(isData);
 
     return (
         <Provider store={store}>
             <Container ref={containerRef}>
                 <Rm>RUNNINGMATE</Rm>
                 <Friend src={Friendimg}/>
-                <User src={Userimg} />
+                <User src={userDB?.character ? profile : profile2} />
                 <Location />
                 <Date />
                 <Name />

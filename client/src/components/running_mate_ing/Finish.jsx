@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import profile from "../image/create_ch1.png";
+import profile2 from "../image/create_ch2.png";
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 
 const Container = styled.div`
     width: 391px;

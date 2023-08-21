@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Userimg from "../image/UserCharacter.png";
-
+import profile from "../image/create_ch1.png";
+import profile2 from "../image/create_ch2.png";
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -20,9 +23,10 @@ const UserCharacter = styled.img`
 
 
 function Character() {
+  const userDB = useRecoilValue(isData);
   return (
     <Container>
-      <UserCharacter src={Userimg} />
+      <UserCharacter src={userDB?.character ? profile : profile2} />
     </Container>
   );
 }

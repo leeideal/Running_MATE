@@ -4,6 +4,10 @@ import Userimg from "../image/UserCharacter.png";
 import Friendimg from "../image/FriendCharacter.png";
 import Callimg from "../image/call.png";
 import { useNavigate } from 'react-router-dom';
+import profile from "../image/create_ch1.png";
+import profile2 from "../image/create_ch2.png";
+import { isData } from "../../atoms";
+import { useRecoilValue } from "recoil";
 
 const User = styled.img`
     width: 211px;
@@ -57,10 +61,11 @@ function Character (){
     const handleClick = () => {
         navigate("/running/friend/finish");
     }
+    const userDB = useRecoilValue(isData);
 
     return(
         <>
-            <User src={Userimg} onClick={handleClick} />
+            <User src={userDB?.character ? profile : profile2} onClick={handleClick} />
     
             <Friend src={Friendimg} />
             <Matename>Gabriel</Matename>
