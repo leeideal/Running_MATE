@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 const Container = styled.div`
     width: 114px;
     height: 32px;
@@ -33,9 +33,16 @@ const Text = styled.div`
 `;
 
 function Gohome(){
+    const kal = useSelector((state) => state.kal); 
+    const time = useSelector((state) => state.time);
+    const distance = useSelector((state)=>state.distance);
+    const coin = useSelector((state => state.coin));
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
     const navigate = useNavigate();
     const handleButtonClick = () => {
         // 버튼 클릭 시 페이지 이동
+        console.log(minutes,kal,distance)
         navigate("/");
     };
     return(

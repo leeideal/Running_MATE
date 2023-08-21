@@ -179,8 +179,6 @@ function Playlist({ selectedTracks }){
     const [selectedUris, setSelectedUris] = useState([]); // State to store selected uris
 
 
-    const [selectedUris, setSelectedUris] = useState([]); // State to store selected uris
-
 
     const handleDelete = (index) => {
         const newTracks = [...tracks];
