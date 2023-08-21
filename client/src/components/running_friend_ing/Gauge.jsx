@@ -40,16 +40,16 @@ const Usermini = styled.img`
     position: absolute;
     top: 44px;
     left: ${ ({ progress }) => (progress)}%;
-    width: 45px;
-    height: 54px;
+    width: 33px;
+    height: 49px;
     flex-shrink: 0;
 `;
 
 const Friendmini = styled.img`
     position: absolute;
     top: 49px;
-    left: ${({ progress2 }) => (progress2)}%;
-    width: 34px;
+    left: ${({progress2 }) => (progress2)}%;
+    width: 33px;
     height: 49px;
     flex-shrink: 0;
 `;
@@ -253,7 +253,7 @@ function Gauge() {
         <>
             <Gaugeback />
             <Gaugecolor progress={calculatedProgress} />
-            <Usermini progress={calculatedProgress} src={friendcharacter} />
+            <Usermini progress={calculatedProgress} src={profile2} />
             <Friendmini progress2={progress2} src={userDB?.character ? profile : profile2} />
             <Infocontainer>
                 <Min>{String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}

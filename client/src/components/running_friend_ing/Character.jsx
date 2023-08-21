@@ -23,12 +23,12 @@ const User = styled.img`
 const Friend = styled.img`
     top:30px;
     display: flex;
-    width: 195px;
+    width: 160x;
     height: 239px;
     flex-shrink: 0;
     filter: blur(2.5px);
     position:absolute;
-    right:4px;
+    right:30px;
     top:295px;
     z-index:0;  
 `;
@@ -46,7 +46,7 @@ const Namebox = styled.div`
     justify-content: center; 
     position: absolute;
     right:36px;
-    top:270px;
+    top:240px;
 
     border-radius: 100px;
 `;
@@ -79,7 +79,7 @@ function Character (){
         <>
             <User src={userDB?.character ? profile : profile2} onClick={handleClick} />
     
-            <Friend src={Friendimg} />
+            <Friend src={profile2} />
             <Namebox>
                 <Call src={Callimg}/>
                 <Friendname>Ericsson</Friendname>

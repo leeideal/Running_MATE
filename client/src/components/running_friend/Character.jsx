@@ -20,12 +20,12 @@ const CharacterContainer = styled.div`
 `;
 
 const FriendCharacter = styled.img`
-  width: 230px;
-  height: 260px;
+  width: 162.579px;
+  height: 231.7px;
   flex-shrink: 0;
   position: absolute;
   top: 280px;
-  left: 137px;
+  left: 167px;
 `;
 
 const UserCharacter = styled.img`
@@ -109,7 +109,7 @@ function Character() {
         <Call src={Callimg} />
         <Friendname>Ericsson</Friendname>
       </Namebox>
-      <FriendCharacter src={Friendimg} />
+      <FriendCharacter src={profile2} />
 
       <UserCharacter src={userDB?.character ? profile : profile2}/>
     </CharacterContainer>
