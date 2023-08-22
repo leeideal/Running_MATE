@@ -78,7 +78,10 @@ function WithMate() {
             Who you want to run with
         </BigTitle>
         <List>
-            <ItemCan onClick={()=>setReady(true)} src={card1}/>
+            <ItemCan onClick={()=>{
+                setReady(true)
+                
+            }} src={card1}/>
             <Item src={card2}/>
             <Item src={card3}/>
             <Item src={card4}/>
