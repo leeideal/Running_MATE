@@ -13,6 +13,7 @@ import store from '../store';
 import { Provider } from 'react-redux';
 import { isData } from "../atoms";
 import { useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
 
 
 const Container = styled.div`
@@ -77,6 +78,7 @@ const SaveButton = styled.button`
 function Insta() {
     const containerRef = useRef(null);
     const userDB = useRecoilValue(isData);
+    const navigate = useNavigate();
     const handleSaveImage = () => {
         html2canvas(containerRef.current).then(canvas => {
             const link = document.createElement('a');
@@ -84,6 +86,7 @@ function Insta() {
             link.download = 'insta_image.png';
             link.click();
         });
+        navigate(-1);
     };
 
     return (

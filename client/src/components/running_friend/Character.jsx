@@ -107,7 +107,7 @@ function Character() {
       <Runningmate>RUNNING MATE</Runningmate>
       <Namebox>
         <Call src={Callimg} />
-        <Friendname>Ericsson</Friendname>
+        <Friendname>swimkiim</Friendname>
       </Namebox>
       <FriendCharacter src={profile2} />
 

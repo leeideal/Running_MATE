@@ -43,7 +43,7 @@ function Name(){
     return(
         <>
             <Username>@  {userDB?.nickName}</Username>
-            <Friendname>@Ericsson</Friendname>
+            <Friendname>@ swimkiim</Friendname>
         </>
         
     );

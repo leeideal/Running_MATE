@@ -44,7 +44,7 @@ function Callbtn(){
     return(
         <Namebox>
             <Call src={callimg} />
-            <Friendname>Ericsson</Friendname>
+            <Friendname>swimkiim</Friendname>
         </Namebox>
     );
 }

@@ -34,7 +34,7 @@ const Title = styled.div`
     font-weight: 700;
     line-height: 140%;
     letter-spacing: 0.03px;
-    positionLrelative;
+    //positionLrelative;
     
 `;
 
@@ -50,7 +50,7 @@ const Done = styled.div`
   flex-shrink: 0;
   border-radius: 20px;
   background: var(--white, #FFF);
-  text-align:center;s
+  text-align:center;
  
 `;
 const Donetxt = styled.div`

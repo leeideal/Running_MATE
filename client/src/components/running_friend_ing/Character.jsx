@@ -82,7 +82,7 @@ function Character (){
             <Friend src={profile2} />
             <Namebox>
                 <Call src={Callimg}/>
-                <Friendname>Ericsson</Friendname>
+                <Friendname>swimkiim</Friendname>
             </Namebox>
         </>
     )
