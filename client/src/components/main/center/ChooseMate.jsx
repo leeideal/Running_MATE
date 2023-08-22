@@ -86,7 +86,7 @@ function ChooseMate() {
                 Run with me!</h1>
         </Title>
         <SplashImg src={chImg}/> 
-        <Btn >Let's Go!</Btn>
+        <Btn onClick={()=>navigate('/running/friend/music')} >Let's Go!</Btn>
     </Splash>
   )
 }
