@@ -1,4 +1,4 @@
-<div><img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Running_MATE&fontSize=90" /></div>
+<div><img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Running_MATE&fontSize=90" /></div>
 
 # 2023 Ericsson-LG Summer Internship
 
@@ -54,7 +54,9 @@
 
 Running_Mate : Gamification을 활용한 메타버스 러닝 서비스
 
-![aaa](https://github.com/leeideal/Running_MATE/assets/88819145/068bdb9c-3c3b-48e5-81da-0d6b42399a3c)
+<img width="650" alt="스크린샷 2023-08-24 오후 2 36 54" src="https://github.com/leeideal/Running_MATE/assets/88819145/ccd76a9c-58f2-4d9a-bfaf-b704e3e69cbe">
+
+
 
 ## 2. Team Value
 
@@ -67,49 +69,38 @@ Running_Mate : Gamification을 활용한 메타버스 러닝 서비스
 
 #### 🕶 Insight
 
-![aaa](https://github.com/leeideal/Running_MATE/assets/88819145/e3a20164-244f-4047-98bf-786c7a6e58c1)
+<img width="650" alt="스크린샷 2023-08-24 오후 2 40 58" src="https://github.com/leeideal/Running_MATE/assets/88819145/5cbc92af-72a9-4cc5-9de4-26ebe12bf215">
+
 
 #### 🔑 Solution
 
-![aaa](https://github.com/leeideal/Running_MATE/assets/88819145/e3a20164-244f-4047-98bf-786c7a6e58c1)
+<img width="650" alt="스크린샷 2023-08-24 오후 2 41 23" src="https://github.com/leeideal/Running_MATE/assets/88819145/cbd1a1a1-5313-4dc3-b826-952e5b1c7084">
 
 #### 📌 Point of Difference
 
-## 4. 
+<img width="650" alt="스크린샷 2023-08-24 오후 2 39 45" src="https://github.com/leeideal/Running_MATE/assets/88819145/8218d7f0-29a5-4aca-b9c4-45d63f34a696">
 
-### 💻 시연 영상
+## 4. Story&Universe
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/oiY1D0dB3vs/0.jpg)](https://www.youtube.com/watch?v=oiY1D0dB3vs)
+#### 🤔 Story
 
-### ✨ 스크린
+<img width="650" alt="스크린샷 2023-08-24 오후 2 51 11" src="https://github.com/leeideal/Running_MATE/assets/88819145/f868a362-93ab-4e02-b4bb-4ef425e4971d">
 
-1️⃣ 메인 화면
 
-<img width="430" alt="스크린샷 2023-06-16 오후 10 17 04" src="https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/78739194/6cd935de-d6b2-48b4-b76c-4c2db0e5b79b">
+#### 🌎 Universe
 
-2️⃣ 나만의 산책로
+<img width="650" alt="스크린샷 2023-08-24 오후 2 46 55" src="https://github.com/leeideal/Running_MATE/assets/88819145/f3f09d9a-4f74-412e-9ae4-dbec502de424">
+<img width="650" alt="스크린샷 2023-08-24 오후 2 47 16" src="https://github.com/leeideal/Running_MATE/assets/88819145/520b0feb-5374-43ba-88a7-da98ac9cbc31">
 
-<img width="404" alt="스크린샷 2023-06-16 오후 10 20 15" src="https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/78739194/22553883-601e-445f-bf59-c25841b9f7fe">
 
-3️⃣ 모두의 산책로
 
-공개 등록
+## 5. Design
 
-<img width="362" alt="스크린샷 2023-06-16 오후 10 25 10" src="https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/78739194/026e1e5c-fa16-4cce-b779-4401a2577202">
+####  InApp
 
-산책로 이용
+#### 🌎 U
 
-<img width="870" alt="스크린샷 2023-06-16 오후 10 10 13" src="https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/78739194/1567b7ed-0aec-4525-869c-2c8879a7459f">
-
-4️⃣ 마이페이지, 알림, 배너 디테일
-
-<img width="427" alt="스크린샷 2023-06-16 오후 10 23 15" src="https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/78739194/da8338dc-c45f-4ed7-8b3f-3d1f3dd6f2c3">
-
-## 5. 서버 전체 구조
-
-![image](https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/62001944/33dfe247-d20e-4a0a-aa3c-b719935e2e9a)
-
-## 6. 서버 세부 구조
+## 6. Function
 
 ![image](https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/62001944/f233f377-b382-4ad7-9400-75554dd5bbb5)
 ![image](https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/62001944/4eec642f-a61c-44ee-a741-d15b55efe80f)
