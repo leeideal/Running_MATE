@@ -16,7 +16,7 @@
 | Name                                         | Major     | Grade  | Email                |
 | -------------------------------------------- | --------- | ------ | -------------------- |
 | [Yeowon Lee](https://yeowon.framer.website/) | MME & DE  | Junior | lywon725@naver.com   |
-| [Junhyoung Choi]                             | ISE & DE  | Junior | jbro2018@naver.com   |
+| Junhyoung Choi                               | ISE & DE  | Junior | jbro2018@naver.com   |
 
 ---
 
@@ -27,13 +27,7 @@
 <div>
     <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
     <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=Express&logoColor=white" />
-    <img src="https://img.shields.io/badge/Vonage-FFFFFF?style=for-the-badge&logo=vonage&logoColor=white"/>
-</div>
-
-## Server
-
-<div>
-    <img src="https://img.shields.io/badge/Google Cloud-4285F4?style=for-the-badge&logo=Google Cloud&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Vonage-FFFFFF?style=for-the-badge&logo=vonage&logoColor=black"/>
 </div>
 
 ## Stack
