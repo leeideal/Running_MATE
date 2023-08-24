@@ -1,6 +1,4 @@
-<div><img src="https://capsule-render.vercel.app/api?type=waving&color=0:99cc99,100:009630&height=200&section=header&text=Running_MATE&fontSize=90" /></div>
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/leeideal/Running_MATE&count_bg=%23ADAEAC&title_bg=%236BC657&icon=gumtree.svg&icon_color=%23FFFFFF&title=%EB%82%B4%EA%B0%80+%EB%A7%8C%EB%93%A0+%EC%82%B0%EC%B1%85%EB%A1%9C%2C+%EB%82%B4%EB%A7%8C%EC%82%B0&edge_flat=false)](https://hits.seeyoufarm.com)
+<div><img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Running_MATE&fontSize=90" /></div>
 
 # 2023 Ericsson-LG Summer Internship
 
