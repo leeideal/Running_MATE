@@ -1,4 +1,4 @@
-<div><img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Running_MATE&fontSize=90" /></div>
+<div><img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=340&section=header&text=Running_MATE&fontSize=90" /></div>
 
 # 2023 Ericsson-LG Summer Internship
 
@@ -96,14 +96,20 @@ Running_Mate : Gamification을 활용한 메타버스 러닝 서비스
 
 ## 5. Design
 
-####  InApp
+#### 📱 InApp
+<img width="650" alt="스크린샷 2023-08-24 오후 3 57 20" src="https://github.com/leeideal/Running_MATE/assets/88819145/de7ec91e-9900-4db2-9c01-8a25ee3fcc81">
+<img width="650" alt="스크린샷 2023-08-24 오후 3 57 37" src="https://github.com/leeideal/Running_MATE/assets/88819145/cfbd1514-78ce-46cf-a194-6f199b18afc5">
 
-#### 🌎 U
+#### 🌇 Conti
+
 
 ## 6. Function
 
-![image](https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/62001944/f233f377-b382-4ad7-9400-75554dd5bbb5)
-![image](https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/62001944/4eec642f-a61c-44ee-a741-d15b55efe80f)
+
+
+## 7. Business Model
+
+## 8. Thank to
 
 ---
 
