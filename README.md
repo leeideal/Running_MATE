@@ -33,52 +33,49 @@
 ## Stack
 
 <div>
-    <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"/>
-    <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
-    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-    <img src="https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white" />
-    <br>
-    <!-- Front 추가 -->
-    <img src="https://img.shields.io/badge/geolocator-9.0.2-orange?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/jwt_decoder-2.0.1-yellow?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/http-0.13.6-red?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/uuid-3.0.7-blue?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/geocoding-2.1.0-red?style=for-the-badge"/>
-    <br>
-    <img src="https://img.shields.io/badge/JPA-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white" />
-    <img src="https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=Spring-Security&logoColor=white"/>
-    <img src="https://img.shields.io/badge/json%20web%20tokens-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink"/>
-    <img src="https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white" />
-    <br>
-    <img src="https://img.shields.io/badge/gensim-4.30-374da9?style=for-the-badge" />
-    <img src="https://img.shields.io/badge/haversine%20-2.8.0-374da9?style=for-the-badge" />
-    <img src="https://img.shields.io/badge/numpy-1.23.5-374da9?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/pandas-1.5.3-374da9?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/PyMySQL-1.0.3-374da9?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/Scikit--learn-1.2.1-orange?style=for-the-badge"/>
-    <br>
-    <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white"/>
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
     <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black"/>
+    <br>
+    <img src="https://img.shields.io/badge/Axios-1.4.0-5A29E4?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/React_Router-6.14.1-CA4245?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/React_Hook_Form-7.45.4-EC5990?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/React_Query-4.24.6-FF4154?style=for-the-badge"/>
+    <br>
+    <img src="https://img.shields.io/badge/Redux-1.9.5-764ABC?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/Recoil-0.7.7-3578E5?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/Style_Components-6.0.5-DB7093?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/Framer-10.15.0-0055FF?style=for-the-badge"/>
 </div>
 
 ---
 
-## 1. 프로젝트 명
+## 1. About Services
 
-내가 만드는 산책로, 내만산
+Running_Mate : Gamification을 활용한 메타버스 러닝 서비스
 
-![aaa](https://github.com/CSID-DGU/2023-1-OSSP2-WeAreBility-3/assets/78739194/20911df5-994b-485c-be5b-5cff91907a0c)
+![aaa](https://github.com/leeideal/Running_MATE/assets/88819145/068bdb9c-3c3b-48e5-81da-0d6b42399a3c)
 
-## 2. 프로젝트 소개
+## 2. Team Value
 
-> 시중 서비스들은 주로 정형화된 관광 목적의 산책로 정보를 제공하기 서울시 거주자들이 원하는 산책을 하기 위해 도움을 받기는 힘들어 보인다. 또한, 일방적으로 정보를 제공하고 있기에 기존의 서비스 사용자들은 자신이 소개하고 싶은 산책로를 타인에게 공유할 수 없다. 따라서, 본 프로젝트를 통해 직접 만든 산책로를 공유하고 사용자들 간의 소통이 가능하며, 충분한 산책로 정보를 얻을 수 있는 산책로 공유 앱 서비스를 구현하고자 한다.
+* Respect
+* Sincerity
+* Will
+* Responsibility
 
-## 3. 프로젝트 구조도
+## 3. Service Value
 
-![image](https://github.com/kyechan99/capsule-render/assets/62001944/9e5a3962-13d0-4a8e-a241-28302d002735)
+#### 🕶 Insight
 
+![aaa](https://github.com/leeideal/Running_MATE/assets/88819145/e3a20164-244f-4047-98bf-786c7a6e58c1)
 
-## 4. 시연 영상 및 구동화면
+#### 🔑 Solution
+
+![aaa](https://github.com/leeideal/Running_MATE/assets/88819145/e3a20164-244f-4047-98bf-786c7a6e58c1)
+
+#### 📌 Point of Difference
+
+## 4. 
 
 ### 💻 시연 영상
 
