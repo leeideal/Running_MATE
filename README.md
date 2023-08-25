@@ -66,10 +66,18 @@ Hello! We are Team `H!five` who worked as a "R&D Innovation" part in the ELG sum
 
 ## 1. About Services
 
+#### 🎟️ Outline
+
 Running_Mate : Metaverse Running Service Using Gamification
 
 <img width="650" alt="스크린샷 2023-08-24 오후 2 36 54" src="https://github.com/leeideal/Running_MATE/assets/88819145/ccd76a9c-58f2-4d9a-bfaf-b704e3e69cbe">
 
+#### 🌛 Background
+Have you ever run `consistently`?? We’ve done some surveys regarding this topic, and found out `78 percent of people gave up running in three days`. Of course, We are also included in that lazy bum. Through additional interviews, we figured out various reasons for this phenomenon, keywords including `hard`, `tough`, and `not fun`
+
+#### 🫵 Target User
+* Three-Day Hump Runners who get tired of running easily and have given up
+* People who want to play games with interesting stories and universe
 
 ## 2. Service Value
 
@@ -114,7 +122,7 @@ Running_Mate : Metaverse Running Service Using Gamification
 
 ## 5. Function
 
-#### 🫵 Make your Character
+#### 🐣 Make your Character
 <img width="650" alt="스크린샷 2023-08-25 오전 9 58 01" src="https://github.com/leeideal/Running_MATE/assets/88819145/d0d55c44-eda6-4692-934d-2ca5e38394b6">
 
 #### 📖 Tutorial
