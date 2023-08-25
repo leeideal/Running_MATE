@@ -1,22 +1,34 @@
 <div><img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=340&section=header&text=Running_MATE&fontSize=90" /></div>
 
-# 2023 Ericsson-LG Summer Internship
+# 2023 Ericsson-LG Summer Internship Project
 
-# 👋 Team Member
+# 👋 About Us
 
-## [PM & DEV]
+## 🤗 Introduce Our Team
+Hello! We are Team `H!five` who worked as a "R&D Innovation" part in the ELG summer internship.
+
+## 🦁 Team Member
+
+#### [PM & DEV]
 
 | Name                                         | Major     | Grade  | Email                |
 | -------------------------------------------- | --------- | ------ | -------------------- |
 | [Sangdon Lee](https://github.com/leeideal)   | ISE & CSE | Junior | sangdon10@naver.com  |
 | [Suyoung Kim](https://github.com/swim-kim)   | ISE & CSW | Senior | ksoo5386@dgu.ac.kr   |
 
-## [Design]
+#### [Design]
 
 | Name                                         | Major     | Grade  | Email                |
 | -------------------------------------------- | --------- | ------ | -------------------- |
 | [Yeowon Lee](https://yeowon.framer.website/) | MME & DE  | Junior | lywon725@naver.com   |
 | Junhyoung Choi                               | ISE & DE  | Junior | jbro2018@naver.com   |
+
+## 🙏 Team Value
+
+* Respect
+* Sincerity
+* Will
+* Responsibility
 
 ---
 
@@ -50,22 +62,16 @@
 
 ---
 
+# 🔊 Introduce Running_MATE
+
 ## 1. About Services
 
-Running_Mate : Gamification을 활용한 메타버스 러닝 서비스
+Running_Mate : Metaverse Running Service Using Gamification
 
 <img width="650" alt="스크린샷 2023-08-24 오후 2 36 54" src="https://github.com/leeideal/Running_MATE/assets/88819145/ccd76a9c-58f2-4d9a-bfaf-b704e3e69cbe">
 
 
-
-## 2. Team Value
-
-* Respect
-* Sincerity
-* Will
-* Responsibility
-
-## 3. Service Value
+## 2. Service Value
 
 #### 🕶 Insight
 
@@ -80,7 +86,7 @@ Running_Mate : Gamification을 활용한 메타버스 러닝 서비스
 
 <img width="650" alt="스크린샷 2023-08-24 오후 2 39 45" src="https://github.com/leeideal/Running_MATE/assets/88819145/8218d7f0-29a5-4aca-b9c4-45d63f34a696">
 
-## 4. Story&Universe
+## 3. Story&Universe
 
 #### 🤔 Story
 
@@ -94,7 +100,7 @@ Running_Mate : Gamification을 활용한 메타버스 러닝 서비스
 
 
 
-## 5. Design
+## 4. Design
 
 #### 📱 InApp
 <img width="650" alt="스크린샷 2023-08-24 오후 3 57 20" src="https://github.com/leeideal/Running_MATE/assets/88819145/de7ec91e-9900-4db2-9c01-8a25ee3fcc81">
@@ -102,14 +108,50 @@ Running_Mate : Gamification을 활용한 메타버스 러닝 서비스
 
 #### 🌇 Conti
 
-
-## 6. Function
-
+<img width="650" alt="스크린샷 2023-08-25 오전 9 41 34" src="https://github.com/leeideal/Running_MATE/assets/88819145/6da92639-67d6-4862-863f-98889039fb86">
 
 
-## 7. Business Model
 
-## 8. Thank to
+## 5. Function
+
+#### 🫵 Make your Character
+<img width="650" alt="스크린샷 2023-08-25 오전 9 58 01" src="https://github.com/leeideal/Running_MATE/assets/88819145/d0d55c44-eda6-4692-934d-2ca5e38394b6">
+
+#### 📖 Tutorial
+<img width="650" alt="스크린샷 2023-08-25 오전 10 03 04" src="https://github.com/leeideal/Running_MATE/assets/88819145/d1366f94-7761-45d3-ac1d-731b30553809">
+
+
+#### 🏃‍♂️ Running with a friend
+
+<img width="650" alt="스크린샷 2023-08-25 오전 9 55 13" src="https://github.com/leeideal/Running_MATE/assets/88819145/10a5fd07-a95f-4739-9436-83ad564eba02">
+<img width="650" alt="스크린샷 2023-08-25 오전 9 55 32" src="https://github.com/leeideal/Running_MATE/assets/88819145/fa2b50f3-8f7e-4513-a92a-6c0a8e229d6d">
+
+
+#### 🏃 Running with a mate
+<img width="650" alt="스크린샷 2023-08-25 오전 9 58 54" src="https://github.com/leeideal/Running_MATE/assets/88819145/b64249ff-fe95-49ba-9e4f-a3152e23da1c">
+
+
+
+#### 🏃🏻‍♀️ Running your own way
+<img width="650" alt="스크린샷 2023-08-25 오전 9 59 15" src="https://github.com/leeideal/Running_MATE/assets/88819145/779767b8-a01b-4a69-88e2-a2a8429db4d5">
+
+
+#### 💫 Extension of Function
+<img width="650" alt="스크린샷 2023-08-25 오전 9 59 40" src="https://github.com/leeideal/Running_MATE/assets/88819145/e21f3656-9d5d-4d26-9899-f2b79611dbe7">
+<img width="650" alt="스크린샷 2023-08-25 오전 9 59 59" src="https://github.com/leeideal/Running_MATE/assets/88819145/a92d9722-5368-4e2b-8126-64e406220928">
+
+
+## 6. Business Model
+<img width="650" alt="스크린샷 2023-08-25 오전 10 06 20" src="https://github.com/leeideal/Running_MATE/assets/88819145/1843034f-2ed6-4e37-8b32-31224c02830c">
+<img width="650" alt="스크린샷 2023-08-25 오전 10 06 41" src="https://github.com/leeideal/Running_MATE/assets/88819145/14107174-b4de-4de7-a315-1f0551b8ea7a">
+<img width="650" alt="스크린샷 2023-08-25 오전 10 06 59" src="https://github.com/leeideal/Running_MATE/assets/88819145/31882d48-ca78-4c84-ae9f-23c3c65fc5c5">
+
+---
+
+# Thank To 👍
+
+<img width="650" alt="스크린샷 2023-08-25 오전 9 36 28" src="https://github.com/leeideal/Running_MATE/assets/88819145/1aea5694-feb4-49d2-89a8-dddfb990e75f">
+
 
 ---
 
@@ -122,6 +164,7 @@ Running_Mate : Gamification을 활용한 메타버스 러닝 서비스
 -   refactor: 코드 리펙토링
 -   test: 테스트 코드, 리펙토링 테스트 코드 추가
 -   chore : 빌드 업무 수정, 패키지 매니저 수정
+
 
 ## 💡 PR Convetion
 
@@ -139,4 +182,8 @@ Running_Mate : Gamification을 활용한 메타버스 러닝 서비스
 | 💡     | :bulb                      | 주석 추가/수정           |
 | 🗃      | :card_file_box             | 데이버베이스 관련 수정   |
 
-## Lisence
+## 📄 Reference
+Character design utilizes the work of [Nguyen Nhut](https://dribbble.com/nguyenhut) 
+
+## 🧩 Lisence
+Copyright 2023. Running_MATE. All rights reserveed
