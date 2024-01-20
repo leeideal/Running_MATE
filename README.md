@@ -21,7 +21,7 @@ Hello! We are Team `H!five` who worked as a "R&D Innovation" part in the ELG sum
 | Name                                         | Major     | Grade  | Email                |
 | -------------------------------------------- | --------- | ------ | -------------------- |
 | [Yeowon Lee](https://yeowon.framer.website/) | MME & DE  | Junior | lywon725@naver.com   |
-| Junhyoung Choi                               | ISE & DE  | Junior | jbro2018@naver.com   |
+| [Junhyoung Choi](https://smart-cause-964238.framer.app/)| ISE & DE  | Junior | jbro2018@naver.com   |
 
 ## 🙏 Team Value
 
